@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice & Dine Menu</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff0db; /* Light beige background */
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .nav-menu {
+        display: flex;
+        justify-content: center;
+        background-color: #fff7e6;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        flex-wrap: wrap;
+        transition: transform 0.3s ease-in-out;
+    }
+        .nav-menu.hidden {
+            transform: translateY(-100%);
+        }
+        .nav-toggle {
+        display: none;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 101;
+        background-color: #997321;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .nav-menu a {
+        text-decoration: none;
+        color: #664d03;
+        margin: 0 15px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s ease;
+    }
+    .nav-menu a:hover {
+        color: #997321;
+    }
+
+        .nav-menu a i {
+            margin-right: 5px;
+        }
+
+        .category-section {
+            display: none;
+            margin-top: 60px;
+        }
+
+        .category-section.active {
+            display: block;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: #fff7e6; /* Gold color */
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .category-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .category-info {
+            flex-grow: 1;
+        }
+
+        .category-title {
+            color: #664d03; /* White color */
+            margin-bottom: 10px;
+        }
+
+        .category-title-2 {
+            color: #664d03; /* White color */
+            margin-bottom: 10px;
+        }
+
+        .category-description {
+            color: #666; /* White color */
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+            gap: 20px;
+        }
+
+        .menu-item {
+            background-color: #fff7e6;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-item-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-name {
+            font-weight: bold;
+            color: #664d03; /* Gold color */
+            margin-bottom: 5px;
+        }
+
+        .menu-item-description {
+            color: #664d03;
+            flex-grow: 1;
+        }
+
+        .menu-item-price {
+            color: #664d03; /* Gold color */
+            font-weight: bold;
+            align-self: flex-end;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+            }
+
+            .nav-menu a {
+                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .content-wrapper {
+                padding-top: 50px;
+            }
+
+            .menu-item {
+                background-color: white;
+                border-radius: 10px;
+                padding: 15px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                display: flex;
+                flex-direction: column;
+            }
+
+            .menu-item-image {
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+        }
+
+        .background-icon {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.15;
+            z-index: -1;
+            font-size: 28px;
+            color: #d4af37; /* Gold color */
+            transition: transform 0.3s ease;
+        }
+
+        .background-icon:hover {
+            opacity: 0.2;
+            transform: scale(1.2);
+        }
+
+        .background-icon.large {
+            font-size: 36px;
+        }
+
+        .background-icon.small {
+            font-size: 20px;
+        }
+
+        h1 {
+            color: #cc9645; /* Gold color */
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 1200;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+
+        .button-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .button-74 {
+            background-color: #cc9645;
+            border: 2px solid #422800;
+            border-radius: 30px;
+            box-shadow: #422800 4px 4px 0 0;
+            color: #422800;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 0 18px;
+            line-height: 50px;
+            text-align: center;
+            text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        .button-74:hover {
+            background-color: #fff;
+        }
+
+        .button-74:active {
+            box-shadow: #422800 2px 2px 0 0;
+            transform: translate(2px, 2px);
+        }
+
+        @media (min-width: 768px) {
+            .button-74 {
+                min-width: 120px;
+                padding: 0 25px;
+            }
+        }
+
+        .nav-menu a.home-link {
+            font-size: 24px;
+            margin-left: 20px;
+            border-left: 1px solid #fff; /* White color */
+            padding-left: 20px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu a.home-link i {
+            font-size: 28px;
+            margin-right: 0;
+        }
+
+        .coffee-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .coffee-button {
+            background-color: #fbeee0;
+            border: 2px solid #422800;
+            border-radius: 30px;
+            box-shadow: #422800 4px 4px 0 0;
+            color: #422800;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 10px 30px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .coffee-button:hover {
+            background-color: #fff;
+        }
+
+        .coffee-button:active {
+            box-shadow: #422800 2px 2px 0 0;
+            transform: translate(2px, 2px);
+        }
+
+        .coffee-button.active {
+            background-color: #422800;
+            color: #fbeee0;
+        }
+        .drink-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .drink-button {
+             background-color: #fbeee0; 
+            border: 2px solid #422800; 
+            border-radius: 30px;
+            box-shadow: #422800 4px 4px 0 0;
+            color: #422800;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .drink-button:hover {
+            background-color: #fff;
+        }
+
+        .drink-button:active {
+            box-shadow: #422800 2px 2px 0 0;
+            transform: translate(2px, 2px);
+        }
+
+        .drink-button.active {
+            background-color: #422800;
+            color: #fbeee0;
+        }
+        @media (max-width: 768px) {
+            .nav-menu a.home-link {
+                border-left: none;
+                border-top: 1px solid #fff; /* White color */
+                margin-left: 0;
+                padding-left: 0;
+                margin-top: 15px;
+                padding-top: 15px;
+                width: 80%;
+                height: auto;
+            }
+        }
+
+        .language-selector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(102, 77, 3, 0.2);
+        }
+
+        .language-selector a {
+            text-decoration: none;
+            color: #d4af37; /* Gold color */
+            font-weight: 600;
+            padding: 8px 16px;
+            margin: 0 10px;
+            border: 2px solid #d4af37; /* Gold color */
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .language-selector a:hover {
+            background-color: #d4af37; /* Gold color */
+            color: #fbeee0;
+            box-shadow: #422800 2px 2px 0 0;
+        }
+
+        .language-selector a:active {
+            transform: translate(2px, 2px);
+            box-shadow: none;
+        }
+        .burger-buttons {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin: 20px 0;
+            }
+    
+            .burger-button {
+                 background-color: #fbeee0; 
+                border: 2px solid #422800; 
+                border-radius: 30px;
+                box-shadow: #422800 4px 4px 0 0;
+                color: #422800;
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 18px;
+                padding: 8px 20px;
+                text-align: center;
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+    
+            .burger-button:hover {
+                background-color: #fff;
+            }
+    
+            .burger-button:active {
+                box-shadow: #422800 2px 2px 0 0;
+                transform: translate(2px, 2px);
+            }
+    
+            .burger-button.active {
+                background-color: #422800;
+                color: #fbeee0;
+            }
+            @media (max-width: 768px) {
+            
+                .language-selector {
+                    padding: 15px;
+                    margin-top: 30px;
+                }
+            }
+        @media (max-width: 768px) {
+            .language-selector {
+                padding: 15px;
+                margin-top: 30px;
+            }
+        
+            .language-selector a {
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-wrapper">
+    <button class="nav-toggle" onclick="toggleNavMenu()">
+        <i class="fas fa-bars"></i> Menu
+    </button>
+
+    <nav class="nav-menu">
+        <a href="#" onclick="showCategory('burgers')">
+            <i class="fas fa-hamburger"></i>  البرجر
+        </a>
+        <a href="#" onclick="showCategory('pizza')">
+            <i class="fas fa-pizza-slice"></i> البيتزا 
+        </a>
+        <a href="#" onclick="showCategory('pasta')">
+            <i class="fas fa-utensils"></i> الباستا
+        </a>
+        <a href="#" onclick="showCategory('sides')">
+            <i class=" fa-solid fa-drumstick-bite"></i> الوجبات الجانبية  
+        </a>
+        <a href="#" onclick="showCategory('drinks')">
+            <i class="fas fa-cocktail"></i> المشروبات
+        </a>
+        <a href="#" onclick="showCategory('coffee')">
+            <i class="fas fa-mug-hot"></i> القهوة
+        </a>
+        <a href="#" onclick="showCategory('Dessert')">
+            <i class="fa-solid fa-cheese"></i> الحلويات
+        </a>
+        <a href="#" onclick="showCategory('boardgames')">
+            <i class="fas fa-dice-five"></i> الألعاب
+        </a>
+        <a href="ar_main.html" class="home-link">
+            <i class="fas fa-home"></i>
+        </a>
+    </nav>
+  
+            <section id="burgers" class="category-section">
+                <h1 style="text-shadow:#664d03 ;">Burgers</h1>
+                <h2 class = "category-title" style="justify-content: center; text-align: center; margin-top: -20px; margin-bottom: 20px; font-size: medium;">All burgers are served with fries</h2>
+            <div class="burger-buttons">
+                <button class="burger-button active" onclick="toggleBurgerType('beef', this)">Beef</button>
+                <button class="burger-button" onclick="toggleBurgerType('chicken', this)">Chicken</button>
+               
+            </div>
+
+
+           
+            <div id="beef" class="burger-type">
+                <div class="category-header">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/half%20burg.jpg" alt="Burgers" class="category-image">
+                    <div class="category-info">
+                        <h2 class="category-title">Signature Burger</h2>
+                        <p class="category-description">American Wagyu beef patty topped with sweet onion jam and crispy beef bacon, all dipped in our signature creamy cheese sauce.</p>
+                        <div class="menu-item-price">AED 35.00</div>
+                    </div>
+                </div>
+          
+    
+                
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20zombie.png" alt="Classic Cheeseburger" class="menu-item-image">
+                    <div class="menu-item-name">Zombie Burger</div>
+                    <div class="menu-item-description">American Wagyu patty with melted cheese, capiscum, crispy potato, guacamole, beef bacon, cheese cream and our zombie sauce</div>
+                    <div class="menu-item-price">AED 36.00</div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://lh3.googleusercontent.com/d/1WQqWC6bt00hW2TPFP9Gf12dnrVAbDplp=s800" alt="Classic Cheeseburger" class="menu-item-image">
+                    <div class="menu-item-name">Big Tex Burger</div>
+                    <div class="menu-item-description">Double American Wagyu patty with melted cheese, lettuce, tomato, beef bacon and our special sauce</div>
+                    <div class="menu-item-price">AED 32.00</div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://lh3.googleusercontent.com/d/1WbiJoFhYwtIdG7w5WEIiU_IKqrsvMk61=s800" alt="Vegetarian Burger" class="menu-item-image">
+                    <div class="menu-item-name">Mac n Cheese Burger</div>
+                    <div class="menu-item-description">American Wagyu patty with melted cheese, mac n cheese and beef bacon</div>
+                    <div class="menu-item-price">AED 30.00</div>
+                    </div>
+                <div class="menu-item">
+                    <img src="https://lh3.googleusercontent.com/d/14ZHaovIVLi5lPJmjVCoS-AirE87uwjyT=s800" alt="Vegetarian Burger" class="menu-item-image">
+                    <div class="menu-item-name">Half-Stuffed Burger</div>
+                    <div class="menu-item-description">Juicy American Wagyu patty with melted cheese, grilled onion special white sauce</div>
+                    <div class="menu-item-price">AED 29.00</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="chicken" class="burger-type" style="display: none;">
+                <div class="category-header">
+                    <img src="https://lh3.googleusercontent.com/d/1SVchwqeFy0nF2gCvjDG_4IwCkJQxRd8M=s800" alt="Burgers" class="category-image">
+                    <div class="category-info">
+                        <h2 class="category-title">Buffalo Burger</h2>
+                        <p class="category-description">Crispy chicken with lettuce, cheese slices, mayo, fry sauce dipped in our special buffalo sauce.</p>
+                        <div class="menu-item-price">AED 25.00</div>
+                    </div>
+                </div>
+                <div class="menu-items">
+                   
+                    <div class="menu-item">
+                        <img src="https://lh3.googleusercontent.com/d/14dVX3epEMG32-b-UthDUF2hMqIOcP-mO=s800" alt="Classic Chicken Burger" class="menu-item-image">
+                        <div class="menu-item-name">Classic Chicken Burger</div>
+                        <div class="menu-item-description">Grilled chicken with lettuce, tomato and mayo.</div>
+                        <div class="menu-item-price">AED 20.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20dragon.png" alt="Buffalo Burger" class="menu-item-image">
+                        <div class="menu-item-name">Dragonfire Burger</div>
+                        <div class="menu-item-description">CCrispy chicken with grilled mixed cheese, cheese slices, special coleslaw, fry sauce and our special dragon sauce.</div>
+                        <div class="menu-item-price">AED 26.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://lh3.googleusercontent.com/d/1KKQMBohZNvHjuLxn8QCuWP6154cSY5OQ=s800" alt="Angry Bird Burger" class="menu-item-image">
+                        <div class="menu-item-name">Angry Bird Burger</div>
+                        <div class="menu-item-description">Crispy chicken with special coleslaw, pickles and our special angry bird sauce.</div>
+                        <div class="menu-item-price">AED 24.00</div>
+                    </div>
+                </div>
+            </div>
+            </section>
+
+        <!-- Burgers Section -->
+         
+  
+        <section id="burgers" class="category-section">
+            <h1 style="text-shadow:#664d03 ;">Burgers</h1>
+            <h2 class = "category-title" style="justify-content: center; text-align: center; margin-top: -20px; margin-bottom: 20px; font-size: medium;">All burgers are served with fries</h2>
+        <div class="burger-buttons">
+            <button class="burger-button active" onclick="toggleBurgerType('beef', this)">لحم</button>
+            <button class="burger-button" onclick="toggleBurgerType('chicken', this)">دجاج</button>
+           
+        </div>
+
+
+       
+        <div id="beef" class="burger-type">
+            <div class="category-header">
+                <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/half%20burg.jpg" alt="Burgers" class="category-image">
+                <div class="category-info">
+                    <h2 class="category-title">Signature Burger</h2>
+                    <p class="category-description">American Wagyu beef patty topped with sweet onion jam and crispy beef bacon, all dipped in our signature creamy cheese sauce.</p>
+                    <div class="menu-item-price">AED 35.00</div>
+                </div>
+            </div>
+      
+
+            
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20zombie.png" alt="Classic Cheeseburger" class="menu-item-image">
+                <div class="menu-item-name">Zombie Burger</div>
+                <div class="menu-item-description">American Wagyu patty with melted cheese, capiscum, crispy potato, guacamole, beef bacon, cheese cream and our zombie sauce</div>
+                <div class="menu-item-price">AED 36.00</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://lh3.googleusercontent.com/d/1WQqWC6bt00hW2TPFP9Gf12dnrVAbDplp=s800" alt="Classic Cheeseburger" class="menu-item-image">
+                <div class="menu-item-name">Big Tex Burger</div>
+                <div class="menu-item-description">Double American Wagyu patty with melted cheese, lettuce, tomato, beef bacon and our special sauce</div>
+                <div class="menu-item-price">AED 32.00</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://lh3.googleusercontent.com/d/1WbiJoFhYwtIdG7w5WEIiU_IKqrsvMk61=s800" alt="Vegetarian Burger" class="menu-item-image">
+                <div class="menu-item-name">Mac n Cheese Burger</div>
+                <div class="menu-item-description">American Wagyu patty with melted cheese, mac n cheese and beef bacon</div>
+                <div class="menu-item-price">AED 30.00</div>
+                </div>
+            <div class="menu-item">
+                <img src="https://lh3.googleusercontent.com/d/14ZHaovIVLi5lPJmjVCoS-AirE87uwjyT=s800" alt="Vegetarian Burger" class="menu-item-image">
+                <div class="menu-item-name">Half-Stuffed Burger</div>
+                <div class="menu-item-description">Juicy American Wagyu patty with melted cheese, grilled onion special white sauce</div>
+                <div class="menu-item-price">AED 29.00</div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="chicken" class="burger-type" style="display: none;">
+            <div class="category-header">
+                <img src="https://lh3.googleusercontent.com/d/1SVchwqeFy0nF2gCvjDG_4IwCkJQxRd8M=s800" alt="Burgers" class="category-image">
+                <div class="category-info">
+                    <h2 class="category-title">Buffalo Burger</h2>
+                    <p class="category-description">Crispy chicken with lettuce, cheese slices, mayo, fry sauce dipped in our special buffalo sauce.</p>
+                    <div class="menu-item-price">AED 25.00</div>
+                </div>
+            </div>
+            <div class="menu-items">
+               
+                <div class="menu-item">
+                    <img src="https://lh3.googleusercontent.com/d/14dVX3epEMG32-b-UthDUF2hMqIOcP-mO=s800" alt="Classic Chicken Burger" class="menu-item-image">
+                    <div class="menu-item-name">Classic Chicken Burger</div>
+                    <div class="menu-item-description">Grilled chicken with lettuce, tomato and mayo.</div>
+                    <div class="menu-item-price">AED 20.00</div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20dragon.png" alt="Buffalo Burger" class="menu-item-image">
+                    <div class="menu-item-name">Dragonfire Burger</div>
+                    <div class="menu-item-description">CCrispy chicken with grilled mixed cheese, cheese slices, special coleslaw, fry sauce and our special dragon sauce.</div>
+                    <div class="menu-item-price">AED 26.00</div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://lh3.googleusercontent.com/d/1KKQMBohZNvHjuLxn8QCuWP6154cSY5OQ=s800" alt="Angry Bird Burger" class="menu-item-image">
+                    <div class="menu-item-name">Angry Bird Burger</div>
+                    <div class="menu-item-description">Crispy chicken with special coleslaw, pickles and our special angry bird sauce.</div>
+                    <div class="menu-item-price">AED 24.00</div>
+                </div>
+            </div>
+        </div>
+        </section>
+       
+            <!-- <section id="burgers" class="category-section">
+                <h1 style="text-shadow:#664d03 ;">البرجر</h1>
+                <h2 class="category-title" style="justify-content: center; text-align: center; margin-top: -20px; margin-bottom: 20px; font-size: medium;">تُقدم البطاطس مع كل وجبة برجر </h2>
+                <div class="burger-buttons">
+                    <button class="burger-button active" onclick="toggleBurgerType('beef', this)">Beef</button>
+                    <button class="burger-button" onclick="toggleBurgerType('chicken', this)">Chicken</button> 
+                </div>
+
+                <div id="beef" class="burger-type">
+                   <div class="category-header">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20zombie.png" alt="Burgers" class="category-image">
+                    <div class="category-info">
+                           <h2 class="category-title">زومبي برجر</h2>
+                           <p class="category-description">قطعة لحم واجيو مع جبن مذاب، فلفل، بطاطس مقرمشة، جواكامولي، بيكون بقري، كريمة جبن وصلصة الزومبي الخاصة بنا</p>
+                           <div class="menu-item-price">درهم 36.00</div>
+                       </div>
+                   </div>
+
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/half%20burg.jpg" alt="Classic Cheeseburger" class="menu-item-image">
+                    <div class="menu-item-name">برجر سقنتشر</div>
+                    <div class="menu-item-description">قطعة لحم واجيو أمريكي مع مربى البصل الحلو وبيكون بقري مقرمش، مغموسة في صلصة الجبن الكريمية الخاصة بنا</div>
+                    <div class="menu-item-price">AED 35.00</div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://lh3.googleusercontent.com/d/1WQqWC6bt00hW2TPFP9Gf12dnrVAbDplp=s800" alt="Classic Cheeseburger" class="menu-item-image">
+                    <div class="menu-item-name">ببيج تيكس برجر</div>
+                    <div class="menu-item-description">قطعة لحم بقري مع جبن مذاب، خس، طماطم، بيكون وصلصتنا الخاصة</div>
+                    <div class="menu-item-price">درهم 32.00</div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://lh3.googleusercontent.com/d/1WbiJoFhYwtIdG7w5WEIiU_IKqrsvMk61=s800" alt="Vegetarian Burger" class="menu-item-image">
+                    <div class="menu-item-name">Mac n Cheese Burger</div>
+                    <div class="menu-item-description">American Wagyu patty with melted cheese, mac n cheese and beef bacon</div>
+                    <div class="menu-item-price">AED 30.00</div>
+                    </div>
+                <div class="menu-item">
+                    <img src="https://lh3.googleusercontent.com/d/14ZHaovIVLi5lPJmjVCoS-AirE87uwjyT=s800" alt="Vegetarian Burger" class="menu-item-image">
+                    <div class="menu-item-name">هاف ستفد برجر</div>
+                    <div class="menu-item-description">قطعة لحم واجيو أمريكية مع جبن مذاب، بصل مشوي وصلصة بيضاء خاصة</div>
+                    <div class="menu-item-price">درهم 28.00</div>
+                </div>
+            </div>
+        </div>    
+
+            <div id="chicken" class="burger-type" style="display: none;">
+
+                <div class="category-header">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/half%20burg.jpg" alt="Burgers" class="category-image">
+                    <div class="category-info">
+                        <h2 class="category-title">بافلو برجر</h2>
+                        <p class="category-description">دجاج مقرمش مع خس، شرائح جبن، مايونيز، صلصة فراي وصلصة البافلو الخاصة بنا</p>
+                        <div class="menu-item-price">درهم 25.00</div>
+                    </div>
+                    </div>
+
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20dragon.png" alt="Bacon Avocado Burger" class="menu-item-image">
+                    <div class="menu-item-name">دراغون فاير برجر </div>
+                    <div class="menu-item-description">دجاج مقرمش مع جبنة مشكلة مشوية، شرائح جبن، كولسلو خاص، صلصة فراي وصلصة التنين الخاصة بنا</div>
+                    <div class="menu-item-price">درهم 26.00</div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Chicken%20Burger/Classic.JPG" alt="Vegetarian Burger" class="menu-item-image">
+                    <div class="menu-item-name"> كلاسك دجاج برجر</div>
+                    <div class="menu-item-description">دجاج مشوي مع خس، طماطم ومايونيز</div>
+                    <div class="menu-item-price">درهم 20.00</div>
+                </div>
+              
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Chicken%20Burger/Angry%20Bird.JPG" alt="Vegetarian Burger" class="menu-item-image">
+                    <div class="menu-item-name">انجري برد برجر</div>
+                    <div class="menu-item-description">دجاج مقرمش مع كولسلو خاص، مخللات وصلصة الطائر الغاضب الخاصة بنا</div>
+                    <div class="menu-item-price">درهم 24.00</div>
+                </div>
+
+            </div>
+        </div>    
+        </section> -->
+
+        
+        <section id="pizza" class="category-section">
+         <h1 style="text-shadow:#664d03 ;">بيتزا</h1>
+            <div class="category-header">
+                <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Pizza/Chicken%20BBQ.JPG" alt="Pizza" class="category-image">
+                <div class="category-info">
+                    <h2 class="category-title">بيتزة دجاج الباربكيو</h2>
+                    <p class="category-description">بيتزا لذيذة مغطاة بقطع الدجاج المشوي الطري، صلصة الباربكيو المدخنة والجبن المذاب، على قشرة مقرمشة. توازن مثالي بين الحلاوة، الحموضة والنكهة اللذيذة!</p>
+                    <div class="menu-item-price">درهم 30.00</div>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Pizza/Peporoni%20Pizza.JPG" alt="Margherita Pizza" class="menu-item-image">
+                    <div class="menu-item-name">بيتزة البيبروني</div>
+                    <div class="menu-item-description">طبق كلاسيكي مغطى بطبقة سخية من شرائح البيبروني اللذيذة، جبن الموزاريلا المذاب، وصلصة الطماطم الغنية، كلها على قشرة مقرمشة ذهبية. بسيط، مُرضي، ودائمًا لذيذ!</div>
+                    <div class="menu-item-price">درهم 27.00</div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Pizza/margarita.JPG" alt="Pepperoni Lovers Pizza" class="menu-item-image">
+                    <div class="menu-item-name">بيتزة المرغريتة</div>
+                    <div class="menu-item-description">بيتزا إيطالية كلاسيكية مغطاة بمزيج بسيط ولكنه لذيذ من صلصة الطماطم الطازجة، الموزاريلا، والريحان، تحتفل بالنكهات الطازجة والنابضة بالحياة.</div>
+                    <div class="menu-item-price">درهم 23.00</div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/shitty%20pizza.jpg" alt="Pepperoni Lovers Pizza" class="menu-item-image">
+                    <div class="menu-item-name">بيتزة دجاج البافلو</div>
+                    <div class="menu-item-description">مزيج ناري من الدجاج المقرمش، صلصة البافلو اللاذعة، وجبن الموزاريلا المذاب على قشرة ذهبية.</div>
+                    <div class="menu-item-price">AED 33.00</div>
+                </div>
+            </div>
+        </section>
+
+                <!-- Pasta Section -->
+        <section id="pasta" class="category-section">
+         <h1 style="text-shadow:#664d03 ;">الباستا</h1>
+            <div class="category-header">
+                <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Pasta/Mix%20sauce.JPG" alt="Pasta" class="category-image">
+                <div class="category-info">
+                    <h2 class="category-title">مكرونة بصلصة مختلطة</h2>
+                    <p class="category-description">طبق لذيذ يجمع بين صلصتين أو أكثر، مثل ألفريدو ومارينارا، لخلق مزيج غني وكريمي وحامض. مثالي لتجربة نكهات فريدة!</p>
+                    <div class="menu-item-price">درهم 26.00</div>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/noodle.jpg" alt="Spaghetti Carbonara" class="menu-item-image">
+                    <div class="menu-item-name">نودلز مقلي</div>
+                    <div class="menu-item-description">طبق شهي من النودلز المقلي مع الخضروات الطازجة ومغطى بصلصة الصويا اللذيذة. أضف دجاج مشوي مقابل 5 دراهم أو روبيان مقابل 8 دراهم</div>
+                    <div class="menu-item-price">AED 16.00</div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Pasta/Mac%20n%20Cheese.JPG" alt="Mac & Cheese" class="menu-item-image">
+                    <div class="menu-item-name">ماك اند تشيز</div>
+                    <div class="menu-item-description">طبق باستا كريمي ومريح مصنوع من المكرونة الطرية المغطاة بصلصة الجبن الغنية واللزجة، مثالي لإشباع الرغبة في الجبن.</div>
+                    <div class="menu-item-price">درهم 21.00</div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Pasta/Mix%20sauce.JPG" alt="Red Sauce Pasta" class="menu-item-image">
+                    <div class="menu-item-name">باستا بالصلصة الحمراء</div>
+                    <div class="menu-item-description">طبق كلاسيكي يتميز بالباستا الممزوجة بصلصة المارينارا الطماطمية اللاذعة المنكهة بالثوم والأعشاب ولمسة من زيت الزيتون. بسيط، طازج ولذيذ!</div>
+                    <div class="menu-item-price">درهم 23.00</div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Pasta/White%20Sauce.JPG" alt="White Sauce Pasta" class="menu-item-image">
+                    <div class="menu-item-name">باستا بالصلصة البيضاء</div>
+                    <div class="menu-item-description">طبق فاخر يتميز بالباستا المغطاة بصلصة ألفريدو الكريمية والزبدية، المخصبة بالثوم والبارميزان لنكهة فاخرة.</div>
+                    <div class="menu-item-price">درهم 23.00</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sides Section -->
+        <section id="sides" class="category-section">
+         <h1 style="text-shadow:#664d03 ;">الوجبات الجانبية</h1>
+            <div class="category-header">
+                <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Sides/Loaded%20Fries.JPG" alt="Sides" class="category-image">
+                <div class="category-info">
+                    <h2 class="category-title">بطاطس محملة</h2>
+                    <p class="category-description"> طبق شهي ومريح يتميز ببطاطس مقرمشة مغطاة بقطع الدجاج، مغمورة بصلصة الديناميت، جبن مذاب، ورذاذ كريمي من المايونيز. مليء بالنكهات الجريئة، هذا الطبق هو الطعام المريح النهائي!</p>
+                    <div class="menu-item-price">درهم 20.00</div>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/salad.jpg" alt="Garlic Bread" class="menu-item-image">
+                    <div class="menu-item-name">سلطة سيزر</div>
+                    <div class="menu-item-description">مزيج مقرمش من الخس الروماني الطازج، طماطم كرزية عصيرية، دجاج مشوي، وقطع خبز محمص، مغطاة بصلصة السيزر الغنية والكريمية. تقدم مع جبنة البارميزان المبشورة. أضف روبيان مقابل 8 دراهم</div>
+                    <div class="menu-item-price">AED 18.00</div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Sides/BBQ%20Wings.JPG" alt="أجنحة الدجاج" class="menu-item-image">
+                    <div class="menu-item-name">أجنحة الدجاج</div>
+                    <div class="menu-item-description"> أجنحة دجاج مقرمشة وعصيرية تقدم مع اختيارك من الصلصة - سواء كانت بوفالو الحامضة، باربكيو، أو ديناميت. مثالية لتلبية كل تفضيلات النكهة!</div>
+                    <div class="menu-item-price">درهم 15.00</div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Sides/Dynamite%20Shrimp.JPG" alt="روبيان ديناميت" class="menu-item-image">
+                    <div class="menu-item-name">روبيان ديناميت</div>
+                    <div class="menu-item-description"> روبيان مقرمش وطري مغطى بصلصة كريمية وحارة مع لمسة من الحلاوة. هذه اللقيمات اللذيذة تقدم مزيجًا مثاليًا من الحرارة والنكهة، مما يجعلها مقبلات لا تقاوم أو طبق رئيسي.</div>
+                    <div class="menu-item-price">درهم 18.00</div>
+                </div>
+            <div class="menu-item">
+                <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Sides/Cheesy%20Truffle%20Fries.JPG" alt="بطاطس بالجبن والكمأة" class="menu-item-image">
+                <div class="menu-item-name">بطاطس بالجبن والكمأة</div>
+                <div class="menu-item-description">بطاطس ذهبية مقرمشة مغطاة بصلصة الكمأة الغنية، جبن مذاب، ورشة من الأعشاب. مزيج مثالي من النكهات المالحة، الكريمية، والترابية لتجربة لذيذة حقًا.</div>
+                <div class="menu-item-price">درهم 15.00</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Sides/Mozarella%20Sticks.JPG" alt="أصابع الموزاريلا" class="menu-item-image">
+                <div class="menu-item-name">أصابع الموزاريلا</div>
+                <div class="menu-item-description">أصابع مغطاة بالبقسماط الذهبي المقرمش مليئة بجبن الموزاريلا الذائب. تقدم ساخنة ومثالية للغمس في صلصة المارينارا أو صلصتك المفضلة، هذه الوجبات الخفيفة الجبنية هي متعة لذيذة لا تقاوم.</div>
+                <div class="menu-item-price"> درهم 18.00</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Sides/Fries.JPG" alt="بطاطس" class="menu-item-image">
+                <div class="menu-item-name">بطاطس</div>
+                <div class="menu-item-description">بطاطس ذهبية مقرمشة، متبلة بشكل مثالي وتقدم ساخنة. إنها الطبق الجانبي أو الوجبة الخفيفة المثالية، رائعة مع الكاتشب، المايونيز، أو أي صلصة غمس من اختيارك.</div>
+                <div class="menu-item-price">درهم 9.00</div>
+            </div>
+                <div class="menu-item">
+                    <img src="https://ik.imagekit.io/mymenu7/mymenu/media/NmRWLLGW65/16369-111224124706691547.JPG?w=800&h=600&tr=rt-auto" alt="قطع دجاج ديناميت" class="menu-item-image">
+                    <div class="menu-item-name">قطع دجاج ديناميت</div>
+                    <div class="menu-item-description">قطع دجاج مقلية ذهبية مقرمشة مغمورة في صلصة جريئة وحارة تضيف نكهة قوية. كل لقمة تقدم توازنًا مثاليًا بين الحرارة والنكهة، مما يجعلها وجبة خفيفة أو وجبة مثيرة.</div>
+                    <div class="menu-item-price">درهم 18.00</div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Drinks Section -->
+<section id="drinks" class="category-section">
+    <h1 style="text-shadow:#664d03;">Drinks</h1>
+    <div class="drink-buttons">
+        <button class="drink-button active" onclick="toggleDrinkType('milk', this)">ميلك شيك</button>
+        <button class="drink-button" onclick="toggleDrinkType('moj', this)">موهيتو</button>
+        <button class="drink-button" onclick="toggleDrinkType('soft', this)">مشروبات غازية</button>
+    </div>
+
+    <div id="milk" class="drink-type">
+        <div class="category-header">
+            <img src="https://lh3.googleusercontent.com/d/1P1-FuZiUkbp8leaNZyTwpj84-8M6DN-c=s800" alt="Hot Coffee" class="category-image">
+            <div class="category-info">
+                <h2 class="category-title">ميلك شيك الفستق</h2>
+                <div class="menu-item-price">AED 25.00</div>
+            </div>
+        </div>
+
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="https://lh3.googleusercontent.com/d/1d4sfXAsuLUIdh1nJflr6PUU0_QI1ulYm=s800" alt="Kinder Milkshake" class="menu-item-image">
+                <div class="menu-item-name">ميلك شيك الكندر</div>
+                <div class="menu-item-price">AED 20.00</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://lh3.googleusercontent.com/d/1RDI6Kq0WKusFhEwzFoIIIVqLFHtm_X2-=s800" alt="Oreo Milkshake" class="menu-item-image">
+                <div class="menu-item-name">ميلك شيك اوريو</div>
+                <div class="menu-item-price">AED 20.00</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://lh3.googleusercontent.com/d/11I0FfLz5TTmLmO8yX7jW5jcpJFVQOkL_=s800" alt="Nutella Milkshake" class="menu-item-image">
+                <div class="menu-item-name">ميلك شيك نوتيلا</div>
+                <div class="menu-item-price">AED 20.00</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://lh3.googleusercontent.com/d/1Ofvm3dvIAGsCPMOnUvNgdEsz0NinbLeb=s800" alt="Vanilla Milkshake" class="menu-item-image">
+                <div class="menu-item-name">ميلك شيك فانيلا</div>
+                <div class="menu-item-price">AED 20.00</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="moj" class="drink-type" style="display: none;">
+        <div class="category-header">
+            <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/Mixed%20passion%20fruit.jpg" alt="Iced Coffee" class="category-image">
+            <div class="category-info">
+                <h2 class="category-title">موهيتو فواكه مشكلة</h2>
+                <p class="category-description">مزيج رائع من فاكهة العاطفة الحامضة والفراولة الحلوة، مع النعناع الطازج، عصير الليمون، السكر، وماء الصودا. يُقدم مع الثلج، هذا المشروب النابض بالحياة هو مزيج منعش من النكهات الاستوائية والفواكه.</p>
+                <div class="menu-item-price">AED 20.00</div>
+            </div>
+        </div>
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/Strawberry.jpg" alt="Lemonade" class="menu-item-image">
+                <div class="menu-item-name">موهيتو الفراولة</div>
+                <div class="menu-item-description">مزيج منعش من الفراولة الطازجة المهروسة، أوراق النعناع، عصير الليمون، ورشة من الصودا، محلى بشكل مثالي. يُقدم مع الثلج، إنه لمسة فاكهية على الموهيتو الكلاسيكي المثالي لأي مناسبة.</div>
+                <div class="menu-item-price">AED 16.00</div>
+            </div>
+    
+        <div class="menu-item">
+            <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/Passionfruit%20.jpg" alt="Iced Tea" class="menu-item-image">
+            <div class="menu-item-name">موهيتو فاكهة العاطفة</div>
+            <div class="menu-item-description">انتعاش استوائي يتميز بحلاوة فاكهة العاطفة الحامضة، ممزوجة بالنعناع الطازج والليمون، محلى قليلاً، ومغطى بماء الصودا. يُقدم مع الثلج، إنه لمسة نابضة بالحياة على المفضل الكلاسيكي.</div>
+            <div class="menu-item-price">AED 16.00</div>
+        </div>
+            <div class="menu-item">
+                <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20classic%20mojito.png" alt="Lemonade" class="menu-item-image">
+                <div class="menu-item-name">موهيتو كلاسيكي</div>
+                <div class="menu-item-description">مزيج منعش من أوراق النعناع المهروسة، عصير الليمون، السكر، وماء الصودا، يُقدم مع الثلج. هذا المفضل الكلاسيكي هو التوازن المثالي بين النكهة الحامضة والمنعشة، مثالي لأي مناسبة.</div>
+                <div class="menu-item-price">AED 16.00</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/Blueocean.jpg" alt="Iced Tea" class="menu-item-image">
+                <div class="menu-item-name">بلو أوشن</div>
+                <div class="menu-item-description"> مشروب نابض بالحياة ومنعش يجمع بين نكهات الحمضيات الاستوائية وجوز الهند مع لون أزرق لافت. يُقدم باردًا مع الثلج، إنه مشروب بارد لذيذ ومذهل بصريًا مثالي لإرواء عطشك.</div>
+                <div class="menu-item-price">AED 16.00</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="soft" class="drink-type" style="display: none;">
+        <div class="category-header">
+            <img src="https://lh3.googleusercontent.com/d/14pqHhJW8HzctPAk4EFnj55b57t4Tx8Dk=s800" alt="Soft Drinks" class="category-image">
+            <div class="category-info">
+                <h2 class="category-title">ببسي</h2>
+                <div class="menu-item-price">AED 3.50</div>
+            </div>
+        </div>
+        <div class="menu-items">
+           
+            <div class="menu-item">
+                <img src="https://lh3.googleusercontent.com/d/1pPZ9xz91be3-4OFe5AMhGzjk5zD_ak33=s800" alt="Diet Pepsi" class="menu-item-image">
+                <div class="menu-item-name">دايت ببسي</div>
+                <div class="menu-item-price">AED 3.50</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://lh3.googleusercontent.com/d/1LmKxNkMpO7UlCqsbEWlFnnMDUM6jgoNK=s800" alt="7 Up" class="menu-item-image">
+                <div class="menu-item-name">سفن اب</div>
+                <div class="menu-item-price">AED 3.50</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://lh3.googleusercontent.com/d/1SE8aqyBVOBp_2SVNlBlnrO5gy43mDfMk=s800" alt="Mountain Dew" class="menu-item-image">
+                <div class="menu-item-name">ديو</div>
+                <div class="menu-item-price">AED 3.50</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://lh3.googleusercontent.com/d/1eYEXSheAe4Z_3aeYnYzPPP8tfacIj64r=s800" alt="Lemonade" class="menu-item-image">
+                <div class="menu-item-name">كينزا كولا</div>
+                <div class="menu-item-price">AED 3.50</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://lh3.googleusercontent.com/d/1bVmOR_VjaJAdLJAQo3CLb35AmdFVjsAE=s800" alt="Lemonade" class="menu-item-image">
+                <div class="menu-item-name">كينزا دايت كولا</div>
+                <div class="menu-item-price">AED 3.50</div>
+            </div>
+           
+           
+            <div class="menu-item">
+                <img src="https://lh3.googleusercontent.com/d/1Ax8orFQ6DzWN5GCSyLzNgOFxlxjPYzoz=s800" alt="Lemonade" class="menu-item-image">
+                <div class="menu-item-name">ماء</div>
+                <div class="menu-item-price">AED 2.00</div>
+            </div>
+        </div>
+    </div>
+            
+            </section>
+
+            
+        
+
+        <section id="coffee" class="category-section">
+            <h1 style="text-shadow:#664d03;">القهوة</h1>
+            <div class="coffee-buttons">
+                <button class="coffee-button active" onclick="toggleCoffeeType('hot-coffee')">حار</button>
+                <button class="coffee-button" onclick="toggleCoffeeType('iced-coffee')">بارد</button>
+                <button class="coffee-button" onclick="toggleCoffeeType('special-coffee')">القهوة المتخصصة</button>
+            </div>
+            
+            <div id="hot-coffee" class="coffee-type">
+                <div class="category-header">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/spicies.png" alt="Hot Coffee" class="category-image">
+                    <div class="category-info">
+                        <h2 class="category-title">قهوة سبايسي دبل</h2>
+                        <div class="menu-item-price">درهم 25.00</div>
+                    </div>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/hot%20choco.jpg" alt="Hot Chocolate" class="menu-item-image">
+                        <div class="menu-item-name"> هوت شوكولات</div>
+                        <div class="menu-item-price">درهم 25.00</div> 
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/kinder%20hot%20choco.png" alt="Tiramisu Latte" class="menu-item-image">
+                        <div class="menu-item-name">كندر هوت شوكولات</div>
+                        <div class="menu-item-price">AED 26.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/tiramisu.png" alt="Tiramisu Latte" class="menu-item-image">
+                        <div class="menu-item-name">لاتيه تيراميسو</div>
+                        <div class="menu-item-price">درهم 27.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/spicies.png" alt="Espresso" class="menu-item-image">
+                        <div class="menu-item-name">قهوة سبايسي سنقل</div>
+                        <div class="menu-item-price">درهم 21.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/dale%20coffee.jpg" alt="Espresso" class="menu-item-image">
+                        <div class="menu-item-name">قهوة ديل </div> 
+                        <div class="menu-item-price">AED 18.00</div> 
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20Dice%20special%20tea.jpg" alt="Lemonade" class="menu-item-image">
+                        <div class="menu-item-name">شاي خاص دايس</div>
+                        <div class="menu-item-price">درهم 30.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/Iraqi%20Tea%20pot.jpg" alt="Lemonade" class="menu-item-image">
+                        <div class="menu-item-name">إبريق شاي عراقي</div>
+                        <div class="menu-item-price">درهم 25.00</div>
+                    </div>
+                        <div class="menu-item">
+                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20iraqi%20tea.png" alt="Lemonade" class="menu-item-image">
+                            <div class="menu-item-name">شاي عراقي</div>
+                            <div class="menu-item-price">درهم 3.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cold%20v60.png" alt="Lemonade" class="menu-item-image">
+                            <div class="menu-item-name">V60</div>
+                            <div class="menu-item-price">درهم 34.00</div> 
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/turkish.png" alt="Cappuccino" class="menu-item-image">
+                            <div class="menu-item-name">قهوة تركية</div>
+                            <div class="menu-item-price">درهم 13.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://www.littlesugarsnaps.com/wp-content/uploads/2022/09/spanish-latte-square.jpg" alt="Espresso" class="menu-item-image">
+                            <div class="menu-item-name">لاتيه إسباني</div>
+                            <div class="menu-item-price">درهم 24.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://lh3.googleusercontent.com/d/1RrhF6C76I__XEHJ3AgOIZgBaKH0OtTpg=s800" alt="Cappuccino" class="menu-item-image">
+                            <div class="menu-item-name">لاتيه</div>
+                            <div class="menu-item-price">درهم 19.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/Winter%20%20Cappacino.jpg" alt="Cappuccino" class="menu-item-image">
+                            <div class="menu-item-name">ونتر كابتشينو</div>
+                            <div class="menu-item-price">درهم 23.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/updated%20espresso.png" alt="Espresso" class="menu-item-image">
+                            <div class="menu-item-name">إسبريسو</div>
+                            <div class="menu-item-price">درهم 15.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/updated%20espresso.png" alt="Espresso" class="menu-item-image">
+                            <div class="menu-item-name">إسبريسو دبل</div>
+                            <div class="menu-item-price">درهم 20.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/espresso%20macchiato.png" alt="Espresso" class="menu-item-image">
+                            <div class="menu-item-name">إسبريسو ماكياتو</div>
+                            <div class="menu-item-price">درهم 22.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://lh3.googleusercontent.com/d/1WTqn8Q1uKRY3gPfozYNY_Lt3-ADo7E75=s800" alt="Cappuccino" class="menu-item-image">
+                            <div class="menu-item-name">كابتشينو</div>
+                            <div class="menu-item-price">درهم 20.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/new%20cortado.png" alt="Cappuccino" class="menu-item-image">
+                            <div class="menu-item-name">كورتادو</div>
+                            <div class="menu-item-price">درهم 17.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/ice%20spanish%20cortado.png" alt="Cappuccino" class="menu-item-image">
+                            <div class="menu-item-name">كورتادو إسباني</div>
+                            <div class="menu-item-price">درهم 21.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://lh3.googleusercontent.com/d/1WTqn8Q1uKRY3gPfozYNY_Lt3-ADo7E75=s800" alt="Cappuccino" class="menu-item-image">
+                            <div class="menu-item-name">فلات وايت</div>
+                            <div class="menu-item-price">درهم 20.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/americano%20shot.png" alt="Cappuccino" class="menu-item-image">
+                            <div class="menu-item-name">أمريكانو</div>
+                            <div class="menu-item-price">درهم 20.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.immediate.co.uk/production/volatile/sites/2/2021/11/Mocha-1fc71f7.png" alt="Cappuccino" class="menu-item-image">
+                            <div class="menu-item-name">موكا</div>
+                            <div class="menu-item-price">درهم 25.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/new%20picolo.png" alt="Cappuccino" class="menu-item-image">
+                            <div class="menu-item-name">بيكولو</div>
+                            <div class="menu-item-price">درهم 19.00</div>
+                        </div>
+                    </div>
+    
+                </div>
+        
+            <div id="iced-coffee" class="coffee-type" style="display: none;">
+                <div class="category-header">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/iced%20latte.png" alt="Iced Coffee" class="category-image">
+                    <div class="category-info">
+                        <h2 class="category-title">لاتيه مثلج</h2>
+                        <div class="menu-item-price">درهم 20.00</div>
+                    </div>
+            </div>
+                
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/iced%20latte.png" alt="Iced Spanish" class="menu-item-image">
+                        <div class="menu-item-name">لاتيه إسباني مثلج</div>
+                        <div class="menu-item-price">درهم 22.00</div> 
+                    </div>
+                        <div class="menu-item">
+                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/colddreamlatte.jpg" alt="Iced Spanish" class="menu-item-image">
+                            <div class="menu-item-name">كولد دريم لاتيه</div>
+                            <div class="menu-item-price">درهم 24.00</div> 
+                        </div>
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/iced%20americano.png" alt="Iced Americano" class="menu-item-image">
+                        <div class="menu-item-name">أمريكانو مثلج</div>
+                        <div class="menu-item-price">درهم 21.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/ice%20spanish%20cortado.png" alt="Iced Americano" class="menu-item-image">
+                        <div class="menu-item-name">كورتادو إسباني مثلج</div>
+                        <div class="menu-item-price">درهم 21.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/iced%20mocha.png" alt="Iced Americano" class="menu-item-image">
+                        <div class="menu-item-name">موكا مثلجة</div>
+                        <div class="menu-item-price">درهم 25.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cold%20v60.png" alt="Iced Americano" class="menu-item-image">
+                        <div class="menu-item-name">V60 مثلج</div>
+                        <div class="menu-item-price">درهم 35.00</div>
+                    </div>
+                </div>
+            </div>
+            <div id="special-coffee" class="coffee-type" style="display: none;">
+                <div class="category-header">
+                    <img src="https://lh3.googleusercontent.com/d/1qZgu28QANPK7A4hBrobvJiTnjqub6awW=s800" alt="Hot Coffee" class="category-image">
+                    <div class="category-info">
+                        <h2 class="category-title">ايس كريم لاتيه</h2>
+                        <div class="menu-item-price">AED 25.00</div>
+                    </div>
+                </div>
+
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="https://lh3.googleusercontent.com/d/1wOM_TtJpYgtUGKtNFdqXNChgAzc397zf=s800" alt="Iced Spanish" class="menu-item-image">
+                        <div class="menu-item-name">كريمي إسبريسو</div>
+                        <div class="menu-item-price">AED 25.00</div> 
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://lh3.googleusercontent.com/d/1EPl5fgrnGhyoJmgbXLEvzKgynQ2Ex3av=s800" alt="Iced Spanish" class="menu-item-image">
+                        <div class="menu-item-name">v12</div>
+                        <div class="menu-item-price">AED 25.00</div> 
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://lh3.googleusercontent.com/d/17fk0wbJpELNwECbc0akyaO-I71sAS-X5=s800" alt="Iced Spanish" class="menu-item-image">
+                        <div class="menu-item-name">فرابيه الفستق</div>
+                        <div class="menu-item-price">AED 25.00</div> 
+                    </div>
+                        <div class="menu-item">
+                            <img src="https://lh3.googleusercontent.com/d/1wOM_TtJpYgtUGKtNFdqXNChgAzc397zf=s800" alt="Iced Spanish" class="menu-item-image">
+                            <div class="menu-item-name">سبايسي بارد</div>
+                            <div class="menu-item-price">AED 25.00</div> 
+                        </div>
+                    </div>
+                </div>
+        </section>
+     
+
+         
+           
+
+
+            <section id="Dessert" class="category-section">
+                <h1 style="text-shadow:#664d03 ;">الحلويات</h1>
+                <div class="category-header">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/kinder.png" alt="Coffee" class="category-image">
+                    <div class="category-info">
+                        <h2 class="category-title">شوكو كيندر</h2>
+                        <div class="menu-item-price">درهم 24</div>
+                    </div>
+                </div>
+                <div class="menu-items">
+
+                    <div class="menu-item">
+                        <img src="https://lh3.googleusercontent.com/d/1CU-S0lJEPyVNeiiT0dpBPDyQVLjjcRNS=s800" alt="Lemonade" class="menu-item-image">
+                        <div class="menu-item-name">كوكي كيندر</div>
+                            <div class="menu-item-description"></div>
+                            <div class="menu-item-price">AED 5.00</div>
+                    </div>
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/choco%20blueberru.png" alt="Lemonade" class="menu-item-image">
+                    <div class="menu-item-name">شوكو بلو بيري</div>
+                        <div class="menu-item-description"></div>
+                        <div class="menu-item-price">درهم 23.00</div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/choco%20strawberry.png"
+                    alt="Lemonade" class="menu-item-image">
+                    <div class="menu-item-name">شوكو فراولة</div>
+                        <div class="menu-item-description"></div>
+                        <div class="menu-item-price">درهم 23.00</div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/pistachio.png"
+                     alt="Lemonade" class="menu-item-image">
+                    <div class="menu-item-name">كريمي بستاشيو</div>
+                        <div class="menu-item-description"></div>
+                        <div class="menu-item-price">درهم 26.00</div>
+                </div>
+            </section>
+
+                <section id="boardgames" class="category-section">
+                <h1 style="text-shadow:#664d03 ;">الألعاب</h1>
+            <div class="category-header"  style="flex-direction: column;">
+                <img src="https://storage.googleapis.com/dicedine/boardgames/boardgames.jpg" alt="Coffee" class="category-image">
+                <div class="category-info" style="text-align: center;">
+                    <h2 class="category-title">استمتع بألعاب الطاولة </h2>
+                    <div class="menu-item-price">درهم 30.00 للشخص الواحد</div>
+                    <div class="category-description"> 
+                        قابلة للاسترداد بالكامل للطعام والمشروبات
+                    </div>
+                    <div class="category-description"> 
+                        استمتع بوصول غير محدود إلى مجموعة ألعاب الطاولة لدينا
+                    </div>
+                    <div class="category-description"> 
+                        لا يمكن ترحيل الرصيد غير المستخدم
+                    </div>
+                </div>
+
+            </div>
+            <div class="button-wrapper">
+                <a href="ar_boardgames.html" class="button-74">تحقق من ألعاب الطاولة لدينا!</a>
+              </div>
+            </div>
+                
+        </section>
+    </div>
+
+    <script>
+        function showCategory(categoryId) {
+            // Hide all category sections
+            const sections = document.querySelectorAll('.category-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected category section
+            const selectedSection = document.getElementById(categoryId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+
+            // On mobile, hide the nav menu after selection
+            if (window.innerWidth <= 768) {
+                const navMenu = document.querySelector('.nav-menu');
+                navMenu.classList.add('hidden');
+            }
+        }
+
+        function toggleNavMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('hidden');
+        }
+
+        // Show Burgers section by default
+        showCategory('burgers');
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const icons = [
+                'fa-dice-one', 'fa-dice-two', 'fa-dice-three', 'fa-dice-four', 'fa-dice-five', 'fa-dice-six',
+                'fa-chess', 'fa-puzzle-piece', 'fa-chess-knight', 'fa-chess-queen', 'fa-trophy', 
+                'fa-gamepad', 'fa-chess-board', 'fa-dice',
+                'fa-burger', 'fa-pizza-slice', 'fa-ice-cream', 'fa-cookie', 'fa-bacon',
+                'fa-bread-slice', 'fa-cheese', 'fa-egg', 'fa-cookie-bite',
+                'fa-mug-hot', 'fa-coffee', 'fa-glass-water', 'fa-martini-glass',
+                'fa-wine-glass', 'fa-beer-mug-empty', 'fa-whiskey-glass',
+                'fa-utensils', 'fa-plate-wheat', 'fa-kitchen-set', 'fa-bell-concierge',
+                'fa-fire-burner'
+            ];
+
+            for (let i = 0; i < 40; i++) {
+                const iconWrapper = document.createElement('div');
+                const sizeClass = Math.random() < 0.5 ? 'large' : Math.random() < 0.10 ? 'small' : '';
+                iconWrapper.className = `background-icon ${sizeClass}`;
+
+                const left = Math.random() * 95;
+                const top = Math.random() * 95;
+                const rotate = Math.random() * 360;
+                const scale = 0.8 + Math.random() * 0.4;
+
+                iconWrapper.style.left = `${left}%`;
+                iconWrapper.style.top = `${top}%`;
+                iconWrapper.style.transform = `rotate(${rotate}deg) scale(${scale})`;
+
+                const icon = document.createElement('i');
+                icon.className = `fas ${icons[Math.floor(Math.random() * icons.length)]}`;
+                iconWrapper.appendChild(icon);
+
+                document.body.appendChild(iconWrapper);
+            }
+        });
+
+        function toggleCoffeeType(type) {
+        const buttons = document.querySelectorAll('.coffee-button');
+        const sections = document.querySelectorAll('.coffee-type');
+
+        buttons.forEach(button => button.classList.remove('active'));
+        document.querySelector(`.coffee-button[onclick="toggleCoffeeType('${type}')"]`).classList.add('active');
+
+        sections.forEach(section => section.style.display = 'none');
+        document.getElementById(type).style.display = 'block';
+    }
+
+    // Show Hot Coffee section by default
+    document.addEventListener('DOMContentLoaded', function() {
+        toggleCoffeeType('hot');
+    });
+</script>
+<script>
+    function toggleDrinkType(type, button) {
+        const buttons = document.querySelectorAll('.drink-button');
+        const sections = document.querySelectorAll('.drink-type');
+
+        buttons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        sections.forEach(section => section.style.display = 'none');
+        document.getElementById(type).style.display = 'block';
+    }
+
+    // Show Milkshakes section by default
+    document.addEventListener('DOMContentLoaded', function() {
+        toggleDrinkType('milk', document.querySelector('.drink-button.active'));
+    });
+</script>
+<script>
+    function toggleBurgerType(type, button) {
+      const buttons = document.querySelectorAll('.burger-button');
+      const sections = document.querySelectorAll('.burger-type');
+  
+      // Remove the 'active' class from all buttons
+      buttons.forEach(btn => btn.classList.remove('active'));
+  
+      // Add the 'active' class to the clicked button
+      button.classList.add('active');
+  
+      // Hide all burger types
+      sections.forEach(section => section.style.display = 'none');
+  
+      // Show the selected burger type
+      const selectedSection = document.getElementById(type);
+      if (selectedSection) {
+          selectedSection.style.display = 'block';
+      }
+  }
+  
+  // Show the "Beef" section by default
+  document.addEventListener('DOMContentLoaded', function () {
+      toggleBurgerType('beef', document.querySelector('.burger-button.active'));
+  });
+  </script>
+</body>
+</html>
+
+ 
+<!-- 
+https://storage.googleapis.com/dicedine/menu%20items/newimgs/ice%20spanish.png
+https://storage.googleapis.com/dicedine/menu%20items/newimgs/iced%20americano.png
+https://storage.googleapis.com/dicedine/menu%20items/newimgs/iced%20latte.png 
+-->
