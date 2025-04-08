@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dice & Dine Cafe</title>
+    <link rel="icon" type="image/jpeg" href="https://lh3.googleusercontent.com/d/1euJelHOBxXp0_U-D6sa38DTn7EKsaOqG=s800">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
             --primary-color: #664d03;
-            --secondary-color: #fff0db;
+            --secondary-color: #e0f7fa;
             --accent-color: #ffd700;
             --text-color: #422800;
             --shadow-color: rgba(0, 0, 0, 0.1);
@@ -19,7 +20,7 @@
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--secondary-color), #fff7e6);
+            background: linear-gradient(135deg, var(--secondary-color), #e0f7fa);
             position: relative;
             overflow-x: hidden;
             padding-bottom: 100px; /* Add padding to prevent content overlap with language selector */
@@ -225,24 +226,25 @@
                     <i class="fas fa-utensils"></i>
                     <span>قائمة الطعام</span>
 </a>
-                
+<a href="ar_boardgames.html">
+    <i class="fas fa-dice"></i>
+    <span>الالعاب</span>
+</a>
                 <a href="ar_contact.html">
                     <i class="fas fa-phone"></i>
                     <span>تواصل معنا</span>
                 </a>
+               
                 <a href="ar_location.html">
                     <i class="fas fa-map-marker-alt"></i>
                     <span>العنوان</span>
                 </a>
-                <a href="ar_boardgames.html">
-                    <i class="fas fa-dice"></i>
-                    <span>الالعاب</span>
-                </a>
+                
             </nav>
         </div>
 
     <div class="language-selector">
-        <a href="main.html" lang="ar">English </a>
+        <a href="index.html" lang="ar">English </a>
     </div>
 
     <script>
@@ -250,9 +252,7 @@
             const icons = [
                 'fa-dice-one', 'fa-dice-two', 'fa-dice-three', 'fa-dice-four', 'fa-dice-five', 'fa-dice-six',
                 'fa-chess', 'fa-puzzle-piece', 'fa-chess-knight', 'fa-chess-queen', 'fa-trophy',
-                'fa-gamepad', 'fa-chess-board', 'fa-dice'
-                
-            ];
+                'fa-gamepad', 'fa-chess-board', 'fa-dice'];
             
  
 
@@ -280,8 +280,8 @@
                 }, 10000);
             };
    
-            setInterval(createIcon, 2000);
-            for(let i = 0; i < 50; i++) createIcon();
+            setInterval(createIcon, 500);
+            for(let i = 0; i < 10; i++) createIcon();
         });
 
 

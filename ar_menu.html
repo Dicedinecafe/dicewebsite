@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dice & Dine Menu</title>
+    <link rel="icon" type="image/jpeg" href="https://lh3.googleusercontent.com/d/1euJelHOBxXp0_U-D6sa38DTn7EKsaOqG=s800">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fff0db; /* Light beige background */
+            background-color: #e0f7fa; /* Light beige background */
             line-height: 1.6;
         }
 
@@ -23,7 +24,7 @@
         .nav-menu {
         display: flex;
         justify-content: center;
-        background-color: #fff7e6;
+        background-color: #e0f7fa;
         padding: 10px;
         position: fixed;
         top: 0;
@@ -81,7 +82,7 @@
             display: flex;
             align-items: center;
             margin-bottom: 20px;
-            background-color: #fff7e6; /* Gold color */
+            background-color: #f5f5f5; /* Gold color */
             padding: 15px;
             border-radius: 10px;
         }
@@ -120,7 +121,7 @@
         }
 
         .menu-item {
-            background-color: #fff7e6;
+            background-color: #f5f5f5;
             border-radius: 10px;
             padding: 15px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -218,7 +219,7 @@
         }
 
         h1 {
-            color: #cc9645; /* Gold color */
+            color: #664d03; /* Gold color */
             font-size: 3rem;
             text-align: center;
             margin-bottom: 2rem;
@@ -234,7 +235,7 @@
         }
 
         .button-74 {
-            background-color: #cc9645;
+            background-color: #f5f5f5;
             border: 2px solid #422800;
             border-radius: 30px;
             box-shadow: #422800 4px 4px 0 0;
@@ -353,6 +354,41 @@
             background-color: #422800;
             color: #fbeee0;
         }
+         .drink-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .drink-button {
+             background-color: #fbeee0; 
+            border: 2px solid #422800; 
+            border-radius: 30px;
+            box-shadow: #422800 4px 4px 0 0;
+            color: #422800;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .drink-button:hover {
+            background-color: #fff;
+        }
+
+        .drink-button:active {
+            box-shadow: #422800 2px 2px 0 0;
+            transform: translate(2px, 2px);
+        }
+
+        .drink-button.active {
+            background-color: #422800;
+            color: #fbeee0;
+        }
         @media (max-width: 768px) {
             .nav-menu a.home-link {
                 border-left: none;
@@ -397,53 +433,46 @@
             box-shadow: none;
         }
         .burger-buttons {
-                display: flex;
-                justify-content: center;
-                gap: 10px;
-                margin: 20px 0;
-            }
-    
-            .burger-button {
-                 background-color: #fbeee0; 
-                border: 2px solid #422800; 
-                border-radius: 30px;
-                box-shadow: #422800 4px 4px 0 0;
-                color: #422800;
-                cursor: pointer;
-                font-weight: 600;
-                font-size: 18px;
-                padding: 8px 20px;
-                text-align: center;
-                text-decoration: none;
-                transition: all 0.3s ease;
-            }
-    
-            .burger-button:hover {
-                background-color: #fff;
-            }
-    
-            .burger-button:active {
-                box-shadow: #422800 2px 2px 0 0;
-                transform: translate(2px, 2px);
-            }
-    
-            .burger-button.active {
-                background-color: #422800;
-                color: #fbeee0;
-            }
-            @media (max-width: 768px) {
-            
-                .language-selector {
-                    padding: 15px;
-                    margin-top: 30px;
-                }
-            }
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .burger-button {
+             background-color: #fbeee0; 
+            border: 2px solid #422800; 
+            border-radius: 30px;
+            box-shadow: #422800 4px 4px 0 0;
+            color: #422800;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .burger-button:hover {
+            background-color: #fff;
+        }
+
+        .burger-button:active {
+            box-shadow: #422800 2px 2px 0 0;
+            transform: translate(2px, 2px);
+        }
+
+        .burger-button.active {
+            background-color: #422800;
+            color: #fbeee0;
+        }
         @media (max-width: 768px) {
             .language-selector {
                 padding: 15px;
                 margin-top: 30px;
             }
-        
+
             .language-selector a {
                 padding: 6px 12px;
                 font-size: 14px;
@@ -547,27 +576,19 @@
             </div>
         </div>
 
-
+       
 
         <div id="chicken" class="burger-type" style="display: none;">
             <div class="category-header">
-                <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Chicken%20Burger/Buffalo%20Burger.JPG" alt="Burgers" class="category-image">
+                <img src="https://lh3.googleusercontent.com/d/1SVchwqeFy0nF2gCvjDG_4IwCkJQxRd8M=s800" alt="Burgers" class="category-image">
                 <div class="category-info">
-                    <h2 class="category-title">بافلو برجر 🌶️</h2>
-                    <p class="category-description">دجاج مقرمش مع خس، شرائح جبن، مايونيز، صلصة فراي وصلصة البافلو الخاصة بنا
-                    </p>
-                    <div class="menu-item-price">AED 24.00</div>
+                    <h2 class="category-title">برجر أتوميك 🌶️</h2>
+                    <p class="category-description">دجاج مقرمش مع خس، شرائح جبنة، مايونيز، صوص أتوميك، ومغطى بصلصتنا الخاصة.</p>
+                    <div class="menu-item-price">AED 28.00</div>
                 </div>
             </div>
             <div class="menu-items">
                
-                <div class="menu-item">
-                    <img src="https://lh3.googleusercontent.com/d/14dVX3epEMG32-b-UthDUF2hMqIOcP-mO=s800" alt="Classic Chicken Burger" class="menu-item-image">
-                    <div class="menu-item-name">كلاسك دجاج برجر</div>
-                    <div class="menu-item-description">دجاج مشوي مع خس، طماطم ومايونيز
-                    </div>
-                    <div class="menu-item-price">AED 20.00</div>
-                </div>
                 <div class="menu-item">
                     <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20dragon.png" alt="Buffalo Burger" class="menu-item-image">
                     <div class="menu-item-name">دراغون فاير برجر</div>
@@ -576,12 +597,26 @@
                     <div class="menu-item-price">AED 26.00</div>
                 </div>
                 <div class="menu-item">
+                    <img src="https://lh3.googleusercontent.com/d/1EBrXZm5XRto81PnL6rAsWXD1CmxYHZYa=s800" alt="Buffalo Burger" class="menu-item-image">
+                    <div class="menu-item-name">بافلو برجر 🌶️</div>
+                    <div class="menu-item-description">دجاج مقرمش مع خس، شرائح جبن، مايونيز، صلصة فراي وصلصة البافلو الخاصة بنا
+                        </div>
+                    <div class="menu-item-price">AED 24.00</div>
+                </div>
+                <div class="menu-item">
                     <img src="https://lh3.googleusercontent.com/d/1KKQMBohZNvHjuLxn8QCuWP6154cSY5OQ=s800" alt="Angry Bird Burger" class="menu-item-image">
                     <div class="menu-item-name">انجري برد برجر
                     </div>
                     <div class="menu-item-description">دجاج مقرمش مع كولسلو خاص، مخللات وصلصة الطائر الغاضب الخاصة بنا
                     </div>
                     <div class="menu-item-price">AED 24.00</div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://lh3.googleusercontent.com/d/14dVX3epEMG32-b-UthDUF2hMqIOcP-mO=s800" alt="Classic Chicken Burger" class="menu-item-image">
+                    <div class="menu-item-name">كلاسك دجاج برجر</div>
+                    <div class="menu-item-description">دجاج مشوي مع خس، طماطم ومايونيز
+                    </div>
+                    <div class="menu-item-price">AED 20.00</div>
                 </div>
             </div>
         </div>
@@ -665,7 +700,7 @@
         <section id="sides" class="category-section">
          <h1 style="text-shadow:#664d03 ;">الوجبات الجانبية</h1>
             <div class="category-header">
-                <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Sides/Loaded%20Fries.JPG" alt="Sides" class="category-image">
+                <img src="https://lh3.googleusercontent.com/d/182GT3yMAM8t_vTenQN4vgzuIXS573WkJ=s800" alt="Sides" class="category-image">
                 <div class="category-info">
                     <h2 class="category-title">بطاطس محملة</h2>
                     <p class="category-description"> طبق شهي ومريح يتميز ببطاطس مقرمشة مغطاة بقطع الدجاج، مغمورة بصلصة الديناميت، جبن مذاب، ورذاذ كريمي من المايونيز. مليء بالنكهات الجريئة، هذا الطبق هو الطعام المريح النهائي!</p>
@@ -933,17 +968,17 @@
                         <div class="menu-item">
                             <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/updated%20espresso.png" alt="Espresso" class="menu-item-image">
                             <div class="menu-item-name">إسبريسو</div>
-                            <div class="menu-item-price">درهم 15.00</div>
+                            <div class="menu-item-price">درهم 10.00</div>
                         </div>
                         <div class="menu-item">
                             <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/updated%20espresso.png" alt="Espresso" class="menu-item-image">
                             <div class="menu-item-name">إسبريسو دبل</div>
-                            <div class="menu-item-price">درهم 20.00</div>
+                            <div class="menu-item-price">درهم 15.00</div>
                         </div>
                         <div class="menu-item">
                             <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/espresso%20macchiato.png" alt="Espresso" class="menu-item-image">
                             <div class="menu-item-name">إسبريسو ماكياتو</div>
-                            <div class="menu-item-price">درهم 22.00</div>
+                            <div class="menu-item-price">درهم 18.00</div>
                         </div>
                         <div class="menu-item">
                             <img src="https://lh3.googleusercontent.com/d/1WTqn8Q1uKRY3gPfozYNY_Lt3-ADo7E75=s800" alt="Cappuccino" class="menu-item-image">
@@ -968,7 +1003,7 @@
                         <div class="menu-item">
                             <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/americano%20shot.png" alt="Cappuccino" class="menu-item-image">
                             <div class="menu-item-name">أمريكانو</div>
-                            <div class="menu-item-price">درهم 20.00</div>
+                            <div class="menu-item-price">درهم 18.00</div>
                         </div>
                         <div class="menu-item">
                             <img src="https://images.immediate.co.uk/production/volatile/sites/2/2021/11/Mocha-1fc71f7.png" alt="Cappuccino" class="menu-item-image">
@@ -1120,6 +1155,15 @@
                     <div class="category-description"> 
                         لا يمكن ترحيل الرصيد غير المستخدم
                     </div>
+
+
+                    <div class="category-header"  style="flex-direction: column;">
+                        <img src="https://storage.googleapis.com/dicedine/boardgames/boardgames.jpg" alt="Coffee" class="category-image">
+                        <div class="category-info" style="text-align: center;">
+                            <h2 class="category-title">استمتع بألعاب الطاولة</h2>
+                            <div class="menu-item-price">درهم 25.00 للشخص الواحد</div>
+
+                </div>
                 </div>
 
             </div>
