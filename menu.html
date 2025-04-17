@@ -8,7 +8,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
         <style>
             body {
-                align-items: center;
+                justify-content: center;
                 margin: 0;
                 padding: 0;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -26,6 +26,7 @@
     
             .nav-menu {
             display: flex;
+            font-size: 18px;
             justify-content: center;
             background-color: #e0f7fa;
             padding: 10px;
@@ -43,7 +44,7 @@
             }
    
             .nav-toggle {
-                 
+                display: none;
                 background-color: #fbeee0;
                 border: 2px solid #422800;
                 border-radius: 30px;
@@ -66,17 +67,7 @@
 
         }
     
-        /* display: none;
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            z-index: 101;
-            background-color: #997321;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer; */
+      
         .nav-menu a {
             text-decoration: none;
             color: #664d03;
@@ -132,12 +123,14 @@
                 color: #664d03; /* White color */
                 margin-bottom: 10px;
                 
+                
             }
 
             .category-title-2 {
                 color: #664d03; /* White color */
                 margin-bottom: 10px;
                 font-weight: bold;
+                align-items: center;
                 
             }
     
@@ -162,13 +155,14 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                width: 100%;
             }
     
             .menu-item-image {
                 
-                width: 200px;
-                height: 200px;
-                object-fit: cover;
+                width: 100%;
+                height: 100%;
+               
                 border-radius: 10px;
                 margin-bottom: 10px;
             }
@@ -198,7 +192,7 @@
                 .nav-menu {
                     flex-direction: column;
                     align-items: center;
-                    padding: 20px 0;
+                    padding: 30px 0;
                 }
     
                 .nav-menu a {
@@ -206,6 +200,7 @@
                     width: 100%;
                     text-align: center;
                     justify-content: center;
+                    
                 }
     
                 .nav-toggle {
@@ -228,8 +223,10 @@
     
                 .menu-item-image {
                     width: 100%;
-                    height: 300px;
+                    height: 100%;
+                    
                     object-fit: cover;
+                    object-position: center;
                     border-radius: 10px;
                     margin-bottom: 10px;
                 }
@@ -326,17 +323,9 @@
     
             .coffee-buttons {
                 display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     gap: 10px;
     margin: 20px 0;
-    overflow-x: auto;
-    padding-bottom: 10px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    white-space: nowrap;
     padding: 10px 15px;
             }
     
@@ -350,12 +339,12 @@
                 color: #422800;
                 cursor: pointer;
                 font-weight: 600;
-                font-size: 18px;
+                font-size: 20px;
                 padding: 10px 30px;
                 text-align: center;
                 text-decoration: none;
                 transition: all 0.3s ease;
-                width: 80%;
+                width: auto;
                 margin-bottom: 5px;
             }
     
@@ -374,19 +363,12 @@
             }
             .drink-buttons {
                 display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     gap: 10px;
     margin: 20px 0;
-    overflow-x: auto;
-    padding-bottom: 10px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    white-space: nowrap;
     padding: 10px 15px;
-            }
+}
+            
             .drink-buttons::-webkit-scrollbar {
     display: none;
 }
@@ -403,7 +385,7 @@
                 text-align: center;
                 text-decoration: none;
                 transition: all 0.3s ease;
-                width: 80%;
+                width: auto;
                 margin-bottom: 5px;
             }
     
@@ -420,13 +402,7 @@
                 background-color: #422800;
                 color: #fbeee0;
             }
-             /* .drink-buttons {
-                margin: 10px -15px;
-        position: sticky;
-        top: 10px;
-        background-color: #e0f7fa;
-        z-index: 10;
-            } */
+            
     
             .drink-button {
                  background-color: #fbeee0; 
@@ -436,7 +412,7 @@
                 color: #422800;
                 cursor: pointer;
                 font-weight: 600;
-                font-size: 18px;
+                font-size: 20px;
                 padding: 8px 20px;
                 text-align: center;
                 text-decoration: none;
@@ -457,6 +433,19 @@
                 color: #fbeee0;
             }
             @media (max-width: 768px) {
+                .drink-buttons {
+                    
+                    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+    gap: 10px; /* Adjust the space between buttons */
+    align-items: center;
+    justify-items: center; 
+    }
+
+    .drink-button {
+        width: 100%; /* Full width only on mobile */
+        margin-bottom: 5px;
+    }
                 .nav-menu a.home-link {
                     border-left: none;
                     border-top: 1px solid #fff; /* White color */
@@ -501,9 +490,10 @@
             }
             .burger-buttons {
                 display: flex;
-                justify-content: center;
-                gap: 10px;
-                margin: 20px 0;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 10px 15px;
             }
     
             .burger-button {
@@ -514,12 +504,12 @@
                 color: #422800;
                 cursor: pointer;
                 font-weight: 600;
-                font-size: 18px;
+                font-size: 20px;
                 padding: 8px 20px;
                 text-align: center;
                 text-decoration: none;
                 transition: all 0.3s ease;
-                width: 40%;
+                width: auto;
             }
     
             .burger-button:hover {
@@ -536,6 +526,26 @@
                 color: #fbeee0;
             }
             @media (max-width: 768px) {
+                .burger-buttons {
+                    flex-direction: flex;
+                    align-items: center;
+                }
+                .burger-button {
+                    width: 80%; /* Full width only on mobile */
+                    margin-bottom: 5px;
+                }
+                .coffee-buttons {
+                    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+    gap: 10px; /* Space between items */
+    grid-template-rows: auto;
+                }
+                .coffee-button {
+                    width: 100%; /* Full width only on mobile */
+                    margin-bottom: 5px;
+                    grid-column: span 1;
+                }
+                
                 .language-selector {
                     padding: 15px;
                     margin-top: 30px;
@@ -607,7 +617,7 @@
                     <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/half%20burg.jpg" alt="Burgers" class="category-image">
                     <div class="category-info">
                         <h2 class="category-title">Signature Burger</h2>
-                        <p class="category-description">American Wagyu beef patty topped with sweet onion jam and crispy beef bacon, all dipped in our signature creamy cheese sauce.</p>
+                        <p class="category-description">AmericanWagyu beef, onion jam, beef bacon, and dipped in our cheese sauce.</p>
                         <div class="menu-item-price">AED 35.00</div>
                     </div>
                 </div>
@@ -1000,6 +1010,7 @@
                     <button class="coffee-button active" onclick="toggleCoffeeType('hot-coffee')">Hot Coffee</button>
                     <button class="coffee-button" onclick="toggleCoffeeType('iced-coffee')">Iced Coffee</button>
                     <button class="coffee-button" onclick="toggleCoffeeType('special-coffee')">Specialty Coffee</button>
+                    <button class="coffee-button" onclick="toggleCoffeeType('tea')">Tea</button>
                 </div>
             
                 <div id="hot-coffee" class="coffee-type" style="display: block;">
@@ -1036,21 +1047,8 @@
                             <div class="menu-item-name">Dale Coffee </div> 
                             <div class="menu-item-price">AED 18.00</div> 
                         </div>
-                        <div class="menu-item">
-                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20Dice%20special%20tea.jpg" alt="Lemonade" class="menu-item-image">
-                            <div class="menu-item-name">Dice Special Tea Pot</div>
-                            <div class="menu-item-price">AED 30.00</div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/Iraqi%20Tea%20pot.jpg" alt="Lemonade" class="menu-item-image">
-                            <div class="menu-item-name">Iraqi Tea Pot</div>
-                            <div class="menu-item-price">AED 25.00</div>
-                        </div>
-                            <div class="menu-item">
-                                <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20iraqi%20tea.png" alt="Lemonade" class="menu-item-image">
-                                <div class="menu-item-name">Iraqi Tea</div>
-                                <div class="menu-item-price">AED 3.00</div>
-                            </div>
+                       
+                    
                             <div class="menu-item">
                                 <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cold%20v60.png" alt="Lemonade" class="menu-item-image">
                                 <div class="menu-item-name">V60</div>
@@ -1175,6 +1173,29 @@
                         </div>
                     </div>
                 </div>
+                <!-- TEA SECTION -->
+                <div id="tea" class="coffee-type" style="display: none;">
+                    <div class="category-header">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20iraqi%20tea.png" alt="Hot Coffee" class="category-image">
+                        <div class="category-info">
+                            <h2 class="category-title">Iraqi Tea</h2>
+                            <div class="menu-item-price">AED 3.00</div>
+                        </div>
+                    </div>
+                    <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="https://lh3.googleusercontent.com/d/1DobTbIpizl9IJpb346CBt_NON3hh1vlV=s800" alt="Lemonade" class="menu-item-image" >
+                        <div class="menu-item-name">Iraqi Tea Pot</div>
+                        <div class="menu-item-price">AED 25.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20Dice%20special%20tea.jpg" alt="Lemonade" class="menu-item-image">
+                        <div class="menu-item-name">Dice Special Tea Pot</div>
+                        <div class="menu-item-description">  With your selction of passion fruit or berry</div>
+                        <div class="menu-item-price">AED 30.00</div>
+                    </div>
+                    </div>
+                     </div>
 
 
                 <div id="special-coffee" class="coffee-type" style="display: none;">
