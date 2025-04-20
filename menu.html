@@ -100,7 +100,7 @@
                 display: flex;
                 align-items: center;
                 margin-bottom: 20px;
-                background-color: #f5f5f5; /* Gold color */
+                background-color: white; /* Gold color */
                 padding: 15px;
                 border-radius: 10px;
             }
@@ -143,28 +143,29 @@
                 display: grid;
                 align-items: center;
                 grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
-                gap: 20px;
-                width: 100%;
+                gap: 15px;
+                
             }
 
             .menu-item {
                 background-color: #f5f5f5;
                 border-radius: 10px;
-                padding: 15px;
+                padding: 10px;
                 box-shadow: 0 4px 6px rgba(0,0,0,0.1);
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                width: 100%;
+                
             }
+    
     
             .menu-item-image {
                 
-                width: 100%;
-                height: 100%;
-               
+                width: 300px;
+                height: 300px;
+               object-fit: cover;
                 border-radius: 10px;
-                margin-bottom: 10px;
+                
             }
     
             .menu-item-name {
@@ -215,15 +216,17 @@
                 .menu-item {
                     background-color: white;
                     border-radius: 10px;
-                    padding: 15px;
+                    padding: 10px;
                     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
                     display: flex;
                     flex-direction: column;
+                    width: 100%;
+                    
                 }
     
                 .menu-item-image {
-                    width: 100%;
-                    height: 100%;
+                    width: 300px;
+                    height: 300px;
                     
                     object-fit: cover;
                     object-position: center;
@@ -626,11 +629,12 @@
                 
             <div class="menu-items">
                 <div class="menu-item">
-                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20zombie.png" alt="Classic Cheeseburger" class="menu-item-image">
-                    <div class="menu-item-name">Zombie Burger</div>
-                    <div class="menu-item-description">American Wagyu patty with melted cheese, capiscum, crispy potato, guacamole, beef bacon, cheese cream and our zombie sauce</div>
-                    <div class="menu-item-price">AED 36.00</div>
-                </div>
+                    <img src="https://lh3.googleusercontent.com/d/14ZHaovIVLi5lPJmjVCoS-AirE87uwjyT=s800" alt="Vegetarian Burger" class="menu-item-image">
+                    <div class="menu-item-name">Midnight Melt Burger</div>
+                    <div class="menu-item-description">Juicy American Wagyu patty with melted cheese, grilled onion and our signature white sauce</div>
+                    <div class="menu-item-price">AED 29.00</div>
+                    </div>
+                
                 <div class="menu-item">
                     <img src="https://lh3.googleusercontent.com/d/1WQqWC6bt00hW2TPFP9Gf12dnrVAbDplp=s800" alt="Classic Cheeseburger" class="menu-item-image">
                     <div class="menu-item-name">Big Tex Burger</div>
@@ -639,16 +643,17 @@
                 </div>
                 <div class="menu-item">
                     <img src="https://lh3.googleusercontent.com/d/1WbiJoFhYwtIdG7w5WEIiU_IKqrsvMk61=s800" alt="Vegetarian Burger" class="menu-item-image">
-                    <div class="menu-item-name">Mac n Cheese Burger</div>
+                    <div class="menu-item-name">Mac 'n Cheese Burger</div>
                     <div class="menu-item-description">American Wagyu patty with melted cheese, mac n cheese and beef bacon</div>
                     <div class="menu-item-price">AED 30.00</div>
                     </div>
-                <div class="menu-item">
-                    <img src="https://lh3.googleusercontent.com/d/14ZHaovIVLi5lPJmjVCoS-AirE87uwjyT=s800" alt="Vegetarian Burger" class="menu-item-image">
-                    <div class="menu-item-name">Half-Stuffed Burger</div>
-                    <div class="menu-item-description">Juicy American Wagyu patty with melted cheese, grilled onion special white sauce</div>
-                    <div class="menu-item-price">AED 29.00</div>
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20zombie.png" alt="Classic Cheeseburger" class="menu-item-image">
+                        <div class="menu-item-name">Guacamole Burger</div>
+                        <div class="menu-item-description">American Wagyu patty with melted cheese, capiscum, crispy potato, guacamole, beef bacon, cheese cream and our special sauce</div>
+                        <div class="menu-item-price">AED 36.00</div>
                     </div>
+               
                 </div>
             </div>
 
@@ -680,7 +685,7 @@
                     <div class="menu-item">
                         <img src="https://lh3.googleusercontent.com/d/1KKQMBohZNvHjuLxn8QCuWP6154cSY5OQ=s800" alt="Angry Bird Burger" class="menu-item-image">
                         <div class="menu-item-name">Angry Bird Burger</div>
-                        <div class="menu-item-description">Crispy chicken with special coleslaw, pickles and our special angry bird sauce.</div>
+                        <div class="menu-item-description">Crispy chicken with special coleslaw, pickles and our special house sauce.</div>
                         <div class="menu-item-price">AED 24.00</div>
                     </div>
                     <div class="menu-item">
@@ -896,37 +901,38 @@
         <div class="category-header">
             <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/Mixed%20passion%20fruit.jpg" alt="Iced Coffee" class="category-image">
             <div class="category-info">
-                <h2 class="category-title">Mixed Passion Fruit Mojito</h2>
-                <p class="category-description"> A delightful fusion of tangy passion fruit and sweet strawberry, combined with fresh mint, lime juice, sugar, and soda water. Served over ice, this vibrant drink is a refreshing blend of tropical and fruity flavors.</p>
+                <h2 class="category-title">Strawberry Passion Fruit Mojito</h2>
+                <p class="category-description"> </p>
                 <div class="menu-item-price">AED 20.00</div>
             </div>
         </div>
         <div class="menu-items">
             <div class="menu-item">
+                <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/Blueocean.jpg" alt="Iced Tea" class="menu-item-image">
+                <div class="menu-item-name">Blue Ocean Mojito</div>
+                <div class="menu-item-description"> </div>
+                <div class="menu-item-price">AED 16.00</div>
+            </div>
+            <div class="menu-item">
                 <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/Strawberry.jpg" alt="Lemonade" class="menu-item-image">
                 <div class="menu-item-name">Strawberry Mojito</div>
-                <div class="menu-item-description">A refreshing mix of muddled fresh strawberries, mint leaves, lime juice, and a splash of soda, sweetened to perfection. Served over ice, it’s a fruity twist on the classic mojito that’s perfect for any occasion.                    </div>
+                <div class="menu-item-description"></div>
                 <div class="menu-item-price">AED 16.00</div>
             </div>
     
         <div class="menu-item">
             <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/Passionfruit%20.jpg" alt="Iced Tea" class="menu-item-image">
             <div class="menu-item-name">Passion Fruit Mojito</div>
-            <div class="menu-item-description">A tropical refreshment featuring the tangy sweetness of passion fruit, muddled with fresh mint and lime, lightly sweetened, and topped with soda water. Served over ice, it's a vibrant twist on a classic favorite.                    </div>
+            <div class="menu-item-description"></div>
             <div class="menu-item-price">AED 16.00</div>
         </div>
             <div class="menu-item">
                 <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20classic%20mojito.png" alt="Lemonade" class="menu-item-image">
                 <div class="menu-item-name">Classic Mojito</div>
-                <div class="menu-item-description">A refreshing blend of muddled mint leaves, lime juice, sugar, and soda water, served over ice. This timeless favorite is the perfect balance of zesty and cool, ideal for any occasion.</div>
+                <div class="menu-item-description"></div>
                 <div class="menu-item-price">AED 16.00</div>
             </div>
-            <div class="menu-item">
-                <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/Blueocean.jpg" alt="Iced Tea" class="menu-item-image">
-                <div class="menu-item-name">Blue Ocean Mojito</div>
-                <div class="menu-item-description"> A vibrant and refreshing drink that combines the tropical flavors of citrus and coconut with a striking blue hue. Served chilled over ice, it’s a visually stunning and deliciously cool beverage perfect for quenching your thirst.                        </div>
-                <div class="menu-item-price">AED 16.00</div>
-            </div>
+            
         </div>
     </div>
     <div id="jui" class="drink-type" style="display: none;">
@@ -980,19 +986,7 @@
                 <img src="https://lh3.googleusercontent.com/d/1SE8aqyBVOBp_2SVNlBlnrO5gy43mDfMk=s800" alt="Mountain Dew" class="menu-item-image">
                 <div class="menu-item-name">Mountain Dew</div>
                 <div class="menu-item-price">AED 3.50</div>
-            </div>
-            <div class="menu-item">
-                <img src="https://lh3.googleusercontent.com/d/1eYEXSheAe4Z_3aeYnYzPPP8tfacIj64r=s800" alt="Lemonade" class="menu-item-image">
-                <div class="menu-item-name">Kinza Cola</div>
-                <div class="menu-item-price">AED 3.50</div>
-            </div>
-            <div class="menu-item">
-                <img src="https://lh3.googleusercontent.com/d/1bVmOR_VjaJAdLJAQo3CLb35AmdFVjsAE=s800" alt="Lemonade" class="menu-item-image">
-                <div class="menu-item-name">Kinza Diet Coke</div>
-                <div class="menu-item-price">AED 3.50</div>
-            </div>
-           
-           
+            </div>      
             <div class="menu-item">
                 <img src="https://lh3.googleusercontent.com/d/1Ax8orFQ6DzWN5GCSyLzNgOFxlxjPYzoz=s800" alt="Lemonade" class="menu-item-image">
                 <div class="menu-item-name">Water</div>
@@ -1012,36 +1006,71 @@
                     <button class="coffee-button" onclick="toggleCoffeeType('special-coffee')">Specialty Coffee</button>
                     <button class="coffee-button" onclick="toggleCoffeeType('tea')">Tea</button>
                 </div>
-            
+              
                 <div id="hot-coffee" class="coffee-type" style="display: block;">
                     <div class="category-header">
-                        <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/spicies.png" alt="Hot Coffee" class="category-image">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/Winter%20%20Cappacino.jpg" alt="Hot Coffee" class="category-image">
                         <div class="category-info">
-                            <h2 class="category-title">Spicy Double Brew</h2>
-                            <div class="menu-item-price">AED 25.00</div>
+                            <h2 class="category-title">Winter Cappuccino</h2>
+                            <div class="menu-item-price">AED 23.00</div>
                         </div>
                     </div>
                     <div class="menu-items">
+
                         <div class="menu-item">
-                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/hot%20choco.jpg" alt="Hot Chocolate" class="menu-item-image">
-                            <div class="menu-item-name">Hot Chocolate</div>
-                            <div class="menu-item-price">AED 25.00</div> 
+                            <img src="https://lh3.googleusercontent.com/d/1RrhF6C76I__XEHJ3AgOIZgBaKH0OtTpg=s800" alt="Espresso" class="menu-item-image">
+                            <div class="menu-item-name">Spanish Latte</div>
+                            <div class="menu-item-price">AED 24.00</div>
                         </div>
                         <div class="menu-item">
-                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/kinder%20hot%20choco.png" alt="Tiramisu Latte" class="menu-item-image">
-                            <div class="menu-item-name">Kinder Hot Chocolate</div>
-                            <div class="menu-item-price">AED 26.00</div>
+                            <img src="https://lh3.googleusercontent.com/d/1RrhF6C76I__XEHJ3AgOIZgBaKH0OtTpg=s800" alt="Cappuccino" class="menu-item-image">
+                            <div class="menu-item-name">Latte</div>
+                            <div class="menu-item-price">AED 19.00</div>
                         </div>
                         <div class="menu-item">
-                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/tiramisu.png" alt="Tiramisu Latte" class="menu-item-image">
-                            <div class="menu-item-name">Tiramisu Latte</div>
-                            <div class="menu-item-price">AED 27.00</div>
+                            <img src="https://lh3.googleusercontent.com/d/1WTqn8Q1uKRY3gPfozYNY_Lt3-ADo7E75=s800" alt="Cappuccino" class="menu-item-image">
+                            <div class="menu-item-name">Cappuccino</div>
+                            <div class="menu-item-price">AED 20.00</div>
                         </div>
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/updated%20espresso.png" alt="Espresso" class="menu-item-image">
+                        <div class="menu-item-name">Espresso</div>
+                        <div class="menu-item-price">AED 10.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/updated%20espresso.png" alt="Espresso" class="menu-item-image">
+                        <div class="menu-item-name">Double Espresso</div>
+                        <div class="menu-item-price">AED 15.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/turkish.png" alt="Cappuccino" class="menu-item-image">
+                        <div class="menu-item-name">Turkish Coffee</div>
+                        <div class="menu-item-price">AED 13.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/espresso%20macchiato.png" alt="Espresso" class="menu-item-image">
+                        <div class="menu-item-name">Espresso Macchiato</div>
+                        <div class="menu-item-price">AED 18.00</div>
+                    </div>
+                   
                         <div class="menu-item">
                             <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/spicies.png" alt="Espresso" class="menu-item-image">
                             <div class="menu-item-name">Spicy Single Brew </div> 
                             <div class="menu-item-price">AED 21.00</div> 
                         </div>
+                  
+                            <div class="menu-item">
+                                <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/spicies.png" alt="Cappuccino" class="menu-item-image">
+                                <div class="menu-item-name">Spicy Double Brew</div>
+                                <div class="menu-item-price">AED 25.00</div>
+                            </div>
+                            
+                        <div class="menu-item">
+                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/tiramisu.png" alt="Tiramisu Latte" class="menu-item-image">
+                            <div class="menu-item-name">Tiramisu Latte</div>
+                            <div class="menu-item-price">AED 27.00</div>
+                        </div>
+                    
                         <div class="menu-item">
                             <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/dale%20coffee.jpg" alt="Espresso" class="menu-item-image">
                             <div class="menu-item-name">Dale Coffee </div> 
@@ -1054,47 +1083,10 @@
                                 <div class="menu-item-name">V60</div>
                                 <div class="menu-item-price">AED 34.00</div> 
                             </div>
-                            <div class="menu-item">
-                                <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/turkish.png" alt="Cappuccino" class="menu-item-image">
-                                <div class="menu-item-name">Turkish Coffee</div>
-                                <div class="menu-item-price">AED 13.00</div>
-                            </div>
-                            <div class="menu-item">
-                                <img src="https://www.littlesugarsnaps.com/wp-content/uploads/2022/09/spanish-latte-square.jpg" alt="Espresso" class="menu-item-image">
-                                <div class="menu-item-name">Spanish Latte</div>
-                                <div class="menu-item-price">AED 24.00</div>
-                            </div>
-                            <div class="menu-item">
-                                <img src="https://lh3.googleusercontent.com/d/1RrhF6C76I__XEHJ3AgOIZgBaKH0OtTpg=s800" alt="Cappuccino" class="menu-item-image">
-                                <div class="menu-item-name">Latte</div>
-                                <div class="menu-item-price">AED 19.00</div>
-                            </div>
-                            <div class="menu-item">
-                                <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/Winter%20%20Cappacino.jpg" alt="Cappuccino" class="menu-item-image">
-                                <div class="menu-item-name">Winter Cappuccino</div>
-                                <div class="menu-item-price">AED 23.00</div>
-                            </div>
-                            
-                            <div class="menu-item">
-                                <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/updated%20espresso.png" alt="Espresso" class="menu-item-image">
-                                <div class="menu-item-name">Espresso</div>
-                                <div class="menu-item-price">AED 10.00</div>
-                            </div>
-                            <div class="menu-item">
-                                <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/updated%20espresso.png" alt="Espresso" class="menu-item-image">
-                                <div class="menu-item-name">Double Espresso</div>
-                                <div class="menu-item-price">AED 15.00</div>
-                            </div>
-                            <div class="menu-item">
-                                <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/espresso%20macchiato.png" alt="Espresso" class="menu-item-image">
-                                <div class="menu-item-name">Espresso Macchiato</div>
-                                <div class="menu-item-price">AED 18.00</div>
-                            </div>
-                            <div class="menu-item">
-                                <img src="https://lh3.googleusercontent.com/d/1WTqn8Q1uKRY3gPfozYNY_Lt3-ADo7E75=s800" alt="Cappuccino" class="menu-item-image">
-                                <div class="menu-item-name">Cappuccino</div>
-                                <div class="menu-item-price">AED 20.00</div>
-                            </div>
+                          
+                       
+                           
+                           
                             <div class="menu-item">
                                 <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/new%20cortado.png" alt="Cappuccino" class="menu-item-image">
                                 <div class="menu-item-name">Cortado</div>
@@ -1124,6 +1116,16 @@
                                 <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/new%20picolo.png" alt="Cappuccino" class="menu-item-image">
                                 <div class="menu-item-name">Piccolo</div>
                                 <div class="menu-item-price">AED 19.00</div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/hot%20choco.jpg" alt="Hot Chocolate" class="menu-item-image">
+                                <div class="menu-item-name">Hot Chocolate</div>
+                                <div class="menu-item-price">AED 25.00</div> 
+                            </div>
+                            <div class="menu-item">
+                                <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/kinder%20hot%20choco.png" alt="Tiramisu Latte" class="menu-item-image">
+                                <div class="menu-item-name">Kinder Hot Chocolate</div>
+                                <div class="menu-item-price">AED 26.00</div>
                             </div>
                         </div>
                     </div>
