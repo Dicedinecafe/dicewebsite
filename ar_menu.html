@@ -6,547 +6,560 @@
     <title>Dice & Dine Menu</title>
     <link rel="icon" type="image/jpeg" href="https://lh3.googleusercontent.com/d/1euJelHOBxXp0_U-D6sa38DTn7EKsaOqG=s800">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-   <style>
-            body {
-                align-items: center;
-                margin: 0;
-                padding: 0;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background-color: #e0f7fa; /* Light beige background */
-                line-height: 1.6;
-                overflow-x: hidden; /* Prevent horizontal scroll */
-                width: 100%;
-            }
-    
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 20px;
-            }
-    
-            .nav-menu {
-            display: flex;
+    <style>
+        body {
             justify-content: center;
-            background-color: #e0f7fa;
-            padding: 10px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            flex-wrap: wrap;
-            transition: transform 0.3s ease-in-out;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e0f7fa; /* Light beige background */
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            width: 100%;
         }
-            .nav-menu.hidden {
-                transform: translateY(-100%);
-            }
-   
-            .nav-toggle {
-                 
-                background-color: #fbeee0;
-                border: 2px solid #422800;
-                border-radius: 30px;
-                box-shadow: #422800 4px 4px 0 0;
-                color: #422800;
-                cursor: pointer;
-                font-weight: 600;
-                font-size: 18px;
-                padding: 5px 15px;
-                text-align: center;
-                text-decoration: none;
-                transition: all 0.3s ease;
-                width: 30%;
-                margin-bottom: 5px;
-                align-items: center;
-                position: fixed;
-            top: 10px;
-            right: 10px;
-            z-index: 101;
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
-    
-        /* display: none;
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            z-index: 101;
-            background-color: #997321;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer; */
-        .nav-menu a {
+
+        .nav-menu {
+        display: flex;
+        font-size: 18px;
+        justify-content: center;
+        background-color: #e0f7fa;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        flex-wrap: wrap;
+        transition: transform 0.3s ease-in-out;
+    }
+        .nav-menu.hidden {
+            transform: translateY(-100%);
+        }
+
+        .nav-toggle {
+            display: none;
+            background-color: #fbeee0;
+            border: 2px solid #422800;
+            border-radius: 30px;
+            box-shadow: #422800 4px 4px 0 0;
+            color: #422800;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 5px 15px;
+            text-align: center;
             text-decoration: none;
-            color: #664d03;
-            margin: 0 15px;
-            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 30%;
+            margin-bottom: 5px;
+            align-items: center;
+            position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 101;
+
+    }
+
+  
+    .nav-menu a {
+        text-decoration: none;
+        color: #664d03;
+        margin: 0 15px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s ease;
+    }
+    .nav-menu a:hover {
+        color: #997321;
+    }
+
+        .nav-menu a i {
+            margin-right: 5px;
+        }
+
+        .category-section {
+            display: none;
+            width: 100%;
+            margin-top: 60px;
+        }
+
+        .category-section.active {
+            display: block;
+        }
+
+        .category-header {
+            width: 100%;
             display: flex;
             align-items: center;
-            transition: color 0.3s ease;
+            margin-bottom: 20px;
+            background-color: white; /* Gold color */
+            padding: 15px;
+            border-radius: 10px;
         }
-        .nav-menu a:hover {
-            color: #997321;
+
+        .category-image {
+            
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-    
-            .nav-menu a i {
-                margin-right: 5px;
-            }
-    
-            .category-section {
-                display: none;
-                width: 100%;
-                margin-top: 60px;
-            }
-    
-            .category-section.active {
-                display: block;
-            }
-    
-            .category-header {
-                width: 100%;
-                display: flex;
+
+        .category-info {
+            flex-grow: 1;
+        }
+
+        .category-title {
+            color: #664d03; /* White color */
+            margin-bottom: 10px;
+            
+            
+        }
+
+        .category-title-2 {
+            color: #664d03; /* White color */
+            margin-bottom: 10px;
+            font-weight: bold;
+            align-items: center;
+            
+        }
+
+        .category-description {
+            color: #666; /* White color */
+            font-weight: bold;
+        }
+
+        .menu-items {
+            display: grid;
+            align-items: center;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+            gap: 15px;
+            
+        }
+
+        .menu-item {
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+
+
+        .menu-item-image {
+            
+            width: 300px;
+            height: 300px;
+           object-fit: cover;
+            border-radius: 10px;
+            
+        }
+
+        .menu-item-name {
+            font-weight: bold;
+            font-size: 20px;
+            color: #664d03; /* Gold color */
+            margin-bottom: 5px;
+        }
+
+        .menu-item-description {
+            color: #664d03;
+            flex-grow: 1;
+            font-weight: bold;
+        }
+
+        .menu-item-price {
+            color: #664d03; /* Gold color */
+            font-weight: bold;
+            font-size: 18px;
+            align-self: flex-end;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
                 align-items: center;
-                margin-bottom: 20px;
-                background-color: #f5f5f5; /* Gold color */
-                padding: 15px;
-                border-radius: 10px;
+                padding: 30px 0;
             }
-    
-            .category-image {
-                
-                width: 200px;
-                height: 200px;
-                object-fit: cover;
-                border-radius: 10px;
-                margin-right: 20px;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            }
-    
-            .category-info {
-                flex-grow: 1;
-            }
-    
-            .category-title {
-                color: #664d03; /* White color */
-                margin-bottom: 10px;
+
+            .nav-menu a {
+                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+                justify-content: center;
                 
             }
 
-            .category-title-2 {
-                color: #664d03; /* White color */
-                margin-bottom: 10px;
-                font-weight: bold;
-                
+            .nav-toggle {
+                display: block;
             }
-    
-            .category-description {
-                color: #666; /* White color */
-                font-weight: bold;
-            }
-    
-            .menu-items {
-                display: grid;
-                align-items: center;
-                grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
-                gap: 20px;
+
+            .content-wrapper {
+                padding-top: 50px;
                 width: 100%;
             }
 
             .menu-item {
-                background-color: #f5f5f5;
+                background-color: white;
                 border-radius: 10px;
-                padding: 15px;
+                padding: 10px;
                 box-shadow: 0 4px 6px rgba(0,0,0,0.1);
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-            }
-    
-            .menu-item-image {
+                width: 100%;
                 
-                width: 200px;
-                height: 200px;
+            }
+
+            .menu-item-image {
+                width: 300px;
+                height: 300px;
+                
                 object-fit: cover;
+                object-position: center;
                 border-radius: 10px;
                 margin-bottom: 10px;
             }
-    
-            .menu-item-name {
-                font-weight: bold;
-                font-size: 20px;
-                color: #664d03; /* Gold color */
-                margin-bottom: 5px;
-            }
-    
-            .menu-item-description {
-                color: #664d03;
-                flex-grow: 1;
-                font-weight: bold;
-            }
-    
-            .menu-item-price {
-                color: #664d03; /* Gold color */
-                font-weight: bold;
-                font-size: 18px;
-                align-self: flex-end;
-                margin-top: 10px;
-            }
-    
-            @media (max-width: 768px) {
-                .nav-menu {
-                    flex-direction: column;
-                    align-items: center;
-                    padding: 20px 0;
-                }
-    
-                .nav-menu a {
-                    margin: 10px 0;
-                    width: 100%;
-                    text-align: center;
-                    justify-content: center;
-                }
-    
-                .nav-toggle {
-                    display: block;
-                }
-    
-                .content-wrapper {
-                    padding-top: 50px;
-                    width: 100%;
-                }
-    
-                .menu-item {
-                    background-color: white;
-                    border-radius: 10px;
-                    padding: 15px;
-                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-                    display: flex;
-                    flex-direction: column;
-                }
-    
-                .menu-item-image {
-                    width: 100%;
-                    height: 300px;
-                    object-fit: cover;
-                    border-radius: 10px;
-                    margin-bottom: 10px;
-                }
-            }
-    
-            .background-icon {
-                position: absolute;
-                pointer-events: none;
-                opacity: 0.15;
-                z-index: -1;
-                font-size: 28px;
-                color: #d4af37; /* Gold color */
-                transition: transform 0.3s ease;
-            }
-    
-            .background-icon:hover {
-                opacity: 0.2;
-                transform: scale(1.2);
-            }
-    
-            .background-icon.large {
-                font-size: 36px;
-            }
-    
-            .background-icon.small {
-                font-size: 20px;
-            }
-    
-            h1 {
-                color: #664d03; /* Gold color */
-                font-size: 3rem;
-                text-align: center;
-                margin-bottom: 2rem;
-                font-weight: 1200;
-                text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-                width: 100%;
-            }
-    
-            .button-wrapper {
-                display: flex;
-                justify-content: center;
-                margin: 20px 0;
-            }
-    
+        }
+
+        .background-icon {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.15;
+            z-index: -1;
+            font-size: 28px;
+            color: #d4af37; /* Gold color */
+            transition: transform 0.3s ease;
+        }
+
+        .background-icon:hover {
+            opacity: 0.2;
+            transform: scale(1.2);
+        }
+
+        .background-icon.large {
+            font-size: 36px;
+        }
+
+        .background-icon.small {
+            font-size: 20px;
+        }
+
+        h1 {
+            color: #664d03; /* Gold color */
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 1200;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+
+        .button-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .button-74 {
+            background-color: #f5f5f5;
+            border: 2px solid #422800;
+            border-radius: 30px;
+            box-shadow: #422800 4px 4px 0 0;
+            color: #422800;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 0 18px;
+            line-height: 50px;
+            text-align: center;
+            text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        .button-74:hover {
+            background-color: #fff;
+        }
+
+        .button-74:active {
+            box-shadow: #422800 2px 2px 0 0;
+            transform: translate(2px, 2px);
+        }
+
+        @media (min-width: 768px) {
             .button-74 {
-                background-color: #f5f5f5;
-                border: 2px solid #422800;
-                border-radius: 30px;
-                box-shadow: #422800 4px 4px 0 0;
-                color: #422800;
-                cursor: pointer;
-                display: inline-block;
-                font-weight: 600;
-                font-size: 18px;
-                padding: 0 18px;
-                line-height: 50px;
-                text-align: center;
-                text-decoration: none;
-                user-select: none;
-                -webkit-user-select: none;
-                touch-action: manipulation;
+                min-width: 120px;
+                padding: 0 25px;
             }
-    
-            .button-74:hover {
-                background-color: #fff;
-            }
-    
-            .button-74:active {
-                box-shadow: #422800 2px 2px 0 0;
-                transform: translate(2px, 2px);
-            }
-    
-            @media (min-width: 768px) {
-                .button-74 {
-                    min-width: 120px;
-                    padding: 0 25px;
-                }
-            }
-    
-            .nav-menu a.home-link {
-                font-size: 24px;
-                margin-left: 20px;
-                border-left: 1px solid #fff; /* White color */
-                padding-left: 20px;
-                height: 30px;
-                display: flex;
-                align-items: center;
-            }
-    
-            .nav-menu a.home-link i {
-                font-size: 28px;
-                margin-right: 0;
-            }
-    
-            .coffee-buttons {
-                display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin: 20px 0;
-    overflow-x: auto;
-    padding-bottom: 10px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    white-space: nowrap;
-    padding: 10px 15px;
-            }
-    
-            .coffee-button {
-               
-               
-                background-color: #fbeee0;
-                border: 2px solid #422800;
-                border-radius: 30px;
-                box-shadow: #422800 4px 4px 0 0;
-                color: #422800;
-                cursor: pointer;
-                font-weight: 600;
-                font-size: 18px;
-                padding: 10px 30px;
-                text-align: center;
-                text-decoration: none;
-                transition: all 0.3s ease;
-                width: 80%;
-                margin-bottom: 5px;
-            }
-    
-            .coffee-button:hover {
-                background-color: #fff;
-            }
-    
-            .coffee-button:active {
-                box-shadow: #422800 2px 2px 0 0;
-                transform: translate(2px, 2px);
-            }
-    
-            .coffee-button.active {
-                background-color: #422800;
-                color: #fbeee0;
-            }
-            .drink-buttons {
-                display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin: 20px 0;
-    overflow-x: auto;
-    padding-bottom: 10px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    white-space: nowrap;
-    padding: 10px 15px;
-            }
-            .drink-buttons::-webkit-scrollbar {
-    display: none;
+        }
+
+        .nav-menu a.home-link {
+            font-size: 24px;
+            margin-left: 20px;
+            border-left: 1px solid #fff; /* White color */
+            padding-left: 20px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu a.home-link i {
+            font-size: 28px;
+            margin-right: 0;
+        }
+
+        .coffee-buttons {
+            display: flex;
+justify-content: center;
+gap: 10px;
+margin: 20px 0;
+padding: 10px 15px;
+        }
+
+        .coffee-button {
+           
+           
+            background-color: #fbeee0;
+            border: 2px solid #422800;
+            border-radius: 30px;
+            box-shadow: #422800 4px 4px 0 0;
+            color: #422800;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 20px;
+            padding: 10px 30px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: auto;
+            margin-bottom: 5px;
+        }
+
+        .coffee-button:hover {
+            background-color: #fff;
+        }
+
+        .coffee-button:active {
+            box-shadow: #422800 2px 2px 0 0;
+            transform: translate(2px, 2px);
+        }
+
+        .coffee-button.active {
+            background-color: #422800;
+            color: #fbeee0;
+        }
+        .drink-buttons {
+            display: flex;
+justify-content: center;
+gap: 10px;
+margin: 20px 0;
+padding: 10px 15px;
 }
-            .drink-button {
-                 background-color: #fbeee0; 
-                border: 2px solid #422800; 
-                border-radius: 30px;
-                box-shadow: #422800 4px 4px 0 0;
-                color: #422800;
-                cursor: pointer;
-                font-weight: 600;
-                font-size: 18px;
-                padding: 8px 20px;
-                text-align: center;
-                text-decoration: none;
-                transition: all 0.3s ease;
+        
+        .drink-buttons::-webkit-scrollbar {
+display: none;
+}
+        .drink-button {
+             background-color: #fbeee0; 
+            border: 2px solid #422800; 
+            border-radius: 30px;
+            box-shadow: #422800 4px 4px 0 0;
+            color: #422800;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: auto;
+            margin-bottom: 5px;
+        }
+
+        .drink-button:hover {
+            background-color: #fff;
+        }
+
+        .drink-button:active {
+            box-shadow: #422800 2px 2px 0 0;
+            transform: translate(2px, 2px);
+        }
+
+        .drink-button.active {
+            background-color: #422800;
+            color: #fbeee0;
+        }
+        
+
+        .drink-button {
+             background-color: #fbeee0; 
+            border: 2px solid #422800; 
+            border-radius: 30px;
+            box-shadow: #422800 4px 4px 0 0;
+            color: #422800;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 20px;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .drink-button:hover {
+            background-color: #fff;
+        }
+
+        .drink-button:active {
+            box-shadow: #422800 2px 2px 0 0;
+            transform: translate(2px, 2px);
+        }
+
+        .drink-button.active {
+            background-color: #422800;
+            color: #fbeee0;
+        }
+        @media (max-width: 768px) {
+            .drink-buttons {
+                
+                display: grid;
+grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+gap: 10px; /* Adjust the space between buttons */
+align-items: center;
+justify-items: center; 
+}
+
+.drink-button {
+    width: 100%; /* Full width only on mobile */
+    margin-bottom: 5px;
+}
+            .nav-menu a.home-link {
+                border-left: none;
+                border-top: 1px solid #fff; /* White color */
+                margin-left: 0;
+                padding-left: 0;
+                margin-top: 15px;
+                padding-top: 15px;
                 width: 80%;
+                height: auto;
+            }
+        }
+
+        .language-selector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(102, 77, 3, 0.2);
+        }
+
+        .language-selector a {
+            text-decoration: none;
+            color: #d4af37; /* Gold color */
+            font-weight: 600;
+            padding: 8px 16px;
+            margin: 0 10px;
+            border: 2px solid #d4af37; /* Gold color */
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .language-selector a:hover {
+            background-color: #d4af37; /* Gold color */
+            color: #fbeee0;
+            box-shadow: #422800 2px 2px 0 0;
+        }
+
+        .language-selector a:active {
+            transform: translate(2px, 2px);
+            box-shadow: none;
+        }
+        .burger-buttons {
+            display: flex;
+justify-content: center;
+gap: 10px;
+margin: 20px 0;
+padding: 10px 15px;
+        }
+
+        .burger-button {
+             background-color: #fbeee0; 
+            border: 2px solid #422800; 
+            border-radius: 30px;
+            box-shadow: #422800 4px 4px 0 0;
+            color: #422800;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 20px;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: auto;
+        }
+
+        .burger-button:hover {
+            background-color: #fff;
+        }
+
+        .burger-button:active {
+            box-shadow: #422800 2px 2px 0 0;
+            transform: translate(2px, 2px);
+        }
+
+        .burger-button.active {
+            background-color: #422800;
+            color: #fbeee0;
+        }
+        @media (max-width: 768px) {
+            .burger-buttons {
+                flex-direction: flex;
+                align-items: center;
+            }
+            .burger-button {
+                width: 80%; /* Full width only on mobile */
                 margin-bottom: 5px;
             }
-    
-            .drink-button:hover {
-                background-color: #fff;
+            .coffee-buttons {
+                display: grid;
+grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+gap: 10px; /* Space between items */
+grid-template-rows: auto;
             }
-    
-            .drink-button:active {
-                box-shadow: #422800 2px 2px 0 0;
-                transform: translate(2px, 2px);
+            .coffee-button {
+                width: 100%; /* Full width only on mobile */
+                margin-bottom: 5px;
+                grid-column: span 1;
             }
-    
-            .drink-button.active {
-                background-color: #422800;
-                color: #fbeee0;
-            }
-             /* .drink-buttons {
-                margin: 10px -15px;
-        position: sticky;
-        top: 10px;
-        background-color: #e0f7fa;
-        z-index: 10;
-            } */
-    
-            .drink-button {
-                 background-color: #fbeee0; 
-                border: 2px solid #422800; 
-                border-radius: 30px;
-                box-shadow: #422800 4px 4px 0 0;
-                color: #422800;
-                cursor: pointer;
-                font-weight: 600;
-                font-size: 18px;
-                padding: 8px 20px;
-                text-align: center;
-                text-decoration: none;
-                transition: all 0.3s ease;
-            }
-    
-            .drink-button:hover {
-                background-color: #fff;
-            }
-    
-            .drink-button:active {
-                box-shadow: #422800 2px 2px 0 0;
-                transform: translate(2px, 2px);
-            }
-    
-            .drink-button.active {
-                background-color: #422800;
-                color: #fbeee0;
-            }
-            @media (max-width: 768px) {
-                .nav-menu a.home-link {
-                    border-left: none;
-                    border-top: 1px solid #fff; /* White color */
-                    margin-left: 0;
-                    padding-left: 0;
-                    margin-top: 15px;
-                    padding-top: 15px;
-                    width: 80%;
-                    height: auto;
-                }
-            }
-    
+            
             .language-selector {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 20px;
-                margin-top: 40px;
-                border-top: 1px solid rgba(102, 77, 3, 0.2);
+                padding: 15px;
+                margin-top: 30px;
             }
-    
+
             .language-selector a {
-                text-decoration: none;
-                color: #d4af37; /* Gold color */
-                font-weight: 600;
-                padding: 8px 16px;
-                margin: 0 10px;
-                border: 2px solid #d4af37; /* Gold color */
-                border-radius: 20px;
-                transition: all 0.3s ease;
+                padding: 6px 12px;
+                font-size: 14px;
             }
-    
-            .language-selector a:hover {
-                background-color: #d4af37; /* Gold color */
-                color: #fbeee0;
-                box-shadow: #422800 2px 2px 0 0;
-            }
-    
-            .language-selector a:active {
-                transform: translate(2px, 2px);
-                box-shadow: none;
-            }
-            .burger-buttons {
-                display: flex;
-                justify-content: center;
-                gap: 10px;
-                margin: 20px 0;
-            }
-    
-            .burger-button {
-                 background-color: #fbeee0; 
-                border: 2px solid #422800; 
-                border-radius: 30px;
-                box-shadow: #422800 4px 4px 0 0;
-                color: #422800;
-                cursor: pointer;
-                font-weight: 600;
-                font-size: 18px;
-                padding: 8px 20px;
-                text-align: center;
-                text-decoration: none;
-                transition: all 0.3s ease;
-                width: 40%;
-            }
-    
-            .burger-button:hover {
-                background-color: #fff;
-            }
-    
-            .burger-button:active {
-                box-shadow: #422800 2px 2px 0 0;
-                transform: translate(2px, 2px);
-            }
-    
-            .burger-button.active {
-                background-color: #422800;
-                color: #fbeee0;
-            }
-            @media (max-width: 768px) {
-                .language-selector {
-                    padding: 15px;
-                    margin-top: 30px;
-                }
-    
-                .language-selector a {
-                    padding: 6px 12px;
-                    font-size: 14px;
-                }
-            }
-        </style>
+        }
+    </style>
 </head>
 <body>
 
@@ -625,7 +638,7 @@
                 <img src="https://lh3.googleusercontent.com/d/1WQqWC6bt00hW2TPFP9Gf12dnrVAbDplp=s800" alt="Classic Cheeseburger" class="menu-item-image">
                 <div class="menu-item-name">ببيج تيكس برجر</div>
                 <div class="menu-item-description">شريحتان من لحم الواغيو الأمريكي مع جبنة مذابة، خس، طماطم، لحم مقدد بقري، وصلصتنا الخاصة.</div>
-                <div class="menu-item-price">درهم 32.00</div>
+                <div class="menu-item-price">درهم 33.00</div>
             </div>
             <div class="menu-item">
                 <img src="https://lh3.googleusercontent.com/d/1WbiJoFhYwtIdG7w5WEIiU_IKqrsvMk61=s800" alt="Vegetarian Burger" class="menu-item-image">
@@ -639,7 +652,7 @@
                     <div class="menu-item-name">برجر جواكامولي</div>
                     <div class="menu-item-description">قطعة لحم واجيو مع جبن مذاب، فلفل، بطاطس مقرمشة، جواكامولي، بيكون بقري، كريمة جبن وصلصة جواكامولي الخاصة بنا
                     </div>
-                    <div class="menu-item-price">درهم 36.00</div>
+                    <div class="menu-item-price">درهم 34.00</div>
                 </div>
             </div>
         </div>
@@ -868,7 +881,7 @@
         <div class="category-header">
             <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/Mixed%20passion%20fruit.jpg" alt="Iced Coffee" class="category-image">
             <div class="category-info">
-                <h2 class="category-title">موهيتو فواكه مشكلة</h2>
+                <h2 class="category-title">موهيتو الفراولة والباشن فروت</h2>
                 <p class="category-description">مزيج رائع من فاكهة العاطفة الحامضة والفراولة الحلوة، مع النعناع الطازج، عصير الليمون، السكر، وماء الصودا. يُقدم مع الثلج، هذا المشروب النابض بالحياة هو مزيج منعش من النكهات الاستوائية والفواكه.</p>
                 <div class="menu-item-price">درهم 20.00</div>
             </div>
@@ -971,217 +984,240 @@
             
         
 
-        <section id="coffee" class="category-section">
-            <h1 style="text-shadow:#664d03;">القهوة</h1>
-            <div class="coffee-buttons">
-                <button class="coffee-button active" onclick="toggleCoffeeType('hot-coffee')">حار</button>
-                <button class="coffee-button" onclick="toggleCoffeeType('iced-coffee')">بارد</button>
-                <button class="coffee-button" onclick="toggleCoffeeType('special-coffee')">القهوة المتخصصة</button>
-            </div>
+                <!-- Coffee Section -->
+                        <section id="coffee" class="category-section">
+                            <h1 style="text-shadow:#664d03;">Coffee</h1>
+                            <div class="coffee-buttons">
+                                <button class="coffee-button active" onclick="toggleCoffeeType('hot-coffee')">قهوة ساخنة</button>
+                                <button class="coffee-button" onclick="toggleCoffeeType('iced-coffee')">قهوة مثلجة</button>
+                                <button class="coffee-button" onclick="toggleCoffeeType('special-coffee')">قهوة مختصة</button>
+                                <button class="coffee-button" onclick="toggleCoffeeType('tea')">شاي</button>
+                            </div>
+                          
+                            <div id="hot-coffee" class="coffee-type" style="display: block;">
+                                <div class="category-header">
+                                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/Winter%20%20Cappacino.jpg" alt="Hot Coffee" class="category-image">
+                                    <div class="category-info">
+                                        <h2 class="category-title">ونتر كابتشينو</h2>
+                                        <div class="menu-item-price">AED 23.00</div>
+                                    </div>
+                                </div>
+                                <div class="menu-items">
             
-            <div id="hot-coffee" class="coffee-type">
-                <div class="category-header">
-                    <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/spicies.png" alt="Hot Coffee" class="category-image">
-                    <div class="category-info">
-                        <h2 class="category-title">قهوة سبايسي دبل</h2>
-                        <div class="menu-item-price">درهم 25.00</div>
-                    </div>
-                </div>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/hot%20choco.jpg" alt="Hot Chocolate" class="menu-item-image">
-                        <div class="menu-item-name"> هوت شوكولات</div>
-                        <div class="menu-item-price">درهم 25.00</div> 
-                    </div>
-                    <div class="menu-item">
-                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/kinder%20hot%20choco.png" alt="Tiramisu Latte" class="menu-item-image">
-                        <div class="menu-item-name">كندر هوت شوكولات</div>
-                        <div class="menu-item-price">درهم 26.00</div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/tiramisu.png" alt="Tiramisu Latte" class="menu-item-image">
-                        <div class="menu-item-name">لاتيه تيراميسو</div>
-                        <div class="menu-item-price">درهم 27.00</div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/spicies.png" alt="Espresso" class="menu-item-image">
-                        <div class="menu-item-name">قهوة سبايسي سنقل</div>
-                        <div class="menu-item-price">درهم 21.00</div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/dale%20coffee.jpg" alt="Espresso" class="menu-item-image">
-                        <div class="menu-item-name">قهوة ديل </div> 
-                        <div class="menu-item-price">درهم 18.00</div> 
-                    </div>
-                    <div class="menu-item">
-                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20Dice%20special%20tea.jpg" alt="Lemonade" class="menu-item-image">
-                        <div class="menu-item-name">شاي خاص دايس</div>
-                        <div class="menu-item-price">درهم 30.00</div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/Iraqi%20Tea%20pot.jpg" alt="Lemonade" class="menu-item-image">
-                        <div class="menu-item-name">إبريق شاي عراقي</div>
-                        <div class="menu-item-price">درهم 25.00</div>
-                    </div>
-                        <div class="menu-item">
-                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20iraqi%20tea.png" alt="Lemonade" class="menu-item-image">
-                            <div class="menu-item-name">شاي عراقي</div>
-                            <div class="menu-item-price">درهم 3.00</div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cold%20v60.png" alt="Lemonade" class="menu-item-image">
-                            <div class="menu-item-name">V60</div>
-                            <div class="menu-item-price">درهم 34.00</div> 
-                        </div>
-                        <div class="menu-item">
-                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/turkish.png" alt="Cappuccino" class="menu-item-image">
-                            <div class="menu-item-name">قهوة تركية</div>
-                            <div class="menu-item-price">درهم 13.00</div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="https://www.littlesugarsnaps.com/wp-content/uploads/2022/09/spanish-latte-square.jpg" alt="Espresso" class="menu-item-image">
-                            <div class="menu-item-name">لاتيه إسباني</div>
-                            <div class="menu-item-price">درهم 24.00</div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="https://lh3.googleusercontent.com/d/1RrhF6C76I__XEHJ3AgOIZgBaKH0OtTpg=s800" alt="Cappuccino" class="menu-item-image">
-                            <div class="menu-item-name">لاتيه</div>
-                            <div class="menu-item-price">درهم 19.00</div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/Winter%20%20Cappacino.jpg" alt="Cappuccino" class="menu-item-image">
-                            <div class="menu-item-name">ونتر كابتشينو</div>
-                            <div class="menu-item-price">درهم 23.00</div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/updated%20espresso.png" alt="Espresso" class="menu-item-image">
-                            <div class="menu-item-name">إسبريسو</div>
-                            <div class="menu-item-price">درهم 10.00</div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/updated%20espresso.png" alt="Espresso" class="menu-item-image">
-                            <div class="menu-item-name">إسبريسو دبل</div>
-                            <div class="menu-item-price">درهم 15.00</div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/espresso%20macchiato.png" alt="Espresso" class="menu-item-image">
-                            <div class="menu-item-name">إسبريسو ماكياتو</div>
-                            <div class="menu-item-price">درهم 18.00</div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="https://lh3.googleusercontent.com/d/1WTqn8Q1uKRY3gPfozYNY_Lt3-ADo7E75=s800" alt="Cappuccino" class="menu-item-image">
-                            <div class="menu-item-name">كابتشينو</div>
-                            <div class="menu-item-price">درهم 20.00</div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/new%20cortado.png" alt="Cappuccino" class="menu-item-image">
-                            <div class="menu-item-name">كورتادو</div>
-                            <div class="menu-item-price">درهم 17.00</div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/ice%20spanish%20cortado.png" alt="Cappuccino" class="menu-item-image">
-                            <div class="menu-item-name">كورتادو إسباني</div>
-                            <div class="menu-item-price">درهم 21.00</div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="https://lh3.googleusercontent.com/d/1WTqn8Q1uKRY3gPfozYNY_Lt3-ADo7E75=s800" alt="Cappuccino" class="menu-item-image">
-                            <div class="menu-item-name">فلات وايت</div>
-                            <div class="menu-item-price">درهم 20.00</div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/americano%20shot.png" alt="Cappuccino" class="menu-item-image">
-                            <div class="menu-item-name">أمريكانو</div>
-                            <div class="menu-item-price">درهم 18.00</div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="https://images.immediate.co.uk/production/volatile/sites/2/2021/11/Mocha-1fc71f7.png" alt="Cappuccino" class="menu-item-image">
-                            <div class="menu-item-name">موكا</div>
-                            <div class="menu-item-price">درهم 25.00</div>
-                        </div>
-                        <div class="menu-item">
-                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/new%20picolo.png" alt="Cappuccino" class="menu-item-image">
-                            <div class="menu-item-name">بيكولو</div>
-                            <div class="menu-item-price">درهم 19.00</div>
-                        </div>
-                    </div>
-    
-                </div>
-        
-            <div id="iced-coffee" class="coffee-type" style="display: none;">
-                <div class="category-header">
-                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/iced%20latte.png" alt="Iced Coffee" class="category-image">
-                    <div class="category-info">
-                        <h2 class="category-title">لاتيه مثلج</h2>
-                        <div class="menu-item-price">درهم 20.00</div>
-                    </div>
-            </div>
+                                    <div class="menu-item">
+                                        <img src="https://lh3.googleusercontent.com/d/1RrhF6C76I__XEHJ3AgOIZgBaKH0OtTpg=s800" alt="Espresso" class="menu-item-image">
+                                        <div class="menu-item-name">لاتيه إسباني
+                                        </div>
+                                        <div class="menu-item-price">AED 24.00</div>
+                                    </div>
+                                    <div class="menu-item">
+                                        <img src="https://lh3.googleusercontent.com/d/1RrhF6C76I__XEHJ3AgOIZgBaKH0OtTpg=s800" alt="Cappuccino" class="menu-item-image">
+                                        <div class="menu-item-name">لاتيه</div>
+                                        <div class="menu-item-price">AED 19.00</div>
+                                    </div>
+                                    <div class="menu-item">
+                                        <img src="https://lh3.googleusercontent.com/d/1WTqn8Q1uKRY3gPfozYNY_Lt3-ADo7E75=s800" alt="Cappuccino" class="menu-item-image">
+                                        <div class="menu-item-name">كابتشينو</div>
+                                        <div class="menu-item-price">AED 20.00</div>
+                                    </div>
+                                <div class="menu-item">
+                                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/updated%20espresso.png" alt="Espresso" class="menu-item-image">
+                                    <div class="menu-item-name">إسبريسو</div>
+                                    <div class="menu-item-price">AED 10.00</div>
+                                </div>
+                                <div class="menu-item">
+                                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/updated%20espresso.png" alt="Espresso" class="menu-item-image">
+                                    <div class="menu-item-name">إسبريسو دبل
+                                    </div>
+                                    <div class="menu-item-price">AED 15.00</div>
+                                </div>
+                                <div class="menu-item">
+                                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/turkish.png" alt="Cappuccino" class="menu-item-image">
+                                    <div class="menu-item-name">قهوة تركية</div>
+                                    <div class="menu-item-price">AED 13.00</div>
+                                </div>
+                                <div class="menu-item">
+                                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/espresso%20macchiato.png" alt="Espresso" class="menu-item-image">
+                                    <div class="menu-item-name">إسبريسو ماكياتو</div>
+                                    <div class="menu-item-price">AED 18.00</div>
+                                </div>
+                               
+                                    <div class="menu-item">
+                                        <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/spicies.png" alt="Espresso" class="menu-item-image">
+                                        <div class="menu-item-name">قهوة سبايسي سنقل</div> 
+                                        <div class="menu-item-price">AED 19.00</div> 
+                                    </div>
+                              
+                                        <div class="menu-item">
+                                            <img src="https://storage.googleapis.com/dicedine/menu%20items/Menu%20Ready/Drinks/spicies.png" alt="Cappuccino" class="menu-item-image">
+                                            <div class="menu-item-name">قهوة سبايسي دبل</div>
+                                            <div class="menu-item-price">AED 24.00</div>
+                                        </div>
+                                        
+                                    <div class="menu-item">
+                                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/tiramisu.png" alt="Tiramisu Latte" class="menu-item-image">
+                                        <div class="menu-item-name">لاتيه تيراميسو</div>
+                                        <div class="menu-item-price">AED 25.00</div>
+                                    </div>
+                                
+                                    <div class="menu-item">
+                                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/dale%20coffee.jpg" alt="Espresso" class="menu-item-image">
+                                        <div class="menu-item-name">قهوة ديل </div> 
+                                        <div class="menu-item-price">AED 18.00</div> 
+                                    </div>
+                                   
+                                
+                                        <div class="menu-item">
+                                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cold%20v60.png" alt="Lemonade" class="menu-item-image">
+                                            <div class="menu-item-name">V60</div>
+                                            <div class="menu-item-price">AED 27.00</div> 
+                                        </div>
+                                      
+                                   
+                                       
+                                       
+                                        <div class="menu-item">
+                                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/new%20cortado.png" alt="Cappuccino" class="menu-item-image">
+                                            <div class="menu-item-name">كورتادو</div>
+                                            <div class="menu-item-price">AED 17.00</div>
+                                        </div>
+                                        <div class="menu-item">
+                                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/ice%20spanish%20cortado.png" alt="Cappuccino" class="menu-item-image">
+                                            <div class="menu-item-name">كورتادو إسباني</div>
+                                            <div class="menu-item-price">AED 21.00</div>
+                                        </div>
+                                        <div class="menu-item">
+                                            <img src="https://lh3.googleusercontent.com/d/1WTqn8Q1uKRY3gPfozYNY_Lt3-ADo7E75=s800" alt="Cappuccino" class="menu-item-image">
+                                            <div class="menu-item-name">فلات وايت </div>
+                                            <div class="menu-item-price">AED 20.00</div>
+                                        </div>
+                                        <div class="menu-item">
+                                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/americano%20shot.png" alt="Cappuccino" class="menu-item-image">
+                                            <div class="menu-item-name">أمريكانو</div>
+                                            <div class="menu-item-price">AED 18.00</div>
+                                        </div>
+                                        <div class="menu-item">
+                                            <img src="https://images.immediate.co.uk/production/volatile/sites/2/2021/11/Mocha-1fc71f7.png" alt="Cappuccino" class="menu-item-image">
+                                            <div class="menu-item-name">موكا</div>
+                                            <div class="menu-item-price">AED 21.00</div>
+                                        </div>
+                                        <div class="menu-item">
+                                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/new%20picolo.png" alt="Cappuccino" class="menu-item-image">
+                                            <div class="menu-item-name">بيكولو</div>
+                                            <div class="menu-item-price">AED 17.00</div>
+                                        </div>
+                                        <div class="menu-item">
+                                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/hot%20choco.jpg" alt="Hot Chocolate" class="menu-item-image">
+                                            <div class="menu-item-name">هوت شوكولات</div>
+                                            <div class="menu-item-price">AED 22.00</div> 
+                                        </div>
+                                        <div class="menu-item">
+                                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/kinder%20hot%20choco.png" alt="Tiramisu Latte" class="menu-item-image">
+                                            <div class="menu-item-name">كندر هوت شوكولات</div>
+                                            <div class="menu-item-price">AED 25.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                        
+                            <div id="iced-coffee" class="coffee-type" style="display: none;">
+                                <div class="category-header">
+                                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/iced%20latte.png" alt="Iced Coffee" class="category-image">
+                                    <div class="category-info">
+                                        <h2 class="category-title">لاتيه مثلج</h2>
+                                        <div class="menu-item-price">AED 20.00</div>
+                                    </div>
+                            </div>
+                                
+                                <div class="menu-items">
+                                    <div class="menu-item">
+                                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/iced%20latte.png" alt="Iced Spanish" class="menu-item-image">
+                                        <div class="menu-item-name">لاتيه إسباني مثلج</div>
+                                        <div class="menu-item-price">AED 24.00</div> 
+                                    </div>
                 
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/iced%20latte.png" alt="Iced Spanish" class="menu-item-image">
-                        <div class="menu-item-name">لاتيه إسباني مثلج</div>
-                        <div class="menu-item-price">درهم 22.00</div> 
-                    </div>
-                        <div class="menu-item">
-                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/colddreamlatte.jpg" alt="Iced Spanish" class="menu-item-image">
-                            <div class="menu-item-name">كولد دريم لاتيه</div>
-                            <div class="menu-item-price">درهم 24.00</div> 
-                        </div>
-                    <div class="menu-item">
-                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/iced%20americano.png" alt="Iced Americano" class="menu-item-image">
-                        <div class="menu-item-name">أمريكانو مثلج</div>
-                        <div class="menu-item-price">درهم 21.00</div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/ice%20spanish%20cortado.png" alt="Iced Americano" class="menu-item-image">
-                        <div class="menu-item-name">كورتادو إسباني مثلج</div>
-                        <div class="menu-item-price">درهم 21.00</div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/iced%20mocha.png" alt="Iced Americano" class="menu-item-image">
-                        <div class="menu-item-name">موكا مثلجة</div>
-                        <div class="menu-item-price">درهم 25.00</div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cold%20v60.png" alt="Iced Americano" class="menu-item-image">
-                        <div class="menu-item-name">V60 مثلج</div>
-                        <div class="menu-item-price">درهم 35.00</div>
-                    </div>
-                </div>
-            </div>
-            <div id="special-coffee" class="coffee-type" style="display: none;">
-                <div class="category-header">
-                    <img src="https://lh3.googleusercontent.com/d/1qZgu28QANPK7A4hBrobvJiTnjqub6awW=s800" alt="Hot Coffee" class="category-image">
-                    <div class="category-info">
-                        <h2 class="category-title">ايس كريم لاتيه</h2>
-                        <div class="menu-item-price">درهم 25.00</div>
-                    </div>
-                </div>
-
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <img src="https://lh3.googleusercontent.com/d/1wOM_TtJpYgtUGKtNFdqXNChgAzc397zf=s800" alt="Iced Spanish" class="menu-item-image">
-                        <div class="menu-item-name">كريمي إسبريسو</div>
-                        <div class="menu-item-price">درهم 25.00</div> 
-                    </div>
-                    <div class="menu-item">
-                        <img src="https://lh3.googleusercontent.com/d/1EPl5fgrnGhyoJmgbXLEvzKgynQ2Ex3av=s800" alt="Iced Spanish" class="menu-item-image">
-                        <div class="menu-item-name">v12</div>
-                        <div class="menu-item-price">درهم 25.00</div> 
-                    </div>
-                    <div class="menu-item">
-                        <img src="https://lh3.googleusercontent.com/d/17fk0wbJpELNwECbc0akyaO-I71sAS-X5=s800" alt="Iced Spanish" class="menu-item-image">
-                        <div class="menu-item-name">فرابيه الفستق</div>
-                        <div class="menu-item-price">درهم 25.00</div> 
-                    </div>
-                        <div class="menu-item">
-                            <img src="https://lh3.googleusercontent.com/d/1wOM_TtJpYgtUGKtNFdqXNChgAzc397zf=s800" alt="Iced Spanish" class="menu-item-image">
-                            <div class="menu-item-name">سبايسي بارد</div>
-                            <div class="menu-item-price">درهم 25.00</div> 
-                        </div>
-                    </div>
-                </div>
-        </section>
+                                        <div class="menu-item">
+                                            <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/colddreamlatte.jpg" alt="Iced Spanish" class="menu-item-image">
+                                            <div class="menu-item-name">كولد دريم لاتيه</div>
+                                            <div class="menu-item-price">AED 24.00</div> 
+                                        </div>
+                    
+                                    <div class="menu-item">
+                                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/iced%20americano.png" alt="Iced Americano" class="menu-item-image">
+                                        <div class="menu-item-name">أمريكانو مثلج</div>
+                                        <div class="menu-item-price">AED 18.00</div>
+                                    </div>
+                                    <div class="menu-item">
+                                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/ice%20spanish%20cortado.png" alt="Iced Americano" class="menu-item-image">
+                                        <div class="menu-item-name">كورتادو إسباني مثلج</div>
+                                        <div class="menu-item-price">AED 21.00</div>
+                                    </div>
+                                    <div class="menu-item">
+                                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/iced%20mocha.png" alt="Iced Americano" class="menu-item-image">
+                                        <div class="menu-item-name">موكا مثلجة</div>
+                                        <div class="menu-item-price">AED 25.00</div>
+                                    </div>
+                                    <div class="menu-item">
+                                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cold%20v60.png" alt="Iced Americano" class="menu-item-image">
+                                        <div class="menu-item-name">مثلج V60</div>
+                                        <div class="menu-item-price">AED 27.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- TEA SECTION -->
+                            <div id="tea" class="coffee-type" style="display: none;">
+                                <div class="category-header">
+                                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20iraqi%20tea.png" alt="Hot Coffee" class="category-image">
+                                    <div class="category-info">
+                                        <h2 class="category-title">شاي عراقي</h2>
+                                        <div class="menu-item-price">AED 3.00</div>
+                                    </div>
+                                </div>
+                                <div class="menu-items">
+                                <div class="menu-item">
+                                    <img src="https://lh3.googleusercontent.com/d/1DobTbIpizl9IJpb346CBt_NON3hh1vlV=s800" alt="Lemonade" class="menu-item-image" >
+                                    <div class="menu-item-name">إبريق شاي عراقي</div>
+                                    <div class="menu-item-price">AED 20.00</div>
+                                </div>
+                                <div class="menu-item">
+                                    <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20Dice%20special%20tea.jpg" alt="Lemonade" class="menu-item-image">
+                                    <div class="menu-item-name">شاي خاص دايس</div>
+                                    <div class="menu-item-description">  مع اختيارك من فاكهة العاطفة أو التوت</div>
+                                    <div class="menu-item-price">AED 25.00</div>
+                                </div>
+                                </div>
+                                 </div>
+                                 <div id="special-coffee" class="coffee-type" style="display: none;">
+                                    <div class="category-header">
+                                        <img src="https://lh3.googleusercontent.com/d/1qZgu28QANPK7A4hBrobvJiTnjqub6awW=s800" alt="Hot Coffee" class="category-image">
+                                        <div class="category-info">
+                                            <h2 class="category-title">ايس كريم لاتيه</h2>
+                                            <div class="menu-item-price">AED 25.00</div>
+                                        </div>
+                                    </div>
+                
+                                    <div class="menu-items">
+                                        <div class="menu-item">
+                                            <img src="https://lh3.googleusercontent.com/d/1wOM_TtJpYgtUGKtNFdqXNChgAzc397zf=s800" alt="Iced Spanish" class="menu-item-image">
+                                            <div class="menu-item-name">كريمي إسبريسو  </div>
+                                            <div class="menu-item-price">AED 25.00</div> 
+                                        </div>
+                                        <div class="menu-item">
+                                            <img src="https://lh3.googleusercontent.com/d/1EPl5fgrnGhyoJmgbXLEvzKgynQ2Ex3av=s800" alt="Iced Spanish" class="menu-item-image">
+                                            <div class="menu-item-name">v12</div>
+                                            <div class="menu-item-price">AED 25.00</div> 
+                                        </div>
+                                        <div class="menu-item">
+                                            <img src="https://lh3.googleusercontent.com/d/17fk0wbJpELNwECbc0akyaO-I71sAS-X5=s800" alt="Iced Spanish" class="menu-item-image">
+                                            <div class="menu-item-name">فرابيه الفستق</div>
+                                            <div class="menu-item-price">AED 25.00</div> 
+                                        </div>
+                                            <div class="menu-item">
+                                                <img src="https://lh3.googleusercontent.com/d/1wOM_TtJpYgtUGKtNFdqXNChgAzc397zf=s800" alt="Iced Spanish" class="menu-item-image">
+                                                <div class="menu-item-name">سبايسي بارد</div>
+                                                <div class="menu-item-price">AED 25.00</div> 
+                                            </div>
+                            </section>
      
         <section id="Dessert" class="category-section">
             <h1 style="text-shadow:#664d03 ;">الحلويات</h1>
