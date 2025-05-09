@@ -12,7 +12,8 @@
                 margin: 0;
                 padding: 0;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background-color: #e0f7fa; /* Light beige background */
+                background-color: #e0f7fa; 
+                
                 line-height: 1.6;
                 overflow-x: hidden; /* Prevent horizontal scroll */
                 width: 100%;
@@ -1004,7 +1005,7 @@
                     <button class="coffee-button active" onclick="toggleCoffeeType('hot-coffee')">Hot Coffee</button>
                     <button class="coffee-button" onclick="toggleCoffeeType('iced-coffee')">Iced Coffee</button>
                     <button class="coffee-button" onclick="toggleCoffeeType('special-coffee')">Specialty Coffee</button>
-                    <button class="coffee-button" onclick="toggleCoffeeType('tea')">Tea</button>
+                    <button class="coffee-button" onclick="toggleCoffeeType('tea')">Matcha</button>
                 </div>
               
                 <div id="hot-coffee" class="coffee-type" style="display: block;">
@@ -1118,6 +1119,23 @@
                                 <div class="menu-item-price">AED 17.00</div>
                             </div>
                             <div class="menu-item">
+                                <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20iraqi%20tea.png" alt="Hot Chocolate" class="menu-item-image">
+                                <div class="menu-item-name">Iraqi Tea</div>
+                                <div class="menu-item-price">AED 3.00</div> 
+                            </div>
+                            <div class="menu-item">
+                                <img src="https://lh3.googleusercontent.com/d/1DobTbIpizl9IJpb346CBt_NON3hh1vlV=s800" alt="Lemonade" class="menu-item-image" >
+                                <div class="menu-item-name">Iraqi Tea Pot</div>
+                                <div class="menu-item-price">AED 20.00</div>
+                            </div>
+                            <div class="menu-item">
+                                <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20Dice%20special%20tea.jpg" alt="Lemonade" class="menu-item-image">
+                                <div class="menu-item-name">Dice Special Tea Pot</div>
+                                <div class="menu-item-description">  With your selction of passion fruit or berry</div>
+                                <div class="menu-item-price">AED 25.00</div>
+                            </div>
+                           
+                            <div class="menu-item">
                                 <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/hot%20choco.jpg" alt="Hot Chocolate" class="menu-item-image">
                                 <div class="menu-item-name">Hot Chocolate</div>
                                 <div class="menu-item-price">AED 22.00</div> 
@@ -1178,26 +1196,31 @@
                 <!-- TEA SECTION -->
                 <div id="tea" class="coffee-type" style="display: none;">
                     <div class="category-header">
-                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20iraqi%20tea.png" alt="Hot Coffee" class="category-image">
+                        <img src="https://lh3.googleusercontent.com/d/1BAu2z7Y5Ibye5r9ydSmyBlhruKw08OYP=s800" alt="Hot Coffee" class="category-image">
                         <div class="category-info">
-                            <h2 class="category-title">Iraqi Tea</h2>
-                            <div class="menu-item-price">AED 3.00</div>
+                            <h2 class="category-title"> Iced Matcha Latte</h2>
+                            <div class="menu-item-description">Coconut Milk</div>
+                            <div class="menu-item-description">Milk</div>
+                            <div class="menu-item-price">AED 25.00</div>
                         </div>
                     </div>
-                    <div class="menu-items">
-                    <div class="menu-item">
-                        <img src="https://lh3.googleusercontent.com/d/1DobTbIpizl9IJpb346CBt_NON3hh1vlV=s800" alt="Lemonade" class="menu-item-image" >
-                        <div class="menu-item-name">Iraqi Tea Pot</div>
-                        <div class="menu-item-price">AED 20.00</div>
+                    <div class="category-header">
+                        <img src="https://lh3.googleusercontent.com/d/1fHCMU1AKKVrwpGJZvQoVDaXLrueXhzSY=s800" alt="Hot Coffee" class="category-image">
+                        <div class="category-info">
+                            <h2 class="category-title">Matcha Latte</h2>
+                            <div class="menu-item-description">Coconut Milk</div>
+                            <div class="menu-item-description">Milk</div>
+                            <div class="menu-item-price">AED 25.00</div>
+                        </div>
                     </div>
-                    <div class="menu-item">
-                        <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/cropped%20Dice%20special%20tea.jpg" alt="Lemonade" class="menu-item-image">
-                        <div class="menu-item-name">Dice Special Tea Pot</div>
-                        <div class="menu-item-description">  With your selction of passion fruit or berry</div>
-                        <div class="menu-item-price">AED 25.00</div>
-                    </div>
-                    </div>
-                     </div>
+                    <!-- <div class="menu-items">
+                        <div class="menu-item">
+                            <img src="https://lh3.googleusercontent.com/d/1fHCMU1AKKVrwpGJZvQoVDaXLrueXhzSY=s800" alt="Iced Americano" class="menu-item-image">
+                            <div class="menu-item-name">Matcha Latte</div>
+                            <div class="menu-item-price">AED 25.00</div>
+                        </div>
+                     </div> -->
+</div>
 
 
                 <div id="special-coffee" class="coffee-type" style="display: none;">
