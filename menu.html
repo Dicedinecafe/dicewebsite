@@ -147,6 +147,26 @@
                 gap: 15px;
                 
             }
+            .wings-items {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+    gap: 15px;
+    margin: 2rem auto 0;
+    max-width: 1200px;
+    justify-content: center;
+}
+
+.wings-item {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
             .menu-item {
                 background-color: #f5f5f5;
@@ -559,7 +579,128 @@
                     padding: 6px 12px;
                     font-size: 14px;
                 }
-            }
+                h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+}
+
+.wings-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      min-height: 100vh;
+    }
+
+    .wing-side {
+      width: 50%;
+      min-height: 400px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 20px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      color: black;
+    }
+
+    .traditional {
+      background-image: url('https://static01.nyt.com/images/2024/01/23/multimedia/as-chicken-wings-bjfp/as-chicken-wings-bjfp-threeByTwoMediumAt2X.jpg?quality=75&auto=webp');
+    }
+
+    .boneless {
+      background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80');
+    }
+
+    .wing-text {
+      background: #e0f7fa;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .wing-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .wing-info {
+      font-size: 1rem;
+      margin-top: 5px;
+    }
+
+    .sauce-section {
+      width: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .sauce-item {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .sauce-name {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .spice-bar {
+      width: 160px;
+      height: 20px;
+      background-color: #ffffff;
+      border-radius: 999px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .spice-fill {
+      height: 100%;
+      border-radius: 999px 0 0 999px;
+    }
+
+    .mild {
+      width: 40%;
+      background-color: #4CAF50;
+    }
+
+    .hot {
+      width: 70%;
+      background-color: #FF9800;
+    }
+
+    .extreme {
+      width: 100%;
+      background-color: #F44336;
+    }
+    @media (max-width: 768px) {
+        .wings-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px;
+  flex-wrap: wrap; /* allow wrapping */
+  min-height: 100vh;
+}
+.wing-side traditional, .wing-side boneless {
+    .wing-side {
+    flex: 1 1 100%;
+  }
+
+.wing-side, .sauce-section {
+  flex: 1 1 300px;   /* base width 300px, grow and shrink */
+  min-width: 280px;  /* don’t get too small */
+  max-width: 100%;
+  min-height: 300px;
+  box-sizing: border-box;
+}
+    }
         </style>
     </head>
 <body>
@@ -582,6 +723,9 @@
             <a href="#" onclick="showCategory('pasta')">
                 <i class="fas fa-utensils"></i> Pasta
             </a>
+            <!-- <a href="#" onclick="showCategory('wings')">
+                <i class="fas fa-utensils"></i> Wings
+            </a> -->
             <a href="#" onclick="showCategory('sides')">
                 <i class=" fa-solid fa-drumstick-bite"></i> Sides  
             </a>
@@ -702,18 +846,62 @@
 
             <!-- // Wraps Section -->
             
-            <section id="wraps" class="category-section">
-                <h1 style="text-shadow:#664d03 ;">Wraps</h1>
-                <!-- <h2 class = "category-title" style="justify-content: center; text-align: center; margin-top: -20px; margin-bottom: 20px; font-size: medium;">All burgers are served with fries</h2> -->
-                   <div class="category-header">
-                       <img src="https://storage.googleapis.com/dicedine/menu%20items/newimgs/half%20burg.jpg" alt="Burgers" class="category-image">
-                       <div class="category-info">
-                           <h2 class="category-title">Signature Burger</h2>
-                           <p class="category-description">American Wagyu beef patty topped with sweet onion jam and crispy beef bacon, all dipped in our signature creamy cheese sauce.</p>
-                           <div class="menu-item-price">AED 35.00</div>
-                       </div>
-                   </div>
-
+            <section id="wings" class="category-section">
+                <div class="wings-container">
+                    <h1 style="text-shadow:#664d03 ;">Wings</h1>
+                    <!-- Left: Traditional Wings -->
+                    <div class="wing-side traditional">
+                      <div class="wing-text">
+                        <div class="wing-title">Traditional Wings</div>
+                        <div class="wing-info">6 pcs – AED 18</div>
+                      </div>
+                    </div>
+                
+                    <!-- Center: Sauce List -->
+                    <div class="sauce-section">
+                      <div class="sauce-item">
+                        <div class="sauce-name">Garlic Parmesan</div>
+                        <div class="spice-bar"><div class="spice-fill mild"></div></div>
+                      </div>
+                      <div class="sauce-item">
+                        <div class="sauce-name">Buffalo</div>
+                        <div class="spice-bar"><div class="spice-fill hot"></div></div>
+                      </div>
+                      <div class="sauce-item">
+                        <div class="sauce-name">Spicy Mayo</div>
+                        <div class="spice-bar"><div class="spice-fill extreme"></div></div>
+                      </div>
+                      <div class="sauce-item">
+                        <div class="sauce-name">Spicy Mayo</div>
+                        <div class="spice-bar"><div class="spice-fill extreme"></div></div>
+                      </div>
+                      <div class="sauce-item">
+                        <div class="sauce-name">Spicy Mayo</div>
+                        <div class="spice-bar"><div class="spice-fill extreme"></div></div>
+                      </div>
+                      <div class="sauce-item">
+                        <div class="sauce-name">Spicy Mayo</div>
+                        <div class="spice-bar"><div class="spice-fill extreme"></div></div>
+                      </div>
+                      <div class="sauce-item">
+                        <div class="sauce-name">Spicy Mayo</div>
+                        <div class="spice-bar"><div class="spice-fill extreme"></div></div>
+                      </div>
+                      <div class="sauce-item">
+                        <div class="sauce-name">Spicy Mayo</div>
+                        <div class="spice-bar"><div class="spice-fill extreme"></div></div>
+                      </div>
+                    </div>
+                
+                    <!-- Right: Boneless Wings -->
+                    <div class="wing-side boneless">
+                      <div class="wing-text">
+                        <div class="wing-title">Boneless Wings</div>
+                        <div class="wing-info">6 pcs – AED 20</div>
+                      </div>
+                    </div>
+                
+                  </div>
             </section>
             <section id="pizza" class="category-section">
              <h1 style="text-shadow:#664d03 ;">Pizza</h1>
@@ -895,6 +1083,11 @@
                 <div class="menu-item-name">Vanilla Milkshake</div>
                 <div class="menu-item-price">AED 20.00</div>
             </div>
+            <div class="menu-item">
+                <img src="https://lh3.googleusercontent.com/d/1Z7JssX74yVNXNFp4F-q7whI0STDQDHXD=s800" alt="Vanilla Milkshake" class="menu-item-image">
+                <div class="menu-item-name">Lotus Milkshake</div>
+                <div class="menu-item-price">AED 20.00</div>
+            </div>
         </div>
     </div>
 
@@ -958,7 +1151,7 @@
             <div class="menu-item">
                 <img src="https://lh3.googleusercontent.com/d/19Ps0skXsOzXgShnw_sCIwnbWHI-7bLUo=s800" alt="Diet Pepsi" class="menu-item-image">
                 <div class="menu-item-name">Karkade</div>
-                <div class="menu-item-price">AED 13.00</div>
+                <div class="menu-item-price">AED 10.00</div>
             </div>
         </div>
     </div>
@@ -1261,7 +1454,7 @@
                         <img src="https://lh3.googleusercontent.com/d/1KvDvnEEj5TFfFlLIoyonrBkLjXBuDt7l=s800" alt="Coffee" class="category-image">
                         <div class="category-info">
                             <h2 class="category-title">Vanilla Milk Cake</h2>
-                            <div class="menu-item-price">AED 25.00</div>
+                            <div class="menu-item-price">AED 21.00</div>
                         </div>
                     </div>
                     <div class="menu-items">
@@ -1473,5 +1666,3 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 </body>
 </html>
-
- 
