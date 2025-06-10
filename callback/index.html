@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dice & Dine Music Queue</title>
+</head>
+<body>
+    <h1>Add a Song to the Queue 🎶</h1>
+    <input type="text" id="searchInput" placeholder="Enter song or artist" />
+    <button id="searchBtn">Search</button>
+
+    <ul id="results"></ul>
+
+    <script>
+    document.getElementById('searchBtn').onclick = async () => {
+        const query = document.getElementById('searchInput').value.trim();
+        if (!query) {
+            alert('Please enter a search term');
+            return;
+        }
+
+        const res = await fetch(`/search?q=${encodeURIComponent(query)}`);
+        if (!res.ok) {
+            alert('Search failed: ' + (await res.json()).error);
+            return;
+        }
+        const tracks = await res.json();
+
+        const resultsList = document.getElementById('results');
+        resultsList.innerHTML = '';
+
+        tracks.forEach(track => {
+            const li = document.createElement('li');
+            li.textContent = `${track.name} — ${track.artists}`;
+            li.style.cursor = 'pointer';
+            li.onclick = async () => {
+                const addRes = await fetch('/add_to_queue', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({track_uri: track.uri})
+                });
+                if (addRes.ok) {
+                    alert('Added to queue!');
+                } else {
+                    const err = await addRes.json();
+                    alert('Error: ' + (err.error || 'Unknown error'));
+                }
+            };
+            resultsList.appendChild(li);
+        });
+    };
+    </script>
+</body>
+</html>
