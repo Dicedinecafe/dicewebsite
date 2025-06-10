@@ -56,25 +56,37 @@ def search():
         return jsonify({'error': 'Not authenticated'}), 401
     
     query = request.args.get('q', '').strip()
-    if not query or len(query) < 2:
-        return jsonify({'error': 'Search query must be at least 2 characters'}), 400
-
+    
+    # Validate the query
+    if not query:
+        return jsonify({'error': 'Empty search query'}), 400
+    if len(query) < 2:
+        return jsonify({'error': 'Query too short (min 2 characters)'}), 400
+    
     try:
-        # Clean the query string
-        query = ' '.join(query.split())  # Remove extra whitespace
-        results = sp.search(q=query, type='track', limit=5, market='US')
+        # Properly format the query for Spotify API
+        query = ' '.join(query.split())  # Normalize whitespace
+        query = query[:100]  # Limit length to prevent API errors
+        
+        # Make the search request with proper parameters
+        results = sp.search(
+            q=query,
+            type='track',
+            limit=5,
+            market='US'  # Add market parameter
+        )
         
         tracks = []
         for track in results['tracks']['items']:
             try:
                 tracks.append({
                     'name': track['name'],
-                    'artists': ', '.join(artist['name'] for artist in track['artists']),
+                    'artists': ', '.join(a['name'] for a in track['artists']),
                     'uri': track['uri'],
                     'image': track['album']['images'][0]['url'] if track['album']['images'] else None
                 })
-            except (KeyError, IndexError):
-                continue  # Skip malformed track entries
+            except (KeyError, TypeError):
+                continue  # Skip malformed tracks
         
         return jsonify(tracks if tracks else {'error': 'No results found'})
         

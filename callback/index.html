@@ -116,32 +116,43 @@
 
         async function search() {
     const query = searchInput.value.trim();
-    if (!query || query.length < 2) {
-        resultsDiv.innerHTML = '<p>Please enter at least 2 characters</p>';
+    
+    // Clear previous results
+    resultsDiv.innerHTML = '';
+    
+    // Validate input
+    if (!query) {
+        resultsDiv.innerHTML = '<p class="error">Please enter a search term</p>';
+        return;
+    }
+    if (query.length < 2) {
+        resultsDiv.innerHTML = '<p class="error">Please enter at least 2 characters</p>';
         return;
     }
 
+    // Show loading state
     resultsDiv.innerHTML = '<p>Searching...</p>';
-
+    
     try {
         const response = await fetch(`/search?q=${encodeURIComponent(query)}`);
         const data = await response.json();
-
+        
         if (!response.ok) {
             throw new Error(data.error || 'Search failed');
         }
-
+        
         if (data.error) {
-            resultsDiv.innerHTML = `<p>${data.error}</p>`;
+            resultsDiv.innerHTML = `<p class="error">${data.error}</p>`;
+        } else if (data.length === 0) {
+            resultsDiv.innerHTML = '<p>No results found</p>';
         } else {
             displayResults(data);
         }
     } catch (error) {
-        resultsDiv.innerHTML = `<p class="error">${error.message}</p>`;
         console.error('Search error:', error);
+        resultsDiv.innerHTML = `<p class="error">${error.message || 'Search failed'}</p>`;
     }
 }
-
         function displayResults(tracks) {
             if (!tracks.length) {
                 resultsDiv.innerHTML = '<p>No results found</p>';
