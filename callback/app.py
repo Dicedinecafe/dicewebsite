@@ -55,20 +55,34 @@ def search():
     if not (sp := get_spotify_client()):
         return jsonify({'error': 'Not authenticated'}), 401
     
-    if not (query := request.args.get('q')):
-        return jsonify({'error': 'Missing search query'}), 400
+    query = request.args.get('q', '').strip()
+    if not query or len(query) < 2:
+        return jsonify({'error': 'Search query must be at least 2 characters'}), 400
 
     try:
-        results = sp.search(query, type='track', limit=5)
-        return jsonify([{
-            'name': track['name'],
-            'artists': ', '.join(artist['name'] for artist in track['artists']),
-            'uri': track['uri'],
-            'image': track['album']['images'][0]['url'] if track['album']['images'] else None
-        } for track in results['tracks']['items']])
+        # Clean the query string
+        query = ' '.join(query.split())  # Remove extra whitespace
+        results = sp.search(q=query, type='track', limit=5, market='US')
+        
+        tracks = []
+        for track in results['tracks']['items']:
+            try:
+                tracks.append({
+                    'name': track['name'],
+                    'artists': ', '.join(artist['name'] for artist in track['artists']),
+                    'uri': track['uri'],
+                    'image': track['album']['images'][0]['url'] if track['album']['images'] else None
+                })
+            except (KeyError, IndexError):
+                continue  # Skip malformed track entries
+        
+        return jsonify(tracks if tracks else {'error': 'No results found'})
+        
+    except spotipy.SpotifyException as e:
+        return jsonify({'error': f'Spotify API error: {str(e)}'}), 500
     except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
+        return jsonify({'error': f'Search failed: {str(e)}'}), 500
+    
 @app.route('/queue', methods=['POST'])
 def add_to_queue():
     if not (sp := get_spotify_client()):
