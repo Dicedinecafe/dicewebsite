@@ -115,24 +115,32 @@
         }
 
         async function search() {
-            const query = searchInput.value.trim();
-            if (!query) return;
+    const query = searchInput.value.trim();
+    if (!query || query.length < 2) {
+        resultsDiv.innerHTML = '<p>Please enter at least 2 characters</p>';
+        return;
+    }
 
-            resultsDiv.innerHTML = '<p>Searching...</p>';
+    resultsDiv.innerHTML = '<p>Searching...</p>';
 
-            try {
-                const response = await fetch(`/search?q=${encodeURIComponent(query)}`);
-                const data = await response.json();
+    try {
+        const response = await fetch(`/search?q=${encodeURIComponent(query)}`);
+        const data = await response.json();
 
-                if (response.ok) {
-                    displayResults(data);
-                } else {
-                    resultsDiv.innerHTML = `<p class="error">${data.error || 'Search failed'}</p>`;
-                }
-            } catch (error) {
-                resultsDiv.innerHTML = `<p class="error">Search failed: ${error.message}</p>`;
-            }
+        if (!response.ok) {
+            throw new Error(data.error || 'Search failed');
         }
+
+        if (data.error) {
+            resultsDiv.innerHTML = `<p>${data.error}</p>`;
+        } else {
+            displayResults(data);
+        }
+    } catch (error) {
+        resultsDiv.innerHTML = `<p class="error">${error.message}</p>`;
+        console.error('Search error:', error);
+    }
+}
 
         function displayResults(tracks) {
             if (!tracks.length) {
