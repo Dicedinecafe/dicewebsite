@@ -17,7 +17,43 @@
     overflow-x: hidden;
     width: 100%;
 }
+.tutorial-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(251, 238, 224, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    opacity: 1; /* Changed from 0 to 1 to always show */
+    transition: all 0.3s ease;
+}
 
+.tutorial-button {
+    background-color: #422800;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 16px;
+    color: #fbeee0;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: auto; /* Changed from 80% to auto */
+    min-width: 100px;
+}
+
+.game-card:hover .tutorial-button {
+    transform: scale(1.05);
+    background-color: #664d03;
+}
+
+.game-card {
+    position: relative;
+    overflow: hidden;
+}
 .search-container {
     text-align: center;
     padding: 20px;
@@ -328,9 +364,16 @@ h2 {
         <div class="games-grid">
             <div class="game-card">
                 <img src="https://storage.googleapis.com/dicedine/boardgames/cards.jpg" alt="Catan" class="game-image">
-                <div class="game-title"> Cards
-                 </div>
+                <div class="game-title"> Cards </div>
+            
            </div>
+           <div class="game-card">
+            <img src="https://storage.googleapis.com/dicedine/boardgames/catan.jpg" alt="Catan" class="game-image">
+            <div class="game-title">Catan</div>
+            <div class="tutorial-overlay" onclick="openGamePopup('Catan')">
+                <button class="tutorial-button">How to Play</button>
+            </div>
+        </div>
             <div class="game-card">
                 <img src="https://storage.googleapis.com/dicedine/boardgames/dominos.jpeg" alt="Catan" class="game-image">
                 <div class="game-title"> Dominos
@@ -429,6 +472,17 @@ h2 {
                 <div class="game-title">Scrabble
                  </div>
            </div>
+           <div class="game-card">
+            <img src="https://m.media-amazon.com/images/I/71+Ppy-aBRL._AC_SL1500_.jpg" alt="Catan" class="game-image">
+            <div class="game-title">Tiki Topple
+             </div>
+       </div>
+
+       <div class="game-card">
+        <img src="https://m.media-amazon.com/images/I/61PvGjI7RkL._AC_SL1364_.jpg" alt="Catan" class="game-image">
+        <div class="game-title">Sounds Fishy
+         </div>
+   </div>
             <div class="game-card">
                 <img src="https://storage.googleapis.com/dicedine/boardgames/russain.jpg" alt="Catan" class="game-image">
                 <div class="game-title">Russian Mafia
@@ -490,6 +544,16 @@ h2 {
                 <img src="https://storage.googleapis.com/dicedine/boardgames/teles.jpeg" alt="Uno" class="game-image">
                 <div class="game-title">Telestrations</div>
             </div>
+
+            <div class="game-card">
+                <img src="https://m.media-amazon.com/images/I/7107kyOyMkL._AC_SL1498_.jpg" alt="Jenga" class="game-image">
+                <div class="game-title">Uno               </div>
+                <div class="tutorial-overlay" onclick="openGamePopup('Uno')">
+                    <button class="tutorial-button">How to Play</button>
+                </div>
+            </div>
+
+
             <div class="game-card">
                 <img src="https://storage.googleapis.com/dicedine/boardgames/mario.jpg" alt="Jenga" class="game-image">
                 <div class="game-title">Uno Mario                </div>
@@ -954,5 +1018,35 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     </script>
+    <script>
+        function openGamePopup(gameName) {
+            const gameVideos = {
+                'Catan': 'https://www.youtube.com/embed/cPhX_1RiwEg',
+                'Monopoly': 'https://www.youtube.com/embed/AuWvMgYv03g',
+                'Chess': 'https://www.youtube.com/embed/OCSbzArwB10',
+                'Uno': 'https://www.youtube.com/embed/sWoSZmHsCls?si=sYjsMAyjWfX8Z1lI',
+                'Jenga': 'https://www.youtube.com/watch?v=RtGYWqx_MYI', 
+                'Ticket to Ride': 'https://www.youtube.com/watch?v=difSEK9A6f0',
+                'Scrabble': 'https://www.youtube.com/embed/9q0r1s2t3u4',
+                'Risk': 'https://www.youtube.com/embed/5v6w7x8y9z0',
+                'Coup': 'https://www.youtube.com/embed/1a2b3c4d5e6',
+                'Dixit': 'https://www.youtube.com/embed/7f8g9h0i1j2',
+                'Exploding Kittens': 'https://www.youtube.com/embed/3k4l5m6n7o8',
+                'Codenames': 'https://www.youtube.com/embed/9p0q1r2s3t4',
+                '7 Wonders': 'https://www.youtube.com/embed/5u6v7w8x9y0',
+                'Pandemic': 'https://www.youtube.com/embed/1z2a3b4c5d6', 
+                'Azul': 'https://www.youtube.com/embed/7e8f9g0h1i2',
+                'Scythe': 'https://www.youtube.com/embed/3j4k5l6m7n8',
+                'Splendor': 'https://www.youtube.com/embed/9o0p1q2r3s4',
+                'King of Tokyo': 'https://www.youtube.com/embed/5t6u7v8w9x0',
+                'Carcassonne': 'https://www.youtube.com/embed/1y2z3a4b5c6',     
+            };
+        
+            const videoUrl = gameVideos[gameName];
+            if (videoUrl) {
+                window.open(videoUrl, '_blank');
+            }
+        }
+        </script>
 </body>
 </html>
