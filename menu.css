@@ -1,0 +1,330 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins';
+            background-color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+         .back-arrow {
+            position: absolute;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+       
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-top: 30px;
+         
+        }
+      .logo svg {
+    width: 420px; /* or any desired width */
+    height: auto;
+    max-width: 100%;
+}
+       
+
+        .logo-icon {
+            margin-right: 8px;
+        }
+
+        .menu-grid a {
+            text-decoration: none;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            background: #00E6AA;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(123, 211, 192, 0.3);
+            height: 140px;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(123, 211, 192, 0.4);
+        }
+
+        .menu-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .menu-icon {
+            margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: -4px;
+            width: 60px;
+            height: 60px;
+        }
+ .menu-icon-fries {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+           margin-right: -7px;
+            width: 45px;
+            height: 45px;
+        }
+         .menu-icon-drinks {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: -5px;
+            width: 50px;
+            height: 50px;
+        }
+        .menu-icon-game {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 35px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .menu-icon-mat {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 55px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .menu-icon-chicken {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: -5px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .menu-icon-cake {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 5px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .menu-icon-pizza {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: -17px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .menu-icon-pasta {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: -10px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .menu-text {
+            font-size: 23px;
+            font-weight: bold;
+            color: #2d5f52;
+            margin-left: 40px;
+            margin-top: -4px;
+        }
+
+        .menu-text-mat {
+            font-size: 23px;
+            font-weight: bold;
+            color: #2d5f52;
+            margin-left: 40px;
+            margin-top: -4px;
+        }
+
+        .arrow-icon {
+            color: #2d5f52;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .menu-item {
+                padding: 30px 25px;
+                height: 40px;
+            }
+
+            .menu-icon{
+                /* margin-bottom: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center; */
+              
+                 width: 50px !important;
+                 height: 50px !important;
+                /* object-fit: contain; */
+                margin-right: 50px;
+                margin-bottom: 12px;
+
+
+            }
+
+            .menu-icon-game {
+                width: 40px !important;
+                 height: 40px !important;
+                /* object-fit: contain; */
+                margin-right: 85px;
+                margin-bottom: 15px;
+            }
+
+            .menu-icon-mat {
+                 width: 45px !important;
+                 height: 45px !important;
+                /* object-fit: contain; */
+                margin-right: 100px;
+                margin-bottom: 15px;
+            }
+
+            .menu-icon-chicken {
+                 width: 45px !important;
+                 height: 45px !important;
+                /* object-fit: contain; */
+                margin-right: 60px;
+                margin-bottom: 12px;
+               
+            }
+
+            .menu-icon-cake {
+             width: 45px !important;
+                 height: 45px !important;
+                /* object-fit: contain; */
+                margin-right: 60px;
+                margin-bottom: 12px;
+            }
+
+            .menu-icon-pizza {
+                 width: 40px !important;
+                 height: 40px !important;
+                /* object-fit: contain; */
+                margin-right: 40px;
+                margin-bottom: 15px;
+            }
+
+            .menu-icon-pasta {
+                width: 40px !important;
+                 height: 40px !important;
+                /* object-fit: contain; */
+                margin-right: 45px;
+                margin-bottom: 12px;
+            }
+             .menu-icon-fries {
+            width: 40px !important;
+                 height: 40px !important;
+                /* object-fit: contain; */
+                margin-right: 45px;
+                margin-bottom: 15px;
+        }
+         .menu-icon-drinks {
+            width: 40px !important;
+                 height: 40px !important;
+                /* object-fit: contain; */
+                margin-right: 48px;
+                margin-bottom: 15px;
+        }
+
+
+            .menu-text {
+                font-size: 20px;
+                font-weight: bold;
+                color: #2d5f52;
+                margin-left: 50px;
+                margin-top: -60px;
+            }
+
+            .menu-text-mat {
+                font-size: 20px;
+                font-weight: bold;
+                color: #2d5f52;
+                margin-left: 50px;
+                margin-top: -60px;
+            }
+
+            .arrow-icon {
+                color: #2d5f52;
+                font-size: 24px;
+                font-weight: bold;
+                margin-right: 30px;
+            }
+              .logo svg {
+    width: 250px; /* or any desired width */
+    height: auto;
+    max-width: 100%;
+}
+ .logo {
+          
+            margin-top: 10px;
+         
+        }
+        }

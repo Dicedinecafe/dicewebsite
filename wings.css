@@ -1,0 +1,470 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: white;
+            color: #333;
+            padding: 20px;
+        }
+
+     
+         .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 20px;
+            position: relative;
+        }
+
+          .back-arrow {
+            position: absolute;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .back-arrow:hover {
+            color: #4ade80;
+        }
+
+         .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-top: 30px;
+         
+        }
+      .logo svg {
+    width: 420px; /* or any desired width */
+    height: auto;
+    max-width: 100%;
+}
+       
+
+        .logo-icon {
+            margin-right: 8px;
+        }
+
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #2d5a3d;
+            margin-bottom: 40px;
+        }
+
+        .wings-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .wing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px 20px 25px;
+            color: #333;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .wing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .wing-image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 120px;
+        }
+
+        .wing-image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: none;
+            border: none;
+        }
+
+        .wing-image-placeholder::before {
+            content: '🍗';
+            font-size: 32px;
+            opacity: 0.7;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .wing-image-placeholder::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .wing-card:hover .wing-image-placeholder::after {
+            opacity: 1;
+            animation: shine 1.5s ease-in-out;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        .wing-image-placeholder img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            z-index: 2;
+        }
+
+        .wing-card:hover .wing-image-placeholder img {
+            transform: scale(1.05);
+            filter: brightness(1.1) contrast(1.05);
+        }
+
+        .upload-icon {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #4ade80, #22d3ee);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(74, 222, 128, 0.3);
+            transition: all 0.3s ease;
+            z-index: 3;
+        }
+
+        .upload-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(74, 222, 128, 0.4);
+        }
+
+        .upload-icon::before {
+            content: '↗';
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .wing-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            margin-top: 135px;
+            color: #2d5a3d;
+        }
+
+        .price-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 16px;
+            padding: 6px 10px;
+            border-radius: 8px;
+            transition: background-color 0.2s ease;
+        }
+
+        .price-option:hover {
+            background-color: rgba(74, 222, 128, 0.05);
+        }
+
+        .price {
+            color: black;
+            font-weight: 600;
+            font-size: 18px;
+            
+        }
+   
+
+.price::before {
+  content: "";
+  display: inline-block;
+  width: 18px; /* Adjust icon size */
+  height: 18px;
+  background-image: url('images/aed.svg'); /* Replace with your icon path */
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-bottom: -4px;
+}
+
+        .pieces {
+            color: rgba(51, 51, 51, 0.6);
+            font-weight: 500;
+        }
+
+        .sauces-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #2d5a3d;
+            margin-bottom: 30px;
+        }
+
+        .sauces-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+        }
+
+        .sauce-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .sauce-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .spice-level {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 15px;
+        }
+
+       .spice-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #e5e7eb;
+      transition: all 0.3s ease;
+      
+    }
+
+    .spice-dot.active.mild {
+      background:  #22c55e;
+       background-image: url("/images/chili.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 60%;
+      box-shadow: 0 2px 4px rgba(239,68,68,0.3);
+    }
+    .spice-dot.active.medium {
+      background: #f59e0b;
+      background-image: url("/images/chili.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 60%;
+      box-shadow: 0 2px 4px rgba(239,68,68,0.3);
+      
+    }
+
+    /* ← NEW: hot dots get a red background plus centered /images/chili.svg */
+    .spice-dot.active.hot {
+      background-color: #ef4444;
+      background-image: url("/images/chili.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 60%;
+      box-shadow: 0 2px 4px rgba(239,68,68,0.3);
+    }
+
+        .sauce-name {
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+        }
+
+     @media (max-width: 768px) {
+  /* container tighten */
+  .container { padding: 10px; }
+
+  /* page title */
+  h1 {
+    font-size: 24px;
+    margin: 16px 0;
+  }
+ .logo svg {
+    width: 250px; /* or any desired width */
+    height: auto;
+    max-width: 100%;
+}
+ .logo {
+          
+            margin-top: 10px;
+         
+        }
+  /* each card stacked, one per row */
+  .wings-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* grid layout inside each card */
+  .wing-card {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    grid-template-rows: auto repeat(3, auto);
+    grid-template-areas:
+      "img title"
+      "img price1"
+      "img price2"
+      "img price3";
+    gap: 4px;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+
+  /* image area */
+  .wing-image-container {
+    grid-area: img;
+    
+    height: 140px;  
+  }
+  .wing-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+  }
+
+  /* title area */
+  .wing-title {
+    grid-area: title;
+    align-self: center;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    padding-left: 6px;
+    color: #2d5a3d;
+  }
+.price {
+    font-size: 13px;    /* try 18px (was 14px) */
+    font-weight: 600;   /* keep it bold if you like */
+  }
+
+  /* each price row forced under the title */
+  .price-option:nth-of-type(2) {
+  grid-area: price1;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 2px 6px;
+}
+
+/* 2nd price (AED 35) is the 3rd div → price2 */
+.price-option:nth-of-type(3) {
+  grid-area: price2;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 2px 6px;
+}
+
+/* 3rd price (AED 45) is the 4th div → price3 */
+.price-option:nth-of-type(4) {
+  grid-area: price3;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 2px 6px;
+}
+
+  /* sauces heading & pills */
+  .sauces-section h2 {
+    font-size: 20px;
+    margin: 20px 0 10px;
+  }
+  .sauces-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .sauce-card {
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .sauce-name {
+    font-size: 14px;
+  }
+  .spice-level { display: flex; gap: 4px; }
+  .spice-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #e5e7eb;
+  }
+  .spice-dot.active.mild   { 
+    background: #22c55e;
+ background-image: url("/images/chili.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 60%;
+      box-shadow: 0 2px 4px rgba(239,68,68,0.3); }
+  .spice-dot.active.medium { background: #f59e0b; 
+ background-image: url("/images/chili.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 60%;
+      box-shadow: 0 2px 4px rgba(239,68,68,0.3);}
+  .spice-dot.active.hot    { background: #ef4444; 
+ background-image: url("/images/chili.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 60%;
+      box-shadow: 0 2px 4px rgba(239,68,68,0.3);}
+}
+

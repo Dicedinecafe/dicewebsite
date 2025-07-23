@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dice&Dine</title>
+  <link rel="stylesheet" href="board-games.css">
+  <link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+ <link rel="icon" type="image/jpeg" href="https://lh3.googleusercontent.com/d/1gzdPJ-ALt7wfWhAMo1m-RVmvu12-ui4_=s800">
+</head>
+<body>
+  <!-- Header Container -->
+  <div class="container header-container">
+    <header class="header">
+     <a href="index.html" class="back-arrow" rel="noopener">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    </svg>
+</a>
+            <div class="logo">
+                <a href="index.html" rel="noopener">
+     <svg width="240" height="34" viewBox="0 0 217 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M45.8651 2.34333C44.4119 0.895556 42.4027 0 40.1827 0H32.1461L24.1096 8C24.1096 5.79 23.2099 3.79 21.7556 2.34333C20.3023 0.895556 18.2932 0 16.0731 0H8.03653L0 8V24H16.0731L24.1096 16V24H40.1827L48.2192 16V8C48.2192 5.79 47.3195 3.79 45.8651 2.34333ZM12.0548 16C9.83582 16 8.03653 14.2089 8.03653 12C8.03653 9.79111 9.83582 8 12.0548 8C14.2738 8 16.0731 9.79111 16.0731 12C16.0731 14.2089 14.2738 16 12.0548 16ZM36.1644 16C33.9454 16 32.1461 14.2089 32.1461 12C32.1461 9.79111 33.9454 8 36.1644 8C38.3834 8 40.1827 9.79111 40.1827 12C40.1827 14.2089 38.3834 16 36.1644 16Z" fill="#00E6AA"/>
+<path d="M74.9727 3.37054C73.8253 2.2961 72.4836 1.47054 70.95 0.892765C69.4153 0.316098 67.7399 0.0283203 65.9227 0.0283203H56.2744V23.9861H65.9908C67.7856 23.9861 69.451 23.6916 70.9846 23.1039C72.5194 22.5161 73.8532 21.6894 74.9895 20.6261C76.1258 19.5628 77.0064 18.2961 77.6326 16.8261C78.2566 15.355 78.5702 13.7494 78.5702 12.0072C78.5702 10.265 78.2566 8.63054 77.6326 7.17165C77.0075 5.71276 76.1202 4.4461 74.9727 3.37165V3.37054ZM72.1946 15.9094C71.6041 17.0183 70.7625 17.8605 69.672 18.4383C68.5803 19.015 67.3079 19.3039 65.8535 19.3039H61.6265V4.67721H65.8535C67.309 4.67721 68.5748 4.97165 69.6541 5.55943C70.7335 6.14721 71.5751 6.98499 72.1778 8.07165C72.7794 9.15721 73.0808 10.4583 73.0808 11.9739C73.0808 13.4894 72.785 14.8017 72.1946 15.9094Z" fill="#2D524A"/>
+<path d="M83.6696 0.373535C82.8805 0.373535 82.2264 0.635757 81.7119 1.15909C81.1962 1.68242 80.9395 2.33798 80.9395 3.12353C80.9395 3.90909 81.1973 4.53798 81.7119 5.07242C82.2275 5.60687 82.8805 5.87465 83.6696 5.87465C84.4588 5.87465 85.1062 5.60687 85.6107 5.07242C86.1152 4.53798 86.3675 3.88798 86.3675 3.12353C86.3675 2.35909 86.1141 1.68242 85.6107 1.15909C85.1051 0.634646 84.4588 0.373535 83.6696 0.373535Z" fill="#2D524A"/>
+<path d="M86.1717 8.06982H81.1377V23.9876H86.1717V8.06982Z" fill="#2D524A"/>
+<path d="M99.3498 19.0909C98.8342 19.3197 98.2471 19.4342 97.5896 19.4342C96.8875 19.4342 96.2513 19.2709 95.6809 18.9431C95.1117 18.6153 94.6663 18.1686 94.3482 17.5997C94.0301 17.0331 93.8705 16.3764 93.8705 15.6342C93.8705 14.892 94.0301 14.242 94.3482 13.6864C94.6663 13.1297 95.105 12.6931 95.6653 12.3753C96.2245 12.0586 96.8663 11.8997 97.5896 11.8997C98.2247 11.8997 98.7906 11.9986 99.2829 12.1953C99.7773 12.392 100.209 12.6986 100.583 13.112L103.808 9.90308C102.996 9.05085 102.069 8.41197 101.027 7.98641C99.9861 7.56085 98.8398 7.34863 97.5896 7.34863C95.9232 7.34863 94.4197 7.70863 93.0814 8.42974C91.743 9.14974 90.6849 10.1375 89.9069 11.3931C89.1278 12.6497 88.7383 14.0731 88.7383 15.6675C88.7383 17.262 89.1222 18.6586 89.8902 19.9253C90.657 21.192 91.7107 22.1853 93.049 22.9053C94.3873 23.6253 95.8774 23.9864 97.5238 23.9864C98.8174 23.9864 99.9917 23.762 101.044 23.3153C102.098 22.8675 103.04 22.2075 103.874 21.3342L100.683 18.1242C100.309 18.5397 99.8655 18.8609 99.3498 19.0909Z" fill="#2D524A"/>
+<path d="M119.011 8.36419C117.804 7.68752 116.411 7.34863 114.833 7.34863C113.255 7.34863 111.751 7.70863 110.456 8.42974C109.162 9.14974 108.137 10.1375 107.38 11.3931C106.624 12.6497 106.245 14.0731 106.245 15.6675C106.245 17.262 106.629 18.692 107.397 19.9586C108.164 21.2253 109.222 22.2131 110.571 22.922C111.921 23.6309 113.461 23.9864 115.195 23.9864C116.533 23.9864 117.762 23.7564 118.88 23.2986C119.999 22.8397 120.953 22.1531 121.742 21.2353L118.98 18.4853C118.496 19.032 117.937 19.4397 117.302 19.7131C116.666 19.9864 115.953 20.1231 115.163 20.1231C114.308 20.1231 113.567 19.9431 112.942 19.5831C112.317 19.2231 111.834 18.7109 111.495 18.0431C111.381 17.822 111.288 17.5842 111.213 17.3342L118.976 17.3153L122.665 17.3064C122.752 16.892 122.813 16.5264 122.846 16.2097C122.878 15.8931 122.895 15.5931 122.895 15.3086C122.895 13.7586 122.549 12.3831 121.859 11.182C121.169 9.98197 120.22 9.04308 119.013 8.36641L119.011 8.36419ZM111.213 13.8931C111.28 13.6631 111.362 13.4453 111.46 13.2442C111.778 12.5897 112.227 12.082 112.809 11.7209C113.39 11.3609 114.076 11.1809 114.865 11.1809C115.611 11.1809 116.242 11.3397 116.757 11.6564C117.272 11.9742 117.661 12.432 117.926 13.0331C118.036 13.2853 118.124 13.5664 118.192 13.8742L111.214 13.8942L111.213 13.8931Z" fill="#2D524A"/>
+<path d="M132.844 7.93887C132.635 7.56554 132.531 7.13887 132.531 6.65554C132.531 6.08665 132.745 5.60887 133.175 5.22443C133.605 4.84109 134.149 4.64998 134.809 4.64998C135.469 4.64998 136.004 4.80332 136.478 5.11109C136.951 5.41776 137.407 5.86665 137.848 6.45887L141.219 3.26887C140.888 2.7211 140.414 2.19998 139.797 1.70665C139.181 1.21221 138.453 0.807762 137.617 0.489985C136.78 0.172207 135.822 0.012207 134.743 0.012207C133.356 0.012207 132.138 0.314429 131.092 0.916651C130.046 1.51887 129.22 2.31998 128.614 3.31776C128.008 4.31554 127.705 5.40554 127.705 6.58998C127.705 7.57665 127.893 8.48109 128.267 9.30221C128.466 9.73998 128.732 10.1911 129.062 10.6566C127.924 11.2911 127.044 12.0689 126.415 12.9866C125.645 14.1166 125.259 15.4044 125.259 16.85C125.259 18.1878 125.585 19.4 126.234 20.4844C126.883 21.57 127.798 22.4255 128.976 23.0511C130.153 23.6755 131.536 23.9878 133.121 23.9878C134.135 23.9878 135.087 23.8444 135.979 23.56C136.87 23.2744 137.663 22.9078 138.357 22.4578C138.661 22.2622 138.93 22.0622 139.172 21.8611L141.145 23.9844H147.059L133.747 9.18887C133.351 8.72776 133.049 8.3122 132.839 7.93887H132.844ZM135.191 18.9066C134.65 19.2255 134.006 19.3844 133.258 19.3844C132.598 19.3844 132.024 19.2633 131.541 19.0222C131.055 18.7811 130.687 18.4466 130.435 18.0189C130.18 17.5911 130.054 17.0933 130.054 16.5222C130.054 15.8211 130.219 15.2178 130.55 14.7133C130.82 14.3011 131.202 13.9566 131.694 13.6755L135.947 18.3278C135.716 18.5533 135.464 18.7466 135.192 18.9066H135.191Z" fill="#2D524A"/>
+<path d="M168.144 3.36007C166.995 2.28562 165.654 1.45896 164.119 0.88118C162.584 0.304514 160.908 0.015625 159.088 0.015625H149.436V23.9867H159.158C160.952 23.9867 162.619 23.6923 164.154 23.1045C165.689 22.5167 167.023 21.689 168.161 20.6256C169.298 19.5612 170.179 18.2934 170.805 16.8223C171.43 15.3512 171.742 13.7445 171.742 12.0012C171.742 10.2578 171.43 8.6234 170.805 7.1634C170.18 5.7034 169.292 4.43673 168.145 3.36118L168.144 3.36007ZM165.365 15.9056C164.773 17.0156 163.931 17.8578 162.84 18.4356C161.748 19.0123 160.475 19.3012 159.02 19.3012H154.791V4.66785H159.02C160.476 4.66785 161.743 4.96229 162.823 5.55007C163.902 6.13896 164.744 6.97673 165.348 8.0634C165.949 9.15007 166.251 10.4523 166.251 11.9678C166.251 13.4834 165.955 14.7967 165.365 15.9056Z" fill="#2D524A"/>
+<path d="M215.949 11.1812C215.259 9.98121 214.31 9.04232 213.104 8.36565C211.897 7.68899 210.504 7.3501 208.925 7.3501C207.345 7.3501 205.843 7.7101 204.549 8.43121C203.254 9.15121 202.229 10.139 201.473 11.3945C200.716 12.6512 200.338 14.0745 200.338 15.669C200.338 17.2634 200.722 18.6934 201.49 19.9601C202.257 21.2268 203.315 22.2145 204.664 22.9234C206.014 23.6323 207.554 23.9879 209.287 23.9879C210.626 23.9879 211.855 23.7579 212.973 23.3001C214.092 22.8412 215.046 22.1545 215.835 21.2368L213.072 18.4868C212.589 19.0334 212.03 19.4412 211.395 19.7145C210.759 19.9879 210.045 20.1245 209.256 20.1245C208.4 20.1245 207.659 19.9445 207.035 19.5845C206.41 19.2245 205.927 18.7123 205.586 18.0445C205.473 17.8234 205.381 17.5857 205.306 17.3357L213.069 17.3168L216.757 17.3079C216.845 16.8934 216.905 16.5279 216.939 16.2112C216.971 15.8945 216.988 15.5945 216.988 15.3101C216.988 13.7601 216.642 12.3845 215.951 11.1834L215.949 11.1812ZM205.305 13.8934C205.373 13.6634 205.454 13.4457 205.553 13.2445C205.871 12.5901 206.32 12.0823 206.902 11.7212C207.483 11.3612 208.169 11.1812 208.958 11.1812C209.703 11.1812 210.334 11.3401 210.85 11.6568C211.366 11.9745 211.754 12.4323 212.018 13.0334C212.128 13.2857 212.216 13.5668 212.284 13.8745L205.306 13.8945L205.305 13.8934Z" fill="#2D524A"/>
+<path d="M176.843 0.373535C176.054 0.373535 175.4 0.635757 174.886 1.15909C174.37 1.68242 174.113 2.33798 174.113 3.12353C174.113 3.90909 174.371 4.53798 174.886 5.07242C175.4 5.60687 176.054 5.87465 176.843 5.87465C177.633 5.87465 178.28 5.60687 178.785 5.07242C179.289 4.53798 179.541 3.88798 179.541 3.12353C179.541 2.35909 179.288 1.68242 178.785 1.15909C178.279 0.634646 177.633 0.373535 176.843 0.373535Z" fill="#2D524A"/>
+<path d="M179.344 8.06982H174.31V23.9876H179.344V8.06982Z" fill="#2D524A"/>
+<path d="M189.94 7.74219C185.506 7.74219 181.912 11.3211 181.912 15.7333V23.9866H186.929V15.7333C186.929 14.0811 188.281 12.7366 189.94 12.7366C191.598 12.7366 192.95 14.0811 192.95 15.7333V23.9866H197.967V15.7333C197.967 11.32 194.373 7.74219 189.94 7.74219Z" fill="#2D524A"/>
+</svg>
+
+</a>   
+    </header>
+  </div>
+
+  <!-- Search + Results Container -->
+  <div class="container search-results-container">
+    <div class="search-container">
+      <input id="searchInput" type="search" placeholder="Search" aria-label="Search menu" />
+    </div>
+    <div id="searchResults" class="search-results">
+      <div id="searchResultsGrid"></div>
+    </div>
+  </div>
+
+  <!-- Cards Container -->
+  <div class="container cards-container">
+    <div class="card-grid">
+      <!-- Actual board game entries -->
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/cards.jpg" alt="Cards icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Cards</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/catan.jpg" alt="Catan icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Catan</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/dominos.jpeg" alt="Dominos icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Dominos</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://shop.abtalks.ae/cdn/shop/products/3S9A8157-2_W.jpg?v=1676963550&width=1445" alt="AB Talks icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">AB Talks</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/ludo%20lockdown.jpg" alt="Ludo Lockdown icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Ludo Lockdown</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/5secondrule.png" alt="5 Second Rules icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">5 Second Rules</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/roht%20feeha.jpg" alt="Roht Feeha icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Roht Feeha</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/ringtoss.jpg" alt="Ring Toss icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Ring Toss</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/gameoflife.jpg" alt="The Game Of Life icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">The Game Of Life</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://m.media-amazon.com/images/I/71ibImCtJaL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="The Mind icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">The Mind</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/pictionary.jpg" alt="Pictionary icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Pictionary</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/blankstate.png" alt="Blank Slate icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Blank Slate</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/escaperoom.jpg" alt="Escape Room icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Escape Room</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/bindingisaac.jpg" alt="The Binding Of Isaac icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">The Binding Of Isaac</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/bingo.jpg" alt="Bingo Lotto icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Bingo Lotto</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/ubongo.jpg" alt="Ubongo icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Ubongo</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/mathable.jpg" alt="Mathable icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Mathable</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/1500.png" alt="1500 Pcs Puzzle icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">1500 Pcs Puzzle</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/fb.jpg" alt="Football icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Football</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://m.media-amazon.com/images/I/91eAMABUe1L._AC_SL1500_.jpg" alt="Phase 10 icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Phase 10</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/snakes.jpg" alt="Snakes & Ladder icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Snakes & Ladder</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/scrabble.jpg" alt="Scrabble icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Scrabble</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://m.media-amazon.com/images/I/71+Ppy-aBRL._AC_SL1500_.jpg" alt="Tiki Topple icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Tiki Topple</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://m.media-amazon.com/images/I/61PvGjI7RkL._AC_SL1364_.jpg" alt="Sounds Fishy icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Sounds Fishy</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/russain.jpg" alt="Russian Mafia icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Russian Mafia</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/1000%20pcs%20puzzle.jpg" alt="1000 Pcs Puzzle icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">1000 Pcs Puzzle</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/tapple.jpg" alt="Tapple icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Tapple</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/monopoly.jpg" alt="Monopoly icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Monopoly</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/jack.jpg" alt="Jackaroo icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Jackaroo</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/catan.jpg" alt="Catan icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Catan</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://m.media-amazon.com/images/I/81J04rJBj0L.jpg" alt="Catan Seafarers Expansion icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Catan Seafarers Expansion</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://media.azadea.com/i/davinci/85_199360_000__101__01?$prd_large$" alt="Catan Cities & Knights Expansion icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Catan Cities & Knights Expansion</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/js.jpg" alt="Jungle Speed icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Jungle Speed</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://f.nooncdn.com/p/v1612683857/N26225678A_2.jpg?width=800" alt="Pandemic icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Pandemic</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/bc.jpeg" alt="Balancing Chairs icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Balancing Chairs</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/wai.png" alt="Who Am I icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Who Am I</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/risk.webp" alt="Risk icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Risk</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/teles.jpeg" alt="Telestrations icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Telestrations</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://m.media-amazon.com/images/I/7107kyOyMkL._AC_SL1498_.jpg" alt="Uno icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Uno</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/mario.jpg" alt="Uno Mario icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Uno Mario</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/kitty.jpg" alt="Uno Hello Kitty icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Uno Hello Kitty</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/mercy.jpg" alt="Uno No mercy icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Uno No mercy</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/dos.jpg" alt="Uno Dos icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Uno Dos</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/dare.jpg" alt="Uno Dare icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Uno Dare</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/flip.jpg" alt="Uno Flip icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Uno Flip</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/wild.jpg" alt="Uno Wild icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Uno Wild</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/stacko.jpg" alt="Uno Stacko icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Uno Stacko</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/hive.webp" alt="New Hive icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">New Hive</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/coup.webp" alt="Coup icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Coup</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/scout.png" alt="Scout icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Scout</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/dixit.jpg" alt="Dixit icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Dixit</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/jalsah.jpg" alt="Al Jalsah icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Al Jalsah</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/cluedo.webp" alt="Cluedo icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Cluedo</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/resis.webp" alt="The resistance icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">The resistance</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/kittens.jpg" alt="Exploding Kittens icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Exploding Kittens</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://m.media-amazon.com/images/I/71mRlflrEkS._AC_SL1500_.jpg" alt="Cards Against Humanity icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Cards Against Humanity</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/bad.jpg" alt="Bad People icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Bad People</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/kalma.avif" alt="Kalmaja icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Kalmaja</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/taco.jpg" alt="Taco Cat icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Taco Cat</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/trap.jpg" alt="Penguin Trap icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Penguin Trap</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/mayhem.jpeg" alt="Dungeon Mayhem icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Dungeon Mayhem</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/kol.jpg" alt="Kol Bs La Tgol icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Kol Bs La Tgol</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/carc.jpg" alt="Carcassonne icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Carcassonne</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/kadab.jpg" alt="Kadab icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Kadab</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/art.webp" alt="Articulate icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Articulate</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/pic.jpg" alt="Pictureka icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Pictureka</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/ava.jpg" alt="Avalon icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Avalon</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/meme.webp" alt="What Do You Meme icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">What Do You Meme</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/feena.jpg" alt="Raht Feeha icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Raht Feeha</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/hitler.jpg" alt="Secret Hitler icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Secret Hitler</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/7.jpg" alt="7 Wonders icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">7 Wonders</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/cash.webp" alt="Cash N Guns icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Cash N Guns</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/stone.webp" alt="Stone Age icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Stone Age</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/times.jpg" alt="Times Up icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Times Up</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/night.jpeg" alt="One Night Daybreak icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">One Night Daybreak</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/sushi.png" alt="Sushi Go icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Sushi Go</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/scythe.jpg" alt="Scythe icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Scythe</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/splendor.jpg" alt="Splendor icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Splendor</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/azul.jpg" alt="Azul icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Azul</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/betrayal.jpg" alt="Betrayal icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Betrayal</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/sliders.jpg" alt="Fall Guys Sorry Sliders icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Fall Guys Sorry Sliders</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/tokyo.jpg" alt="King of Tokyo icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">King of Tokyo</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/train.jpg" alt="Train of Thought icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Train of Thought</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/power.webp" alt="Power Grid icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Power Grid</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/laugh.jpg" alt="You Laugh You're Out icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">You Laugh You're Out</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/wayferers.jpg" alt="Wayfarers icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Wayfarers</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/kluster.jpeg" alt="Kluster icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Kluster</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/jenga.jpg" alt="Jenga icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Jenga</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/rapid.webp" alt="Rapid Rumble icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Rapid Rumble</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/battle.jpg" alt="Battle Ship icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Battle Ship</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/more.jpg" alt="More or Less icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">More or Less</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/skull.jpg" alt="Skull icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Skull</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/deception.jpg" alt="Deception icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Deception</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/codenames.jpeg" alt="Codenames icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Codenames</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://lh3.googleusercontent.com/d/15za8dyvDCyJGkZDEkePP64HshCCaLcIi=s800" alt="Codenames Duet icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Codenames Duet</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://m.media-amazon.com/images/I/81PMgmkvBBL._AC_SL1500_.jpg" alt="Codenames Picture icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Codenames Picture</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://cf.geekdo-images.com/-hfUs5lynevCDzKvc9WNpA__imagepagezoom/img/l-GOMZRYl-8EUPUfAJQk1ZUkpmI=/fit-in/1200x900/filters:no_upscale():strip_icc()/pic4597178.jpg" alt="Smart ass icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Smart ass</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://m.media-amazon.com/images/I/71pri1SPQ6L._AC_SL1500_.jpg" alt="Slapzi icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Slapzi</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/life.jpg" alt="Game of Life icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Game of Life</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/dominion.webp" alt="Dominion icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Dominion</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/imhotep.jpeg" alt="Imhotep icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Imhotep</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/hunger.webp" alt="The Hunger icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">The Hunger</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/stratego.jpg" alt="Stratego icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Stratego</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/ticket.jpg" alt="Ticket to Ride icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Ticket to Ride</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/suspend.jpg" alt="Suspend icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Suspend</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/glt.webp" alt="La tfhmni glt icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">La tfhmni glt</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/hazard.jpg" alt="Joking Hazard icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Joking Hazard</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/mafia.jpg" alt="Mafia icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Mafia</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/hakawi.jpg" alt="Hakawi icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Hakawi</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/seq.jpg" alt="Sequence icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Sequence</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/gammon.webp" alt="Backgammon icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Backgammon</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/4.jpg" alt="Connect 4 icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Connect 4</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/ladders.jpeg" alt="Chutes and Ladders icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Chutes and Ladders</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/ludo.jpg" alt="Ludo icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Ludo</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/chess.jpg" alt="Chess icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Chess</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://storage.googleapis.com/dicedine/boardgames/taboo.jpg" alt="Taboo icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Taboo</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://m.media-amazon.com/images/I/81hyfrBhXdL._AC_SX679_.jpg" alt="123 cups icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">123 cups</span>
+  </div>
+</div>
+<div class="card game-card">
+  <div class="card-image">
+    <img src="https://m.media-amazon.com/images/I/61D1wVqcSzL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Ring a Ding icon" />
+  </div>
+  <div class="card-body">
+    <span class="game-title">Ring a Ding</span>
+  </div>
+</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('searchInput');
+      const searchResults = document.getElementById('searchResults');
+      const searchResultsGrid = document.getElementById('searchResultsGrid');
+      const gameCards = document.querySelectorAll('.game-card');
+
+      searchInput.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase().trim();
+        if (searchTerm === '') {
+          searchResults.classList.remove('active');
+          return;
+        }
+        searchResults.classList.add('active');
+        searchResultsGrid.innerHTML = '';
+        let hasResults = false;
+        gameCards.forEach(card => {
+          const title = card.querySelector('.game-title').textContent.toLowerCase();
+          if (title.includes(searchTerm)) {
+            const clone = card.cloneNode(true);
+            clone.classList.add('highlight');
+            searchResultsGrid.appendChild(clone);
+            hasResults = true;
+          }
+        });
+        if (!hasResults) {
+          searchResultsGrid.innerHTML = '<div class="no-results">No games found matching your search.</div>';
+        }
+    
+ const resultCards = searchResultsGrid.querySelectorAll('.game-card');
+  if (resultCards.length === 1) {
+    searchResultsGrid.classList.add('single-result');
+  } else {
+    searchResultsGrid.classList.remove('single-result');
+  }
+    });
+      document.addEventListener('click', function(e) {
+        if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+          searchInput.value = '';
+          searchResults.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

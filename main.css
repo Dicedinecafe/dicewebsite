@@ -1,0 +1,531 @@
+
+       body{
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+           background-color:   #fff;
+           color: #000000;
+           font-family: 'Poppins';
+           font-size: 16px;
+           padding-top: 100px;
+
+       
+           
+       }
+
+       .container{
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           flex-direction: column;
+
+       }
+
+       /* ===== MENU BUTTON (FOOD) STYLES 🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔 */
+       .button{
+           position: relative;
+           width: 100%;
+           max-width: 900px;
+           height: 170px;
+           background-color:#FFF0D9;
+           background-image: url('images/burger.png');
+           background-size: 550px;
+           background-repeat: no-repeat;
+           background-position: 200px;
+           border-radius: 20px;
+           box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+           cursor: pointer;
+           transition: all 0.2s ease;
+           margin-bottom: 10px;
+       }
+
+       .button-text{
+            position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 60%;
+    font-family: 'Poppins';
+    font-size: 50px;
+    font-weight: 700;
+    color: #2D524A;
+    line-height: 1.13;
+    letter-spacing: 0.5px;
+    z-index: 2;
+    transition: all 0.2s;
+       }
+
+       .button-icon{
+           position: absolute;
+           top: 40px;
+           left: 62px;
+           width: 20px;
+           height: 40px;
+           display: flex;
+           justify-content: center;
+       }
+
+       .button-icon img{
+           height: 50px;
+           width: 50px;
+       }
+
+       .button:hover{
+           background-size:500px;
+           scale: 1.05;
+           
+          
+       }
+
+
+
+
+       /* ===== MUSIC BUTTON (JUKEBOX) STYLES 🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵 */
+       .button-music{
+           position: relative;
+           width: 100%;
+           max-width: 900px;
+           height: 150px;
+           background-color:#0DE6A9;
+           background-image: url('images/music1.svg');
+           background-size: 16%;
+           background-repeat: no-repeat;
+           background-position: 380px 6px;
+           border-radius: 20px;
+           box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+           cursor: pointer;
+           transition: all 0.2s ease;
+           margin-bottom: 10px;
+           margin-top: 1px;
+           
+       }
+ 
+       .button-icon-music{
+           position: absolute;
+         top: 25px;
+           left: 55px;
+           width: 30px;
+           height: 30px;
+           display: flex;
+           justify-content: center;
+       }
+
+       .button-icon-music img{
+           height: 50px;
+           width: 50px;
+           position: absolute;
+       }
+
+       .button-text-music{
+            position: absolute;
+      top: 40px;
+    left: 45px;
+    width: 60%;
+    font-family: 'Poppins';
+    font-size: 45px;
+    font-weight: 700;
+    color: #2D524A;
+    line-height: 1.13;
+    letter-spacing: 0.5px;
+    z-index: 2;
+    transition: all 0.2s;
+       }
+
+       .button-music:hover{
+           background-size: 15%;
+           scale: 1.05;
+       }
+
+      
+
+
+
+       /* ===== BOARD GAMES BUTTON (DICE) STYLES 🎲🎲🎲🎲🎲🎲🎲🎲🎲🎲🎲🎲🎲🎲🎲🎲🎲🎲🎲🎲🎲🎲🎲🎲🎲 */
+       .button-dice{
+           position: relative;
+           width: 100%;
+           max-width: 900px;   
+           height: 170px;
+           background-color:#FFF0D9;   
+           background-image: url('images/diceimg.png');
+           background-size: 800px;
+           background-repeat: no-repeat;
+           background-position: -130px;
+           border-radius: 20px;
+           box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+           cursor: pointer;
+           transition: all 0.2s ease;
+           margin-bottom: 10px;
+       }
+
+      .button-text-dice {
+    position: absolute;
+    top: 100px;
+    left: 38px;
+    width: 60%;
+    font-family: 'Poppins';
+    font-size: 50px;
+    font-weight: 700;
+    color: #2D524A;
+    line-height: 1.13;
+    letter-spacing: 0.5px;
+    z-index: 2;
+    transition: all 0.2s;
+    /* ensures text is on two lines, stacked */
+}
+
+       .button-icon-dice{
+           position: absolute;
+           top: 40px;
+           left: 50px;
+           width: 20px;
+           height: 40px;
+           display: flex;
+           justify-content: center;
+       }
+
+       .button-icon-dice img{
+           height: 50px;
+           width: 50px;
+       }
+
+       .button-dice:hover{
+           background-size: 750px;
+           scale: 1.05;
+       }
+
+
+   
+
+       /* ===== CONTACT BUTTON STYLES 📞📞📞📞📞📞📞📞📞📞📞📞📞📞📞📞📞📞📞📞📞📞📞📞📞📞📞 */
+       .button-contact{
+           position: relative;
+           width: 100%;
+           max-width: 900px;
+           height: 150px;
+           background-color:#2D524A;
+           background-image: url('images/phone.svg');
+           background-size: 26%;
+           background-repeat: no-repeat;
+           background-position: 350px 30px;
+           border-radius: 20px;
+           box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+           cursor: pointer;
+           transition: all 0.2s ease;
+           margin-bottom: 5px;
+         
+       }
+ 
+       .button-icon-contact{
+           position: absolute;
+           top: 25px;
+           left: 55px;
+           width: 30px;
+           height: 30px;
+           display: flex;
+           justify-content: center;
+       }
+
+       .button-icon-contact img{
+           height: 50px;
+           width: 50px;
+       }
+
+       .button-text-contact{
+            position: absolute;
+    top: 40px;
+    left: 45px;
+    width: 60%;
+    font-family: 'Poppins';
+    font-size: 45px;
+    font-weight: 700;
+    color: #FCE8BF;
+    line-height: 1.13;
+    letter-spacing: 0.5px;
+    z-index: 2;
+    transition: all 0.2s;
+       }
+
+       .button-contact:hover{
+           background-size: 35%;
+           scale: 1.05;
+       }
+
+  
+
+       .logo-container{
+               width: 100%;
+               height: 100%;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+
+               margin-bottom: 50px;
+               margin-top: -50px;
+           }
+
+       .logo{
+
+           width: 30%;
+           height: 30%;
+
+       }
+
+       .main-container{
+           
+           width: 80%;
+           margin: 0 auto;
+           padding: 0 20px;
+           box-sizing: border-box;
+           display: flex;
+           flex-direction: column;
+           gap: 10px;
+           justify-content: center;
+           display: flex;
+           flex-direction: row;
+           gap: 30px;
+           
+       }
+
+       .first-column{
+
+           display: flex;
+           flex-direction: column;
+           gap: 20px;
+       }
+
+       .second-column{
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+       .button{
+               width: 500px;
+               max-width: 900px;
+               height: 300px;
+           }
+
+      
+     
+
+           .button-dice{
+               width: 500px;
+               max-width: 900px;
+               height: 300px;
+           }
+
+
+           .language-button{
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               margin: 0 auto;
+               margin-bottom: 20px;
+                margin-top: -20px;
+                margin-right: 700px;
+               border: none;
+               color: #2D524A;
+               background-color: #0DE6A9;
+               padding: 10px 20px 10px 20px;
+               border-radius: 15px;
+               box-shadow: inset 0 0 4px rgba(202, 202, 202, 0.66);
+                 width: 100px;
+               font-size: large;
+               font-weight: bold;
+
+               cursor: pointer;
+           }
+
+           .language-button:hover{
+               background-color: #0DE6A9;
+               color: white;
+           }
+
+           .button, .button-music, .button-dice, .button-contact{
+            box-shadow: inset 2px 2px 1px rgb(255, 255, 255);
+           }
+
+           .button, .button-dice{
+            border-radius: 50px;
+           }
+
+           .button-music, .button-contact{
+            border-radius: 30px;
+           }
+           
+
+       @media (max-width: 768px) {
+           .main-container{
+               width: 100%;
+               display: flex;
+               flex-direction: column;
+               gap: initial;
+               padding: initial;
+               background-color: initial;
+           }
+    .button-text-contact, .button-text-music  {
+  
+
+    font-size: 35px;
+    margin-top: -10px;
+  
+    /* ensures text is on two lines, stacked */
+}
+  .button-text, .button-text-dice  {
+  
+
+    font-size: 40px;
+    margin-top: -20px;
+  
+    /* ensures text is on two lines, stacked */
+}
+
+
+
+           .first-column{
+               display: contents;
+           }
+           
+           .second-column{
+               display: contents;
+           }
+           
+           .container{
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               flex-direction: column;
+               padding-left: 20px;
+               padding-right: 20px;
+           }
+           
+           .container:has(.button){
+               order: 1;
+           }
+           
+           .container:has(.button-music){
+               order: 2;
+           }
+           
+           .container:has(.button-dice){
+               order: 3;
+           }
+           
+           .container:has(.button-contact){
+               order: 4;
+           }
+           
+           .button{
+               width: 100%;
+               max-width: 900px;
+               height: 170px;
+               background-size: 95%;
+               background-position: 160px;
+           }
+.button-text{
+             
+               top: 40px;
+               left: 40px;
+               width: 60%;
+            
+           }
+             .button-icon{ 
+           top: 15px;
+           left: 50px; 
+       }
+        .button-icon img{
+           height: 40px;
+           width: 40px;
+       }
+           .button-music{
+               width: 100%;
+               max-width: 900px;
+               height: 120px;
+                background-size: 16%;
+                background-position: 250px;
+                background-position-y: 2px;
+
+           }
+            .button-icon-music{ 
+           top: 15px;
+           left: 50px; 
+       }
+        .button-icon-music img{
+           height: 40px;
+           width: 40px;
+         
+       }
+           
+           .button-dice{
+               width: 100%;
+               max-width: 900px;
+               height: 170px;
+               background-size: 125%;
+               background-position: -10px;
+
+           }
+             
+        .button-icon-dice img {
+           height: 40px;
+           width: 40px;
+       }
+        .button-icon-dice{ 
+           top: 15px;
+           left: 50px; 
+       }
+       .button-text-dice {  
+        top: 80px;
+       }
+           .button-contact{
+               width: 100%;
+               max-width: 900px;
+               height: 120px;
+               background-position: 230px;
+               background-size: 27%;
+               background-position-y: 15px;
+              
+           }
+             .button-icon-contact img {
+           height: 40px;
+           width: 40px;
+       }
+        .button-icon-contact{ 
+         top: 15px;
+           left: 50px; 
+       }
+       .button-text-contact {  
+        top: 40px;
+        font-size: 35px;
+       }
+          
+       
+         .logo {
+               width: 75%;
+               height: 75%;
+            }
+            
+          .language-button{
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               margin: 0 auto;
+               margin-bottom: 20px;
+                margin-top: -20px;
+               border: none;
+               color: #2D524A;
+               background-color: #0DE6A9;
+               padding: 10px 20px 10px 20px;
+               border-radius: 15px;
+               box-shadow: inset 0 0 4px rgba(202, 202, 202, 0.66);
+            width: 100px;
+               font-size: large;
+               font-weight: bold;
+
+               cursor: pointer;
+           }
+        }
+
+
+   
+
