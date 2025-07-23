@@ -228,6 +228,28 @@ languageButton.addEventListener('click', function changeLanguage() {
 });
 
 </script>
+<script>
+  const pagesToPreload = [
+    'menu.html',
+    'burger.html',
+    'coffee.html'
+     'desserts.html'
+   'drinks.html'
+   'pasta.html'
+   'pizza.html'
+   'side.html'
+   'wings.html'
+  ];
+
+  pagesToPreload.forEach(url => {
+    fetch(url)
+      .then(response => response.text())
+      .then(html => {
+        // Optional: Store it for later use (e.g., in localStorage or a JS object)
+        console.log(`${url} preloaded`);
+      });
+  });
+</script>
 
 </body>
 </html>
